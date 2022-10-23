@@ -1,7 +1,7 @@
 package MainCharacter;
 
 import main.GamePanel;
-import main.KeyHandler
+import main.KeyHandler;
 
 import java.awt.*;
 
