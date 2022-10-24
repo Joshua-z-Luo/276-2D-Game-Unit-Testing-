@@ -1,6 +1,7 @@
 package main;
 
 import MainCharacter.MainCharacterTV;
+import tile.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,19 +11,15 @@ public class GamePanel extends JPanel implements Runnable {
     final int scale = 3;
 
     public final int tileSize = originalTileSize * scale; //48x48 tile
-    final int maxScreenCol = 16;
-    final int maxScreenRow = 12;
-    final int screenWidth = tileSize * maxScreenCol; //768 pixels
-    final int screenHeight = tileSize * maxScreenRow; //576 pixels
+    public final int maxScreenCol = 16;
+    public final int maxScreenRow = 12;
+    public final int screenWidth = tileSize * maxScreenCol; //768 pixels make it 1920 if fullscreen
+    public final int screenHeight = tileSize * maxScreenRow; //576 pixels make it 1080 if fullscreen
 
+    TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     MainCharacterTV tvGuy = new MainCharacterTV(this, keyH);
-
-    //set player's default position
-    int playerX = 100;
-    int playerY = 100;
-    int playerSpeed = 4;
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight)); //setting the panel size
@@ -40,7 +37,7 @@ public class GamePanel extends JPanel implements Runnable {
     @Override
     public void run(){
         //where the core of the game will go
-        double drawInterval = 1000000000/60;
+        double drawInterval = 1000000000/60; //60 fps
         double nextDrawTime = System.nanoTime() + drawInterval;
 
         while(gameThread != null){
@@ -71,6 +68,8 @@ public class GamePanel extends JPanel implements Runnable {
 
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+
+        tileM.draw(g2);
 
         tvGuy.draw(g2);
 
