@@ -19,3 +19,7 @@ public class Main {
         gamePanel.startGameThread();
     }
 }
+
+//start with main, set the window with JFrame. and add Game panel with GamePanel.
+
+//

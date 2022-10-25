@@ -74,6 +74,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         tvGuy.draw(g2);
 
+
         g2.dispose();
     }
 
