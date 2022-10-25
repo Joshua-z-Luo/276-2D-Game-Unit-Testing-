@@ -1,4 +1,5 @@
 package MainCharacter;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Mobile {
@@ -7,5 +8,6 @@ public class Mobile {
 
     public BufferedImage walk;
     public String direction;
-
+    public Rectangle solidArea;
+    public boolean collisionOn = false;
 }

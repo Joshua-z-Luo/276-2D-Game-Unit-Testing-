@@ -16,6 +16,9 @@ public class MainCharacterTV extends Mobile {
     public MainCharacterTV(GamePanel gp, KeyHandler keyH){
         this.gp = gp;
         this.keyH = keyH;
+
+        solidArea = new Rectangle(8,16, 32, 32);
+
         setDefaultValues();
         getPlayerImage();
     }
@@ -53,6 +56,8 @@ public class MainCharacterTV extends Mobile {
             direction = "down";
             y += speed;
         }
+        collisionOn = false;
+        gp.cChecker.checkTile(this);
     }
 
     public void draw(Graphics2D g2){

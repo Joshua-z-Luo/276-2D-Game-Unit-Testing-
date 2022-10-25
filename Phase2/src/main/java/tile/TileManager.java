@@ -26,6 +26,7 @@ public class TileManager {
 
             tile[1] = new Tile();
             tile[1].image = ImageIO.read(new File("src/Sprites/Wall.png"));
+            tile[1].collision = true;
 
         }catch(IOException e){
             e.printStackTrace();
