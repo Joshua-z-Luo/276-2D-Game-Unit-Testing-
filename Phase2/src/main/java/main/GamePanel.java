@@ -1,6 +1,7 @@
 package main;
 
 import MainCharacter.MainCharacterTV;
+import object.SuperObject;
 import tile.TileManager;
 
 import javax.swing.*;
@@ -20,7 +21,9 @@ public class GamePanel extends JPanel implements Runnable {
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);
+    public AssetSetter aSetter = new AssetSetter(this);
     MainCharacterTV tvGuy = new MainCharacterTV(this, keyH);
+    public SuperObject obj[] = new SuperObject[10];
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight)); //setting the panel size
@@ -28,6 +31,10 @@ public class GamePanel extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+    }
+
+    public void setUpGame(){
+        aSetter.setObject();
     }
 
     public void startGameThread(){
@@ -72,6 +79,12 @@ public class GamePanel extends JPanel implements Runnable {
 
         tileM.draw(g2);
 
+       for(int i =0;i<obj.length;i++){
+           if(obj[i] != null){
+               obj[i].draw(g2, this);
+
+           }
+       }
         tvGuy.draw(g2);
 
 
