@@ -2,12 +2,25 @@ package main;
 
 import MainCharacter.Mobile;
 
+/**
+ * This class checks the characters' position on the map and sees if it is touching any tiles that you should not walk through
+ * @author Connor
+ */
 public class CollisionChecker {
     GamePanel gp;
 
+    /**
+     * Constructor that takes in the main GamePanel
+     * @param gp GamePanel that will contain the game
+     */
     public CollisionChecker(GamePanel gp){
         this.gp = gp;
     }
+
+    /**
+     * This will check the tiles the character is on and make sure the character will not walk through walls or blocked areas
+     * @param character The character that will be checked. Could be enemy or main character
+     */
     public void checkTile(Mobile character){
         int characterLeftX = character.x + character.solidArea.x;
         int characterRightX = character.x + character.solidArea.x + character.solidArea.width;

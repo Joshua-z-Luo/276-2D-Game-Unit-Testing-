@@ -5,10 +5,13 @@ import MainCharacter.Mobile;
 import monster.monsterEntity;
 import object.SuperObject;
 import tile.TileManager;
-
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * This class is where the main logic will go such as how the game will continually run and will update what is currently on screen.
+ * @author Connor, Hayato
+ */
 public class GamePanel extends JPanel implements Runnable {
     final int originalTileSize = 16; //16x16 tile
     final int scale = 3;
@@ -37,6 +40,9 @@ public class GamePanel extends JPanel implements Runnable {
     public final int pauseState = 2;
 
 
+    /**
+     * The constructor that will set the height and width of the window when it pops up as well as the background colour and also will add a key listener
+     */
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight)); //setting the panel size
         this.setBackground(Color.black);
@@ -45,6 +51,9 @@ public class GamePanel extends JPanel implements Runnable {
         this.setFocusable(true);
     }
 
+    /**
+     * Hayato add stuff here
+     */
     public void setUpGame(){
         aSetter.setObject();
         aSetter.setMonster();
@@ -52,11 +61,17 @@ public class GamePanel extends JPanel implements Runnable {
         gameState = playState;
     }
 
+    /**
+     * Method will start the game thread so that the game will run continuously
+     */
     public void startGameThread(){
         gameThread = new Thread(this); // starts the thread for the game
         gameThread.start();
     }
 
+    /**
+     * Overriding the run method to update and re-tile the map if needed as well as make the game run in 60FPS
+     */
     @Override
     public void run(){
         //where the core of the game will go
@@ -83,6 +98,9 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
+    /**
+     * Will be called by the run method to update the position of the character and enemies
+     */
     public void update(){
         if(gameState == playState){
             tvGuy.update();
@@ -104,6 +122,10 @@ public class GamePanel extends JPanel implements Runnable {
 //        }
     }
 
+    /**
+     * Used to draw the entities such as the main character, enemies, map, and rewards
+     * @param g Graphics object that will be turned into a Graphics2D object
+     */
     public void paintComponent(Graphics g){
 
         super.paintComponent(g);
