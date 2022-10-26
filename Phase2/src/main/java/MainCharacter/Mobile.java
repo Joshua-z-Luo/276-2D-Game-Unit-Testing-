@@ -1,4 +1,6 @@
 package MainCharacter;
+
+import main.GamePanel;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -10,4 +12,5 @@ public class Mobile {
     public String direction;
     public Rectangle solidArea;
     public boolean collisionOn = false;
+
 }

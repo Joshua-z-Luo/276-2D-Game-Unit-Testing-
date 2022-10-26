@@ -39,25 +39,29 @@ public class MainCharacterTV extends Mobile {
         }
     }
 
-    public void update(){
-        if(keyH.upPressed){
-            direction = "down";
-            y -= speed;
+    public void update() {
+        if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
+            if (keyH.upPressed) {
+                direction = "up";
+            } else if (keyH.leftPressed) {
+                direction = "left";
+            } else if (keyH.rightPressed) {
+                direction = "right";
+            } else if (keyH.downPressed) {
+                direction = "down";
+            }
+            collisionOn = false;
+            gp.cChecker.checkTile(this);
+
+            if (!collisionOn) {
+                switch (direction) {
+                    case "up" -> y -= speed;
+                    case "left" -> x -= speed;
+                    case "right" -> x += speed;
+                    case "down" -> y += speed;
+                }
+            }
         }
-        else if(keyH.leftPressed){
-            direction = "down";
-            x -= speed;
-        }
-        else if(keyH.rightPressed){
-            direction = "down";
-            x += speed;
-        }
-        else if(keyH.downPressed){
-            direction = "down";
-            y += speed;
-        }
-        collisionOn = false;
-        gp.cChecker.checkTile(this);
     }
 
     public void draw(Graphics2D g2){
@@ -65,8 +69,20 @@ public class MainCharacterTV extends Mobile {
 //
 //        g2.fillRect(x, y, gp.tileSize, gp.tileSize);
         BufferedImage image = null;
-        if(direction.equals("down")){
-            image = walk;
+        switch(direction){
+            case "up":
+                image = walk;
+                break;
+            case "down":
+                image = walk;
+                break;
+            case "right":
+                image = walk;
+                break;
+            case "left":
+                image = walk;
+                break;
+
         }
         g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
     }
