@@ -1,9 +1,6 @@
 package main;
 
 import MainCharacter.MainCharacterTV;
-import MainCharacter.Mobile;
-import monster.monsterEntity;
-import object.SuperObject;
 import tile.TileManager;
 
 import javax.swing.*;
@@ -20,22 +17,10 @@ public class GamePanel extends JPanel implements Runnable {
     public final int screenHeight = tileSize * maxScreenRow; //576 pixels make it 1080 if fullscreen
 
     TileManager tileM = new TileManager(this);
-    KeyHandler keyH = new KeyHandler(this);
+    KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);
-    public AssetSetter aSetter = new AssetSetter(this);
-
-    public UI ui = new UI(this);
     MainCharacterTV tvGuy = new MainCharacterTV(this, keyH);
-    public SuperObject obj[] = new SuperObject[10];
-
-    public  monsterEntity monster[] = new monsterEntity[10];
-
-    //Game State
-    public int gameState;
-    public final int playState = 1;
-    public final int pauseState = 2;
-
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight)); //setting the panel size
@@ -43,13 +28,6 @@ public class GamePanel extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
-    }
-
-    public void setUpGame(){
-        aSetter.setObject();
-        aSetter.setMonster();
-
-        gameState = playState;
     }
 
     public void startGameThread(){
@@ -84,24 +62,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update(){
-        if(gameState == playState){
-            tvGuy.update();
-
-            for(int i = 0;i<monster.length;i++){
-                if(monster[i]!=null){
-                    monster[i].update();
-                }
-            }
-        }
-        else if(gameState==pauseState){
-            //pause
-        }
-//        for(int i = 0;i<monster.length;i++){
-//            if(monster[i]!=null){
-//                monster[i].update();
-//            }
-//
-//        }
+        tvGuy.update();
     }
 
     public void paintComponent(Graphics g){
@@ -111,24 +72,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         tileM.draw(g2);
 
-        //Object (temporary). will delete later
-       for(int i =0;i<obj.length;i++){
-           if(obj[i] != null){
-               obj[i].draw(g2, this);
-
-           }
-       }
-       //Monster
-        for(int i = 0;i<monster.length;i++){
-            if(monster[i]!=null){
-                monster[i].draw(g2,this);
-            }
-        }
         tvGuy.draw(g2);
-
-        //UI
-        ui.draw(g2);
-
 
         g2.dispose();
     }
