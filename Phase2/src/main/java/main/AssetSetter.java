@@ -1,5 +1,6 @@
 package main;
 
+import monster.MON_ScrewDude;
 import object.OBJ_Battery;
 import object.OBJ_ScrewDude;
 
@@ -35,5 +36,11 @@ public class AssetSetter {
         gp.obj[4] = new OBJ_Battery();
         gp.obj[4].x = 600;
         gp.obj[4].y = 200;
+    }
+    public void setMonster(){
+        gp.monster[0] = new MON_ScrewDude(gp);
+        gp.monster[0].x = 150;
+//        gp.monster[0].x = gp.tileSize * 5;
+        gp.monster[0].y = 150;
     }
 }

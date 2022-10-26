@@ -1,6 +1,8 @@
 package main;
 
 import MainCharacter.MainCharacterTV;
+import MainCharacter.Mobile;
+import monster.monsterEntity;
 import object.SuperObject;
 import tile.TileManager;
 
@@ -25,6 +27,9 @@ public class GamePanel extends JPanel implements Runnable {
     MainCharacterTV tvGuy = new MainCharacterTV(this, keyH);
     public SuperObject obj[] = new SuperObject[10];
 
+    public  monsterEntity monster[] = new monsterEntity[10];
+
+
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight)); //setting the panel size
         this.setBackground(Color.black);
@@ -35,6 +40,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void setUpGame(){
         aSetter.setObject();
+        aSetter.setMonster();
     }
 
     public void startGameThread(){
@@ -70,6 +76,18 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void update(){
         tvGuy.update();
+
+        for(int i = 0;i<monster.length;i++){
+           if(monster[i]!=null){
+               monster[i].update();
+           }
+        }
+//        for(int i = 0;i<monster.length;i++){
+//            if(monster[i]!=null){
+//                monster[i].update();
+//            }
+//
+//        }
     }
 
     public void paintComponent(Graphics g){
@@ -79,12 +97,19 @@ public class GamePanel extends JPanel implements Runnable {
 
         tileM.draw(g2);
 
-       for(int i =0;i<obj.length;i++){
-           if(obj[i] != null){
-               obj[i].draw(g2, this);
-
-           }
-       }
+        //Object (temporary). will delete later
+//       for(int i =0;i<obj.length;i++){
+//           if(obj[i] != null){
+//               obj[i].draw(g2, this);
+//
+//           }
+//       }
+       //Monster
+        for(int i = 0;i<monster.length;i++){
+            if(monster[i]!=null){
+                monster[i].draw(g2,this);
+            }
+        }
         tvGuy.draw(g2);
 
 
