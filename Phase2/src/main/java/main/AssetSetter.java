@@ -1,5 +1,6 @@
 package main;
 
+import object.OBJ_Battery;
 import object.OBJ_ScrewDude;
 
 public class AssetSetter {
@@ -24,5 +25,15 @@ public class AssetSetter {
         gp.obj[2] = new OBJ_ScrewDude();
         gp.obj[2].x = 600;
         gp.obj[2].y = 300;
+
+
+        gp.obj[3] = new OBJ_Battery();
+        gp.obj[3].x = 200;
+        gp.obj[3].y = 400;
+
+
+        gp.obj[4] = new OBJ_Battery();
+        gp.obj[4].x = 600;
+        gp.obj[4].y = 200;
     }
 }
