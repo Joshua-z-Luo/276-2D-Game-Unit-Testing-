@@ -1,9 +1,13 @@
 package MainCharacter;
-import main.GamePanel;
 
+import main.GamePanel;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/**
+ * Base class for any moving entities
+ * @author Connor
+ */
 public class Mobile {
     public int x, y;
     public int speed;

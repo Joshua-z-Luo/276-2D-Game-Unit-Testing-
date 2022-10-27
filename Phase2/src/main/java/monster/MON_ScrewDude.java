@@ -10,10 +10,18 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
+/**
+ * Hayato add stuff here
+ * @author Hayato
+ */
 public class MON_ScrewDude extends monsterEntity {
 
 //    public int actionLockCounter ;
 
+    /**
+     * Hayato add stuff here
+     * @param gp
+     */
     public MON_ScrewDude(GamePanel gp){
         super(gp);
 
@@ -34,6 +42,10 @@ public class MON_ScrewDude extends monsterEntity {
         getMonsterImage();
 
     }
+
+    /**
+     * Hayato add stuff here
+     */
     public void getMonsterImage(){
         try{
 
@@ -45,6 +57,10 @@ public class MON_ScrewDude extends monsterEntity {
     }
 
     //set monster's behaviour
+
+    /**
+     * Hayato add stuff here
+     */
     public void setAction(){
         actionLockCounter ++;
 

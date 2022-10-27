@@ -5,11 +5,20 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.*;
 
+/**
+ * Will manage the map and all the tiles it will contain.
+ * Can load a map through a .txt file
+ * @author Connor
+ */
 public class TileManager {
     GamePanel gp;
-    Tile[] tile;
-    int mapTileNum[][];
+    public Tile[] tile;
+    public int mapTileNum[][];
 
+    /**
+     * Constructor that will initialize the necessary variables such as an array containing the tiles
+     * @param gp The main game panel containing the game
+     */
     public TileManager(GamePanel gp){
         this.gp = gp;
 
@@ -19,6 +28,9 @@ public class TileManager {
         loadMap();
     }
 
+    /**
+     * Initializes the used tiles from the images and sets if the tile can be collided with
+     */
     public void getTileImage(){
         try{
             tile[0] = new Tile();
@@ -33,6 +45,10 @@ public class TileManager {
         }
     }
 
+    /**
+     * Loads the map from a text file and draws it using the tiles it has stored.
+     * Will account for different tiles based on the integer given in the text file
+     */
     public void loadMap(){
         try{
             File is = new File("src/Maps/map1.txt");
@@ -64,6 +80,10 @@ public class TileManager {
         }
     }
 
+    /**
+     * Draws the map onto the game panel
+     * @param g2 Graphics2D object from the game panel
+     */
     public void draw(Graphics2D g2){
 
         int col = 0;

@@ -5,6 +5,10 @@ import main.GamePanel;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/**
+ * Hayato add stuff here
+ * @author Hayato
+ */
 public class monsterEntity {
     GamePanel gp;
     public int x, y;
@@ -23,13 +27,24 @@ public class monsterEntity {
 
     public int actionLockCounter = 0;
 
+    /**
+     * Hayato add stuff here
+     * @param gp
+     */
     public monsterEntity(GamePanel gp){
         this.gp = gp;
     }
 
+    /**
+     * Hayato add stuff here
+     */
     public void setAction(){
 
     }
+
+    /**
+     * Hayato add stuff here
+     */
     public void update(){
         setAction();//if subclass has setAction() too, then that is priority
 
@@ -46,6 +61,12 @@ public class monsterEntity {
         }
 
     }
+
+    /**
+     * Hayato add stuff here
+     * @param g2
+     * @param gp
+     */
     public void draw(Graphics2D g2, GamePanel gp){
         g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
     }

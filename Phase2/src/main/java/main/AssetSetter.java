@@ -4,14 +4,25 @@ import monster.MON_ScrewDude;
 import object.OBJ_Battery;
 import object.OBJ_ScrewDude;
 
+/**
+ * Hayato add stuff here
+ * @author Hayato
+ */
 public class AssetSetter {
     GamePanel gp;
 
+    /**
+     * Hayato add stuff here
+     * @param gp
+     */
     public AssetSetter(GamePanel gp){
         this.gp = gp;
 
     }
 
+    /**
+     * Hayato add stuff here
+     */
     public void setObject(){
 
         //screwDude is subClass of SuperObject, so we can instantiate them like this
@@ -24,6 +35,10 @@ public class AssetSetter {
         gp.obj[4].x = 600;
         gp.obj[4].y = 200;
     }
+
+    /**
+     * Hayato add stuff here
+     */
     public void setMonster(){
         gp.monster[0] = new MON_ScrewDude(gp);
         gp.monster[0].x = 150;

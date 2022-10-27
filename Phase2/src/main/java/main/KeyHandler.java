@@ -3,20 +3,36 @@ package main;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * Class that will take input from the keyboard and move the character accordingly
+ * @author Connor, Hayato
+ */
 public class KeyHandler implements KeyListener {
 
     GamePanel gp;
     public boolean upPressed, downPressed, leftPressed, rightPressed;
 
-
+    /**
+     * Constructor that takes the main game panel
+     * @param gp Main game panel that will be associated with this key handler
+     */
     public KeyHandler(GamePanel gp){
         this.gp = gp;
     }
+
+    /**
+     * Not used but needed as key listener is an interface
+     * @param e the event to be processed
+     */
     @Override
     public void keyTyped(KeyEvent e) {
 
     }
 
+    /**
+     * Checks which key was pressed and sets the variable accordingly so the character will move
+     * @param e KeyEvent object that contains the key that was pressed
+     */
     @Override
     public void keyPressed(KeyEvent e) {
 
