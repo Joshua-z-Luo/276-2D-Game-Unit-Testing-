@@ -37,7 +37,7 @@ public class TileManager {
             tile[0].image = ImageIO.read(new File("src/Sprites/tile1.png"));
 
             tile[1] = new Tile();
-            tile[1].image = ImageIO.read(new File("src/Sprites/Wall.png"));
+            tile[1].image = ImageIO.read(new File("src/Sprites/wall1.png"));
             tile[1].collision = true;
 
         }catch(IOException e){
@@ -95,7 +95,15 @@ public class TileManager {
 
             int tileNum = mapTileNum[col][row];
 
-            g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
+            //should properly implement, but ill just do a if else case here for now
+            //im just saying that all collision tiles are going to big this is not proper coding
+            if(tile[tileNum].collision){
+                g2.drawImage(tile[tileNum].image, x, y-48, gp.entityWidth, gp.entityHeight, null);
+            }else {
+                g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
+            }
+
+
             col++;
             x += gp.tileSize;
 
