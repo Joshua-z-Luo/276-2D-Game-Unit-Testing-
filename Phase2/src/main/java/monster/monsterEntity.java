@@ -73,6 +73,6 @@ public class monsterEntity extends Mobile {
      * @param gp
      */
     public void draw(Graphics2D g2, GamePanel gp){
-        g2.drawImage(walk, x, y, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(walk, x, y, gp.entityWidth, gp.entityHeight, null);
     }
 }

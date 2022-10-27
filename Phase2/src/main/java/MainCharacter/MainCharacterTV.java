@@ -129,6 +129,6 @@ public class MainCharacterTV extends Mobile {
                 break;
 
         }
-        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, x, y, gp.entityWidth, gp.entityHeight, null);
     }
 }
