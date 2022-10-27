@@ -39,7 +39,11 @@ public class MainCharacterTV extends Mobile {
         x = 100;
         y = 100;
         speed = 4;
+
+        //how much we will move in the next update
         direction = "down";
+        directionX = 0;
+        directionY = 0;
     }
 
     /**
@@ -62,13 +66,13 @@ public class MainCharacterTV extends Mobile {
     public void update() {
         if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
             if (keyH.upPressed) {
-                direction = "up";
-            } else if (keyH.leftPressed) {
-                direction = "left";
-            } else if (keyH.rightPressed) {
-                direction = "right";
-            } else if (keyH.downPressed) {
-                direction = "down";
+                directionY=-speed;
+            }if (keyH.leftPressed) {
+                directionX=-speed;
+            }if (keyH.rightPressed) {
+                directionX=speed;
+            }if (keyH.downPressed) {
+                directionY=speed;
             }
             collisionOn = false;
 
@@ -82,12 +86,10 @@ public class MainCharacterTV extends Mobile {
             int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
             interactMonster(monsterIndex);
             if (!collisionOn) {
-                switch (direction) {
-                    case "up" -> y -= speed;
-                    case "left" -> x -= speed;
-                    case "right" -> x += speed;
-                    case "down" -> y += speed;
-                }
+                y+=directionY;
+                x+=directionX;
+                directionY=0;
+                directionX=0;
             }
 
         }

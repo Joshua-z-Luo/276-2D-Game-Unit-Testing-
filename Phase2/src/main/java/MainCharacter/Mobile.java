@@ -13,7 +13,12 @@ public class Mobile {
     public int speed;
 
     public BufferedImage walk;
-    public String direction;
+    public String direction; // we should phase this out
+
+    public int directionX;
+
+    public int directionY;
+
     public Rectangle solidArea;
     public int solidAreaDefaultX,solidAreaDefaultY;
     public boolean collisionOn = false;
