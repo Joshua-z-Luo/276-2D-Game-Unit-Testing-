@@ -20,7 +20,7 @@ public class OBJ_ScrewDude extends SuperObject {
         name="ScrewDude";
         //load image
         try{
-            image = ImageIO.read(new File("src/Sprites/screwdude.png"));
+            walk = ImageIO.read(new File("src/Sprites/screwdude.png"));
         }
         catch(IOException e){
             e.printStackTrace();

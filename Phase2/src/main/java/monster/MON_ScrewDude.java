@@ -5,6 +5,7 @@ import main.GamePanel;
 import org.w3c.dom.Entity;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -32,10 +33,11 @@ public class MON_ScrewDude extends monsterEntity {
         maxLife = 4;
         life = maxLife;
 
-        solidArea.x = 3;
-        solidArea.y = 18;
-        solidArea.width = 42;
-        solidArea.height = 30;
+        solidArea = new Rectangle(8,16, 32, 32);
+//        solidArea.x = 3;
+//        solidArea.y = 18;
+//        solidArea.width = 42;
+//        solidArea.height = 30;
 
         solidAreaDefaultX =solidArea.x;
         solidAreaDefaultY = solidArea.y;
@@ -49,9 +51,25 @@ public class MON_ScrewDude extends monsterEntity {
     public void getMonsterImage(){
         try{
 
-            image = ImageIO.read(new File("src/Sprites/screwdude.png"));
+            walk = ImageIO.read(new File("src/Sprites/screwdude.png"));
         }catch(IOException e){
             e.printStackTrace();
+        }
+
+    }
+    public void update(){
+        setAction();//if subclass has setAction() too, then that is priority
+
+        collisionOn = false;
+        gp.cChecker.checkTile(this);
+        if(!collisionOn){
+            switch(direction){
+                case "up": y -= speed; break;
+                case "down": y += speed; break;
+                case "left": x -= speed; break;
+                case "right": x += speed; break;
+            }
+
         }
 
     }

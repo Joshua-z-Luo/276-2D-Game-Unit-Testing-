@@ -1,5 +1,6 @@
 package monster;
 
+import MainCharacter.Mobile;
 import main.GamePanel;
 
 import java.awt.*;
@@ -9,21 +10,22 @@ import java.awt.image.BufferedImage;
  * Hayato add stuff here
  * @author Hayato
  */
-public class monsterEntity {
+public class monsterEntity extends Mobile {
     GamePanel gp;
-    public int x, y;
-    public BufferedImage image;
-    public int speed;
+
+//    solidArea = new Rectangle();
+//    public int x, y;
+//    public BufferedImage image;
+//    public int speed;
     public int maxLife;
     public int life;
 
     public String name;
 
-    public String direction;
-    public Rectangle solidArea= new Rectangle(0,0,48,48);
+//    public String direction;
 
-    public int solidAreaDefaultX,solidAreaDefaultY;
-    public boolean collisionOn = false;
+//    public int solidAreaDefaultX,solidAreaDefaultY;
+//    public boolean collisionOn = false;
 
     public int actionLockCounter = 0;
 
@@ -33,6 +35,7 @@ public class monsterEntity {
      */
     public monsterEntity(GamePanel gp){
         this.gp = gp;
+        solidArea = new Rectangle(0,0,48,48);
     }
 
     /**
@@ -68,6 +71,6 @@ public class monsterEntity {
      * @param gp
      */
     public void draw(Graphics2D g2, GamePanel gp){
-        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(walk, x, y, gp.tileSize, gp.tileSize, null);
     }
 }

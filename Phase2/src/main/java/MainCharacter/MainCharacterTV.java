@@ -71,8 +71,13 @@ public class MainCharacterTV extends Mobile {
                 direction = "down";
             }
             collisionOn = false;
+
+            //Check Tile Collision
             gp.cChecker.checkTile(this);
 
+            //check object collision
+            int objIndex = gp.cChecker.checkObject(this, true);
+                pickUpObject(objIndex);
             if (!collisionOn) {
                 switch (direction) {
                     case "up" -> y -= speed;
@@ -81,6 +86,16 @@ public class MainCharacterTV extends Mobile {
                     case "down" -> y += speed;
                 }
             }
+
+            //Check monster collision
+            int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
+        }
+    }
+
+    public void pickUpObject(int index){
+        if(index!= 999){
+            gp.obj[index] = null;//when TVGuys touches battery, the battery just disappears.
+            //so, here, later, implement something that increase TVGuy's life by 1 by picking up a battery?
         }
     }
 

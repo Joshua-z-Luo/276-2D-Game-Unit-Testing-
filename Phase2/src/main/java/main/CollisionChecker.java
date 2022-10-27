@@ -69,4 +69,136 @@ public class CollisionChecker {
         }
 
     }
+    public int checkObject(Mobile mobile, boolean player){
+        int index = 999;
+
+        for(int i = 0;i<gp.obj.length;i++){
+            if(gp.obj[i]!=null){
+                //Get Entity's solid area position
+                mobile.solidArea.x = mobile.x + mobile.solidArea.x;
+                mobile.solidArea.y = mobile.y + mobile.solidArea.y;
+                //Get the object's solid area position
+                gp.obj[i].solidArea.x = gp.obj[i].x + gp.obj[i].solidArea.x;
+                gp.obj[i].solidArea.y = gp.obj[i].y + gp.obj[i].solidArea.y;
+
+                switch(mobile.direction){
+                    case "up":
+                        mobile.solidArea.y -= mobile.speed;
+                        if(mobile.solidArea.intersects(gp.obj[i].solidArea)){
+                            if(gp.obj[i].collisionOn==true){
+                                mobile.collisionOn=true;
+                            }
+                            if(player){
+                                index = i;
+                            }
+                        }
+                        break;
+                    case "down":
+                        mobile.solidArea.y += mobile.speed;
+                        if(mobile.solidArea.intersects(gp.obj[i].solidArea)){
+                            if(gp.obj[i].collisionOn==true){
+                                mobile.collisionOn=true;
+                            }
+                            if(player){
+                                index = i;
+                            }
+                        }
+                        break;
+                    case "left":
+                        mobile.solidArea.x -= mobile.speed;
+                        if(mobile.solidArea.intersects(gp.obj[i].solidArea)){
+                            if(gp.obj[i].collisionOn==true){
+                                mobile.collisionOn=true;
+                            }
+                            if(player){
+                                index = i;
+                            }
+                        }
+                        break;
+                    case "right":
+                        mobile.solidArea.x += mobile.speed;
+                        if(mobile.solidArea.intersects(gp.obj[i].solidArea)){
+                            if(gp.obj[i].collisionOn==true){
+                                mobile.collisionOn=true;
+                            }
+                            if(player){
+                                index = i;
+                            }
+                        }
+                        break;
+                }
+                mobile.solidArea.x = mobile.solidAreaDefaultX;
+                mobile.solidArea.y = mobile.solidAreaDefaultY;
+                gp.obj[i].solidArea.x = gp.obj[i].solidAreaDefaultX;
+                gp.obj[i].solidArea.y = gp.obj[i].solidAreaDefaultY;
+
+            }
+        }
+        return index;
+    }
+
+    public int checkEntity(Mobile mobile, Mobile[] target){
+        int index = 999;
+
+        for(int i = 0;i<target.length;i++){
+            if(target[i]!=null){
+                //Get Entity's solid area position
+                mobile.solidArea.x = mobile.x + mobile.solidArea.x;
+                mobile.solidArea.y = mobile.y + mobile.solidArea.y;
+                //Get the object's solid area position
+                target[i].solidArea.x = target[i].x + target[i].solidArea.x;
+                target[i].solidArea.y = target[i].y + target[i].solidArea.y;
+
+                switch(mobile.direction){
+                    case "up":
+                        mobile.solidArea.y -= mobile.speed;
+                        if(mobile.solidArea.intersects(target[i].solidArea)){
+                            System.out.println("up collision");
+                            if(target[i]!=mobile){
+                                mobile.collisionOn=true;
+                                index = i;
+                            }
+                        }
+                        break;
+                    case "down":
+                        mobile.solidArea.y += mobile.speed;
+                        if(mobile.solidArea.intersects(target[i].solidArea)){
+                            System.out.println("down collision");
+                            if(target[i]!=mobile){
+                                mobile.collisionOn=true;
+                                index = i;
+                            }
+                        }
+                        break;
+                    case "left":
+                        mobile.solidArea.x -= mobile.speed;
+                        if(mobile.solidArea.intersects(target[i].solidArea)){
+                            System.out.println("left collision");
+                            if(target[i]!=mobile){
+                                mobile.collisionOn=true;
+                                index = i;
+                            }
+                        }
+                        break;
+                    case "right":
+                        mobile.solidArea.x += mobile.speed;
+                        if(mobile.solidArea.intersects(target[i].solidArea)){
+                            System.out.println("right collision");
+                            if(target[i]!=mobile){
+                                mobile.collisionOn=true;
+                                index = i;
+                            }
+                        }
+                        break;
+                }
+                mobile.solidArea.x = mobile.solidAreaDefaultX;
+                mobile.solidArea.y = mobile.solidAreaDefaultY;
+                target[i].solidArea.x = target[i].solidAreaDefaultX;
+                target[i].solidArea.y = target[i].solidAreaDefaultY;
+
+            }
+        }
+        return index;
+    }
 }
+
