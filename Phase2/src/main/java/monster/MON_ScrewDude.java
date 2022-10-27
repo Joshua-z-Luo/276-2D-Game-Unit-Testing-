@@ -29,6 +29,8 @@ public class MON_ScrewDude extends monsterEntity {
         solidArea.width = 42;
         solidArea.height = 30;
 
+        solidAreaDefaultX =solidArea.x;
+        solidAreaDefaultY = solidArea.y;
         getMonsterImage();
 
     }
