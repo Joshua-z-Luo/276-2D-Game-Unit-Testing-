@@ -78,6 +78,9 @@ public class MainCharacterTV extends Mobile {
             //check object collision
             int objIndex = gp.cChecker.checkObject(this, true);
                 pickUpObject(objIndex);
+            //Check monster collision
+            int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
+            interactMonster(monsterIndex);
             if (!collisionOn) {
                 switch (direction) {
                     case "up" -> y -= speed;
@@ -87,8 +90,6 @@ public class MainCharacterTV extends Mobile {
                 }
             }
 
-            //Check monster collision
-            int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
         }
     }
 
@@ -99,6 +100,11 @@ public class MainCharacterTV extends Mobile {
         }
     }
 
+    public void interactMonster(int i ){
+        if(i!=999){
+            System.out.println("You are hitting a monster");
+        }
+    }
     /**
      * Draws the character
      * @param g2 Graphics2D object associated with the game panel

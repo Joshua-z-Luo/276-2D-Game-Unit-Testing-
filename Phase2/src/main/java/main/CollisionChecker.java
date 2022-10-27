@@ -153,7 +153,7 @@ public class CollisionChecker {
                     case "up":
                         mobile.solidArea.y -= mobile.speed;
                         if(mobile.solidArea.intersects(target[i].solidArea)){
-                            System.out.println("up collision");
+//                            System.out.println("up collision!!!");
                             if(target[i]!=mobile){
                                 mobile.collisionOn=true;
                                 index = i;
@@ -163,7 +163,7 @@ public class CollisionChecker {
                     case "down":
                         mobile.solidArea.y += mobile.speed;
                         if(mobile.solidArea.intersects(target[i].solidArea)){
-                            System.out.println("down collision");
+//                            System.out.println("down collision!!!");
                             if(target[i]!=mobile){
                                 mobile.collisionOn=true;
                                 index = i;
@@ -173,7 +173,7 @@ public class CollisionChecker {
                     case "left":
                         mobile.solidArea.x -= mobile.speed;
                         if(mobile.solidArea.intersects(target[i].solidArea)){
-                            System.out.println("left collision");
+//                            System.out.println("left collision!!!");
                             if(target[i]!=mobile){
                                 mobile.collisionOn=true;
                                 index = i;
@@ -183,7 +183,7 @@ public class CollisionChecker {
                     case "right":
                         mobile.solidArea.x += mobile.speed;
                         if(mobile.solidArea.intersects(target[i].solidArea)){
-                            System.out.println("right collision");
+//                            System.out.println("right collision!!!");
                             if(target[i]!=mobile){
                                 mobile.collisionOn=true;
                                 index = i;
@@ -199,6 +199,59 @@ public class CollisionChecker {
             }
         }
         return index;
+    }
+    public void checkPlayer(Mobile mobile){
+
+        //Get Entity's solid area position
+        mobile.solidArea.x = mobile.x + mobile.solidArea.x;
+        mobile.solidArea.y = mobile.y + mobile.solidArea.y;
+        //Get the object's solid area position
+        gp.tvGuy.solidArea.x = gp.tvGuy.x + gp.tvGuy.solidArea.x;
+        gp.tvGuy.solidArea.y = gp.tvGuy.y + gp.tvGuy.solidArea.y;
+
+        switch(mobile.direction){
+            case "up":
+                mobile.solidArea.y -= mobile.speed;
+                if(mobile.solidArea.intersects(gp.tvGuy.solidArea)){
+                    System.out.println("up collision???");
+//                    if(gp.tvGuy!=mobile){
+                        mobile.collisionOn=true;
+//                    }
+                }
+                break;
+            case "down":
+                mobile.solidArea.y += mobile.speed;
+                if(mobile.solidArea.intersects(gp.tvGuy.solidArea)){
+                    System.out.println("down collision???");
+//                    if(gp.tvGuy!=mobile){
+                        mobile.collisionOn=true;
+//                    }
+                }
+                break;
+            case "left":
+                mobile.solidArea.x -= mobile.speed;
+                if(mobile.solidArea.intersects(gp.tvGuy.solidArea)){
+                    System.out.println("left collision???");
+//                    if(gp.tvGuy!=mobile){
+                        mobile.collisionOn=true;
+//                    }
+                }
+                break;
+            case "right":
+                mobile.solidArea.x += mobile.speed;
+                if(mobile.solidArea.intersects(gp.tvGuy.solidArea)){
+                    System.out.println("right collision???");
+//                    if(gp.tvGuy!=mobile){
+                        mobile.collisionOn=true;
+//                    }
+                }
+                break;
+        }
+        mobile.solidArea.x = mobile.solidAreaDefaultX;
+        mobile.solidArea.y = mobile.solidAreaDefaultY;
+        gp.tvGuy.solidArea.x = gp.tvGuy.solidAreaDefaultX;
+        gp.tvGuy.solidArea.y = gp.tvGuy.solidAreaDefaultY;
+
     }
 }
 

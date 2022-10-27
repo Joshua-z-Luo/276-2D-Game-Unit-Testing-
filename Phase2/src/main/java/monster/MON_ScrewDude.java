@@ -57,22 +57,22 @@ public class MON_ScrewDude extends monsterEntity {
         }
 
     }
-    public void update(){
-        setAction();//if subclass has setAction() too, then that is priority
-
-        collisionOn = false;
-        gp.cChecker.checkTile(this);
-        if(!collisionOn){
-            switch(direction){
-                case "up": y -= speed; break;
-                case "down": y += speed; break;
-                case "left": x -= speed; break;
-                case "right": x += speed; break;
-            }
-
-        }
-
-    }
+//    public void update(){
+//        setAction();//if subclass has setAction() too, then that is priority
+//
+//        collisionOn = false;
+//        gp.cChecker.checkTile(this);
+//        if(!collisionOn){
+//            switch(direction){
+//                case "up": y -= speed; break;
+//                case "down": y += speed; break;
+//                case "left": x -= speed; break;
+//                case "right": x += speed; break;
+//            }
+//
+//        }
+//
+//    }
 
     //set monster's behaviour
 

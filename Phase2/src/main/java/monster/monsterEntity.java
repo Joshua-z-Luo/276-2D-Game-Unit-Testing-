@@ -52,7 +52,9 @@ public class monsterEntity extends Mobile {
         setAction();//if subclass has setAction() too, then that is priority
 
         collisionOn = false;
-//        gp.cChecker.checkTile(this);
+        gp.cChecker.checkTile(this);
+        gp.cChecker.checkEntity(this, gp.monster);
+        gp.cChecker.checkPlayer(this);
         if(!collisionOn){
             switch(direction){
                 case "up": y -= speed; break;
