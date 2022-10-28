@@ -29,6 +29,9 @@ public class MainCharacterTV extends Mobile {
         //because we start at top left of screen and we are saying hitbox start at bottom left of entity
         solidArea = new Rectangle(0, 0, gp.tileSize, gp.tileSize);
 
+        solidAreaDefaultX = 0;
+        solidAreaDefaultY = gp.tileSize;
+
         setDefaultValues();
         getPlayerImage();
     }
