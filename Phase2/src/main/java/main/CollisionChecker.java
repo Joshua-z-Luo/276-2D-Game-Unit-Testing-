@@ -34,6 +34,51 @@ public class CollisionChecker {
 
         int tileNum1, tileNum2;
 
+
+        //for multimovement
+        /*
+        //go right
+        if(character.directionX>0){
+            characterRightCol = (characterRightX + character.speed)/gp.tileSize;
+            tileNum1 = gp.tileM.mapTileNum[characterRightCol][characterTopRow];
+            tileNum2 = gp.tileM.mapTileNum[characterRightCol][characterBottomRow];
+            if(gp.tileM.tile[tileNum1].collision || gp.tileM.tile[tileNum2].collision){
+                character.collisionOn = true;
+            }
+        }
+
+        //go left
+        if(character.directionX<0){
+            characterLeftCol = (characterLeftX - character.speed)/gp.tileSize;
+            tileNum1 = gp.tileM.mapTileNum[characterLeftCol][characterTopRow];
+            tileNum2 = gp.tileM.mapTileNum[characterLeftCol][characterBottomRow];
+            if(gp.tileM.tile[tileNum1].collision || gp.tileM.tile[tileNum2].collision){
+                character.collisionOn = true;
+            }
+        }
+
+        //up
+        if(character.directionY<0){
+            characterTopRow = (characterTopY - character.speed)/gp.tileSize;
+            tileNum1 = gp.tileM.mapTileNum[characterLeftCol][characterTopRow];
+            tileNum2 = gp.tileM.mapTileNum[characterRightCol][characterTopRow];
+            if(gp.tileM.tile[tileNum1].collision || gp.tileM.tile[tileNum2].collision){
+                character.collisionOn = true;
+            }
+        }
+
+        //down
+        if(character.directionY>0){
+            characterBottomRow = (characterBottomY + character.speed)/gp.tileSize;
+            tileNum1 = gp.tileM.mapTileNum[characterLeftCol][characterBottomRow];
+            tileNum2 = gp.tileM.mapTileNum[characterRightCol][characterBottomRow];
+            if(gp.tileM.tile[tileNum1].collision|| gp.tileM.tile[tileNum2].collision){
+                character.collisionOn = true;
+            }
+        }
+
+         */
+
         switch(character.direction){
             case "up":
                 characterTopRow = (characterTopY - character.speed)/gp.tileSize;
@@ -67,6 +112,7 @@ public class CollisionChecker {
                 }
                 break;
         }
+
 
     }
     public int checkObject(Mobile mobile, boolean player){

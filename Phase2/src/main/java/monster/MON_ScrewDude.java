@@ -33,7 +33,8 @@ public class MON_ScrewDude extends monsterEntity {
         maxLife = 4;
         life = maxLife;
 
-        solidArea = new Rectangle(8,16, 32, 32);
+        //hitbox microadjustments
+        solidArea = new Rectangle(2*gp.scale, 0, gp.tileSize-4*gp.scale, gp.tileSize);
 //        solidArea.x = 3;
 //        solidArea.y = 18;
 //        solidArea.width = 42;

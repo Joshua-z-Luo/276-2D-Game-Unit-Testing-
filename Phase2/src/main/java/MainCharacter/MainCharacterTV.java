@@ -26,7 +26,8 @@ public class MainCharacterTV extends Mobile {
         this.gp = gp;
         this.keyH = keyH;
 
-        solidArea = new Rectangle(8,16, 32, 32);
+        //because we start at top left of screen and we are saying hitbox start at bottom left of entity
+        solidArea = new Rectangle(0, 0, gp.tileSize, gp.tileSize);
 
         setDefaultValues();
         getPlayerImage();
@@ -66,15 +67,17 @@ public class MainCharacterTV extends Mobile {
     public void update() {
         if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
             if (keyH.upPressed) {
-                directionY=-speed;
-            }if (keyH.leftPressed) {
-                directionX=-speed;
-            }if (keyH.rightPressed) {
-                directionX=speed;
-            }if (keyH.downPressed) {
-                directionY=speed;
+                direction = "up";
+            } else if (keyH.leftPressed) {
+                direction = "left";
+            } else if (keyH.rightPressed) {
+                direction = "right";
+            } else if (keyH.downPressed) {
+                direction = "down";
             }
             collisionOn = false;
+
+            //
 
             //Check Tile Collision
             gp.cChecker.checkTile(this);
@@ -86,10 +89,12 @@ public class MainCharacterTV extends Mobile {
             int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
             interactMonster(monsterIndex);
             if (!collisionOn) {
-                y+=directionY;
-                x+=directionX;
-                directionY=0;
-                directionX=0;
+                switch (direction) {
+                    case "up" -> y -= speed;
+                    case "left" -> x -= speed;
+                    case "right" -> x += speed;
+                    case "down" -> y += speed;
+                }
             }
 
         }

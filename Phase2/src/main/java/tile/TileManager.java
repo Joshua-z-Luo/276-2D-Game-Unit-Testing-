@@ -97,8 +97,11 @@ public class TileManager {
 
             //should properly implement, but ill just do a if else case here for now
             //im just saying that all collision tiles are going to big this is not proper coding
+            // it looks like the hitbox for the y at least is just going to place itself in the middle
+            // so for example if we have a hitbox of one pixel in the y axis, and our picture is 3 pixel in the y axis
+            // on default we just draw the hitbox in the middle, so at the second pixel
             if(tile[tileNum].collision){
-                g2.drawImage(tile[tileNum].image, x, y-48, gp.entityWidth, gp.entityHeight, null);
+                g2.drawImage(tile[tileNum].image, x, y-(gp.entityHeight/2), gp.entityWidth, gp.entityHeight, null);
             }else {
                 g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
             }
