@@ -11,5 +11,5 @@ public class Entity {
     public boolean collisionOn = false;
 
     public double maxLife;
-    public double life;
+    public double life; //currently player has about 33 seconds of life
 }

@@ -111,8 +111,11 @@ public class MainCharacterTV extends MovingObject {
 
     public void pickUpObject(int index){
         if(index!= 999){
-            gp.obj[index] = null;//when TVGuys touches battery, the battery just disappears.
+            gp.obj[index] = null;
+            life += 30;
+            //when TVGuys touches battery, the battery just disappears.
             //so, here, later, implement something that increase TVGuy's life by 1 by picking up a battery?
+            //**UPDATE** when TVGuy touches battery his life gets increased by 30 so 10ish seconds
         }
     }
 
