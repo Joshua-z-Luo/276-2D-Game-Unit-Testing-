@@ -6,7 +6,10 @@ import java.awt.image.BufferedImage;
 public class Entity {
     public int x, y;
     public Rectangle solidArea;
-    public BufferedImage walk;
+    public BufferedImage image, image2, image3, image4, image5, image6;
     public int solidAreaDefaultX,solidAreaDefaultY;
     public boolean collisionOn = false;
+
+    public double maxLife;
+    public double life;
 }

@@ -24,7 +24,7 @@ public class OBJ_Battery extends StaticObject {
         solidAreaDefaultY = solidArea.y;
 
         try{
-           walk = ImageIO.read(new File("src/Sprites/battery.png"));
+           image = ImageIO.read(new File("src/Sprites/battery.png"));
         }catch(IOException e){
             e.printStackTrace();
         }

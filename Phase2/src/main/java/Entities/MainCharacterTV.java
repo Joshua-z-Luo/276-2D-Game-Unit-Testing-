@@ -48,6 +48,9 @@ public class MainCharacterTV extends MovingObject {
         direction = "down";
         directionX = 0;
         directionY = 0;
+
+        maxLife = 100.0;
+        life = maxLife;
     }
 
     /**
@@ -68,6 +71,9 @@ public class MainCharacterTV extends MovingObject {
      * Also will check if there has been a collision with a solid tile
      */
     public void update() {
+        if(life <= 0){
+            gp.gameState = gp.loseState;
+        }
         if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
             if (keyH.upPressed) {
                 direction = "up";
@@ -87,7 +93,7 @@ public class MainCharacterTV extends MovingObject {
 
             //check Entities.object collision
             int objIndex = gp.cChecker.checkObject(this, true);
-                pickUpObject(objIndex);
+            pickUpObject(objIndex);
             //Check Entities.monster collision
             int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
             interactMonster(monsterIndex);
@@ -112,7 +118,8 @@ public class MainCharacterTV extends MovingObject {
 
     public void interactMonster(int i ){
         if(i!=999){
-            System.out.println("You are hitting a Entities.monster");
+            System.out.println("You are hitting a monster");
+            life = 0;
         }
     }
     /**

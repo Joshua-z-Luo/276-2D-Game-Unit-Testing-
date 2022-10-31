@@ -46,6 +46,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final int titleState = 0;
     public final int playState = 1;
     public final int pauseState = 2;
+    public final int loseState = 3;
 
 
     /**
@@ -112,6 +113,8 @@ public class GamePanel extends JPanel implements Runnable {
     public void update(){
         if(gameState == playState){
             tvGuy.update();
+            tvGuy.life -= 0.1;
+            System.out.println(tvGuy.life);
 
             for(int i = 0;i<monster.length;i++){
                 if(monster[i]!=null){

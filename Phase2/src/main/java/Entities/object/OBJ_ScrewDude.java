@@ -22,7 +22,7 @@ public class OBJ_ScrewDude extends StaticObject {
         name="ScrewDude";
         //load image
         try{
-            walk = ImageIO.read(new File("src/Sprites/screwdude.png"));
+            image = ImageIO.read(new File("src/Sprites/screwdude.png"));
         }
         catch(IOException e){
             e.printStackTrace();

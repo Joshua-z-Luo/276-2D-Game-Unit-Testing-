@@ -12,7 +12,7 @@ public class StaticObject extends Entity{
      * @param gp
      */
     public void draw(Graphics2D g2, GamePanel gp){
-        g2.drawImage(walk, x, y, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
     }
 }
 
