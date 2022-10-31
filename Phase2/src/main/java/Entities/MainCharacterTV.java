@@ -1,4 +1,4 @@
-package MainCharacter;
+package Entities;
 
 import main.GamePanel;
 import main.KeyHandler;
@@ -13,7 +13,7 @@ import java.io.IOException;
  * The main character class that will take care of drawing and updating.
  * @author Connor
  */
-public class MainCharacterTV extends Mobile {
+public class MainCharacterTV extends MovingObject {
     GamePanel gp;
     KeyHandler keyH;
 
@@ -85,10 +85,10 @@ public class MainCharacterTV extends Mobile {
             //Check Tile Collision
             gp.cChecker.checkTile(this);
 
-            //check object collision
+            //check Entities.object collision
             int objIndex = gp.cChecker.checkObject(this, true);
                 pickUpObject(objIndex);
-            //Check monster collision
+            //Check Entities.monster collision
             int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
             interactMonster(monsterIndex);
             if (!collisionOn) {
@@ -112,12 +112,12 @@ public class MainCharacterTV extends Mobile {
 
     public void interactMonster(int i ){
         if(i!=999){
-            System.out.println("You are hitting a monster");
+            System.out.println("You are hitting a Entities.monster");
         }
     }
     /**
      * Draws the character
-     * @param g2 Graphics2D object associated with the game panel
+     * @param g2 Graphics2D Entities.object associated with the game panel
      */
     public void draw(Graphics2D g2){
 //        g2.setColor(Color.white);

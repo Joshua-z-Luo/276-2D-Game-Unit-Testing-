@@ -1,4 +1,6 @@
-package object;
+package Entities.object;
+
+import Entities.StaticObject;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -9,7 +11,7 @@ import java.io.IOException;
  * Hayato add stuff here
  * @author Hayato
  */
-public class OBJ_Battery extends SuperObject{
+public class OBJ_Battery extends StaticObject {
 
     /**
      * Hayato add stuff here

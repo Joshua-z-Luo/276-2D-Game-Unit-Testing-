@@ -1,4 +1,6 @@
-package object;
+package Entities.object;
+
+import Entities.StaticObject;
 
 import javax.imageio.ImageIO;
 import java.io.File;
@@ -8,7 +10,7 @@ import java.io.IOException;
  * Hayato add stuff here
  * @author Hayato
  */
-public class OBJ_ScrewDude extends SuperObject {
+public class OBJ_ScrewDude extends StaticObject {
 
     //ctor
 

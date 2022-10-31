@@ -1,6 +1,7 @@
 package main;
 
-import MainCharacter.Mobile;
+//import MainCharacter.Mobile;
+import Entities.MovingObject;
 
 /**
  * This class checks the characters' position on the map and sees if it is touching any tiles that you should not walk through
@@ -21,7 +22,7 @@ public class CollisionChecker {
      * This will check the tiles the character is on and make sure the character will not walk through walls or blocked areas
      * @param character The character that will be checked. Could be enemy or main character
      */
-    public void checkTile(Mobile character){
+    public void checkTile(MovingObject character){
         int characterLeftX = character.x + character.solidArea.x;
         int characterRightX = character.x + character.solidArea.x + character.solidArea.width;
         int characterTopY = character.y + character.solidArea.y;
@@ -115,15 +116,15 @@ public class CollisionChecker {
 
 
     }
-    public int checkObject(Mobile mobile, boolean player){
+    public int checkObject(MovingObject mobile, boolean player){
         int index = 999;
 
         for(int i = 0;i<gp.obj.length;i++){
             if(gp.obj[i]!=null){
-                //Get Entity's solid area position
+                //Get MainCharacter.Entity's solid area position
                 mobile.solidArea.x = mobile.x + mobile.solidArea.x;
                 mobile.solidArea.y = mobile.y + mobile.solidArea.y;
-                //Get the object's solid area position
+                //Get the Entities.object's solid area position
                 gp.obj[i].solidArea.x = gp.obj[i].x + gp.obj[i].solidArea.x;
                 gp.obj[i].solidArea.y = gp.obj[i].y + gp.obj[i].solidArea.y;
 
@@ -183,15 +184,15 @@ public class CollisionChecker {
         return index;
     }
 
-    public int checkEntity(Mobile mobile, Mobile[] target){
+    public int checkEntity(MovingObject mobile, MovingObject[] target){
         int index = 999;
 
         for(int i = 0;i<target.length;i++){
             if(target[i]!=null){
-                //Get Entity's solid area position
+                //Get MainCharacter.Entity's solid area position
                 mobile.solidArea.x = mobile.x + mobile.solidArea.x;
                 mobile.solidArea.y = mobile.y + mobile.solidArea.y;
-                //Get the object's solid area position
+                //Get the Entities.object's solid area position
                 target[i].solidArea.x = target[i].x + target[i].solidArea.x;
                 target[i].solidArea.y = target[i].y + target[i].solidArea.y;
 
@@ -246,12 +247,12 @@ public class CollisionChecker {
         }
         return index;
     }
-    public void checkPlayer(Mobile mobile){
+    public void checkPlayer(MovingObject mobile){
 
-        //Get Entity's solid area position
+        //Get MainCharacter.Entity's solid area position
         mobile.solidArea.x = mobile.x + mobile.solidArea.x;
         mobile.solidArea.y = mobile.y + mobile.solidArea.y;
-        //Get the object's solid area position
+        //Get the Entities.object's solid area position
         gp.tvGuy.solidArea.x = gp.tvGuy.x + gp.tvGuy.solidArea.x;
         gp.tvGuy.solidArea.y = gp.tvGuy.y + gp.tvGuy.solidArea.y;
 

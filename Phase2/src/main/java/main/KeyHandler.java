@@ -31,7 +31,7 @@ public class KeyHandler implements KeyListener {
 
     /**
      * Checks which key was pressed and sets the variable accordingly so the character will move
-     * @param e KeyEvent object that contains the key that was pressed
+     * @param e KeyEvent Entities.object that contains the key that was pressed
      */
     @Override
     public void keyPressed(KeyEvent e) {

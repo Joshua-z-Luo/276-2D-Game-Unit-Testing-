@@ -1,12 +1,10 @@
-package monster;
+package Entities.monster;
 
-import MainCharacter.Mobile;
+//import MainCharacter.Mobile;
 import main.GamePanel;
-import org.w3c.dom.Entity;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
@@ -75,7 +73,7 @@ public class MON_ScrewDude extends monsterEntity {
 //
 //    }
 
-    //set monster's behaviour
+    //set Entities.monster's behaviour
 
     /**
      * Hayato add stuff here

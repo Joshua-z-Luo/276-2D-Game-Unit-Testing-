@@ -1,9 +1,10 @@
 package main;
 
-import MainCharacter.MainCharacterTV;
-import MainCharacter.Mobile;
-import monster.monsterEntity;
-import object.SuperObject;
+import Entities.MainCharacterTV;
+//import MainCharacter.Mobile;
+import Entities.StaticObject;
+import Entities.monster.monsterEntity;
+//import Entities.object.SuperObject;
 import tile.TileManager;
 import javax.swing.*;
 import java.awt.*;
@@ -25,8 +26,8 @@ public class GamePanel extends JPanel implements Runnable {
     public final int entityWidth = originalEntityWidth * scale;
 
     public final int entityHeight = originalEntityHeight * scale;
-    public final int maxScreenCol = 16;
-    public final int maxScreenRow = 12;
+    public final int maxScreenCol = 24; // 16
+    public final int maxScreenRow = 18; // 12
     public final int screenWidth = tileSize * maxScreenCol; //768 pixels make it 1920 if fullscreen
     public final int screenHeight = tileSize * maxScreenRow; //576 pixels make it 1080 if fullscreen
 
@@ -38,7 +39,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     public UI ui = new UI(this);
     public MainCharacterTV tvGuy = new MainCharacterTV(this, keyH);
-    public SuperObject obj[] = new SuperObject[10];
+    public StaticObject obj[] = new StaticObject[10];
 
     public  monsterEntity monster[] = new monsterEntity[10];
 
@@ -122,9 +123,9 @@ public class GamePanel extends JPanel implements Runnable {
         else if(gameState==pauseState){
             //pause
         }
-//        for(int i = 0;i<monster.length;i++){
-//            if(monster[i]!=null){
-//                monster[i].update();
+//        for(int i = 0;i<Entities.monster.length;i++){
+//            if(Entities.monster[i]!=null){
+//                Entities.monster[i].update();
 //            }
 //
 //        }
@@ -132,7 +133,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     /**
      * Used to draw the entities such as the main character, enemies, map, and rewards
-     * @param g Graphics object that will be turned into a Graphics2D object
+     * @param g Graphics Entities.object that will be turned into a Graphics2D Entities.object
      */
     public void paintComponent(Graphics g){
 

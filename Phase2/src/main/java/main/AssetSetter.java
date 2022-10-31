@@ -1,8 +1,7 @@
 package main;
 
-import monster.MON_ScrewDude;
-import object.OBJ_Battery;
-import object.OBJ_ScrewDude;
+import Entities.monster.MON_ScrewDude;
+import Entities.object.OBJ_Battery;
 
 /**
  * Hayato add stuff here

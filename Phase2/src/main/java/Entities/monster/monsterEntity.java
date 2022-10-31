@@ -1,16 +1,15 @@
-package monster;
+package Entities.monster;
 
-import MainCharacter.Mobile;
+import Entities.MovingObject;
 import main.GamePanel;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 /**
  * Hayato add stuff here
  * @author Hayato
  */
-public class monsterEntity extends Mobile {
+public class monsterEntity extends MovingObject {
     GamePanel gp;
 
 //    solidArea = new Rectangle();
