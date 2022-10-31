@@ -61,13 +61,12 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     /**
-     * Hayato add stuff here
+     * First sets the game to the title screen and then loads in the enemies and power-ups
      */
     public void setUpGame(){
+        gameState = titleState;
         aSetter.setObject();
         aSetter.setMonster();
-
-        gameState = titleState;
     }
 
     /**

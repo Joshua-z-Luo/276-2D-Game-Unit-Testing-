@@ -3,6 +3,10 @@ package Entities;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/**
+ * The base class for any entities on the map
+ * @author Connor
+ */
 public class Entity {
     public int x, y;
     public Rectangle solidArea;
