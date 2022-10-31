@@ -1,6 +1,5 @@
 package main;
 
-//import MainCharacter.Mobile;
 import Entities.MovingObject;
 
 /**

@@ -21,6 +21,7 @@ public class UI {
 
     double playTime;
     DecimalFormat dFormat = new DecimalFormat("#0.00");
+    public int commandNum = 0;
 
     /**
      * Hayato add stuff here
@@ -48,12 +49,17 @@ public class UI {
     public void draw(Graphics2D g2){
         this.g2 = g2;
         g2.setFont(arial_40);
-        g2.setColor(Color.white);
+        g2.setColor(Color.black);
 
-        if(gp.gameState==gp.playState){
+        if(gp.gameState == gp.titleState){
+            drawTitleScreen();
+        }
+
+        if(gp.gameState == gp.playState){
             //do playState stuff later
         }
-        if(gp.gameState== gp.pauseState){
+        else if(gp.gameState == gp.pauseState){
+            //game is paused and will not be updated
             drawPauseScreen();
         }
     }
@@ -67,6 +73,47 @@ public class UI {
         int y = gp.screenHeight/2;
 
        g2.drawString(text,x,y);
+    }
+
+    public void drawTitleScreen(){
+        g2.setColor(new Color(255, 255, 255)); //if you want a coloured title scren
+        g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
+        String text = "TV Guy Escape!";
+        int x = getXForCenteredText(text);
+        int y = gp.tileSize*3;
+
+        //shadow
+        g2.setColor(Color.gray);
+        g2.drawString(text, x+5, y+5);
+
+        //main colour
+        g2.setColor(Color.black);
+        g2.drawString(text, x, y);
+
+        x = gp.screenWidth/2 - (gp.tileSize*2)/2;
+        y += gp.tileSize*2;
+        g2.drawImage(gp.tvGuy.walk, x, y, gp.entityWidth*2, gp.entityHeight*2, null);
+
+        //Menu
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,48F));
+
+        text = "PLAY GAME";
+        x = getXForCenteredText(text);
+        y += gp.tileSize*8;
+        g2.drawString(text, x, y);
+        if(commandNum == 0){
+            g2.drawString(">", x-gp.tileSize, y);
+        }
+
+        text = "QUIT";
+        x = getXForCenteredText(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+        if(commandNum == 1){
+            g2.drawString(">", x-gp.tileSize, y);
+        }
+
     }
 
     /**

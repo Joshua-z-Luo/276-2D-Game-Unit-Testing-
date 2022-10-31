@@ -1,10 +1,8 @@
 package main;
 
 import Entities.MainCharacterTV;
-//import MainCharacter.Mobile;
 import Entities.StaticObject;
 import Entities.monster.monsterEntity;
-//import Entities.object.SuperObject;
 import tile.TileManager;
 import javax.swing.*;
 import java.awt.*;
@@ -45,6 +43,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     //Game State
     public int gameState;
+    public final int titleState = 0;
     public final int playState = 1;
     public final int pauseState = 2;
 
@@ -67,7 +66,7 @@ public class GamePanel extends JPanel implements Runnable {
         aSetter.setObject();
         aSetter.setMonster();
 
-        gameState = playState;
+        gameState = titleState;
     }
 
     /**
@@ -135,33 +134,40 @@ public class GamePanel extends JPanel implements Runnable {
      * Used to draw the entities such as the main character, enemies, map, and rewards
      * @param g Graphics Entities.object that will be turned into a Graphics2D Entities.object
      */
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        tileM.draw(g2);
-
-        //Object (temporary). will delete later
-       for(int i =0;i<obj.length;i++){
-           if(obj[i] != null){
-               obj[i].draw(g2, this);
-
-           }
-       }
-       //Monster
-        for(int i = 0;i<monster.length;i++){
-            if(monster[i]!=null){
-                monster[i].draw(g2,this);
-            }
+        //Title screen
+        if (gameState == titleState) {
+            ui.draw(g2);
         }
-        tvGuy.draw(g2);
+        else {
 
-        //UI
-        ui.draw(g2);
+            tileM.draw(g2);
+
+            //Object (temporary). will delete later
+            for (int i = 0; i < obj.length; i++) {
+                if (obj[i] != null) {
+                    obj[i].draw(g2, this);
+
+                }
+            }
+            //Monster
+            for (int i = 0; i < monster.length; i++) {
+                if (monster[i] != null) {
+                    monster[i].draw(g2, this);
+                }
+            }
+            tvGuy.draw(g2);
+
+            //UI
+            ui.draw(g2);
 
 
-        g2.dispose();
+            g2.dispose();
+        }
     }
 
 
