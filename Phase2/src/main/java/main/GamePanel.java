@@ -70,6 +70,21 @@ public class GamePanel extends JPanel implements Runnable {
         aSetter.setMonster();
     }
 
+    public void retry() {
+        tvGuy.setDefaultPosition();
+        tvGuy.restoreLife();
+        aSetter.setObject();
+        aSetter.setMonster();
+    }
+
+    public void restart() {
+        tvGuy.setDefaultPosition();
+        tvGuy.setDefaultValues();
+        tvGuy.restoreLife();
+        aSetter.setObject();
+        aSetter.setMonster();
+    }
+
     /**
      * Method will start the game thread so that the game will run continuously
      */

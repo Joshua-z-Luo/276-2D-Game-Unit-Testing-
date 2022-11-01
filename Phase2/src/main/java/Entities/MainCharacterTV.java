@@ -4,6 +4,7 @@ import Entities.object.OBJ_Battery;
 import Entities.object.OBJ_Puddle;
 import main.GamePanel;
 import main.KeyHandler;
+import main.Main;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -52,6 +53,17 @@ public class MainCharacterTV extends MovingObject {
         directionY = 0;
 
         maxLife = 100.0;
+        life = maxLife;
+    }
+
+    public void setDefaultPosition() {
+        x = 100;
+        y = 100;
+        //how much we will move in the next update
+        direction = "down";
+    }
+
+    public void restoreLife() {
         life = maxLife;
     }
 
