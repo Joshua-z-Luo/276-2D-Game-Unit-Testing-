@@ -95,6 +95,13 @@ public class MainCharacterTV extends MovingObject {
 
             //check Entities.object collision
             int objIndex = gp.cChecker.checkObject(this, true);
+           //if objIndex is the index of door, then
+           //show win screen
+            if(objIndex ==7){
+                System.out.println("doordoor");
+                //jump to the main page
+                gp.gameState = gp.winState;
+            }
             pickUpObject(objIndex);
             //Check Entities.monster collision
             int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);

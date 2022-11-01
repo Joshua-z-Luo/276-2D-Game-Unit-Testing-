@@ -2,6 +2,7 @@ package main;
 
 import Entities.monster.MON_ScrewDude;
 import Entities.object.OBJ_Battery;
+import Entities.object.OBJ_Door;
 import Entities.object.OBJ_Puddle;
 
 /**
@@ -42,6 +43,10 @@ public class AssetSetter {
         gp.obj[6] = new OBJ_Puddle();
         gp.obj[6].x = 650;
         gp.obj[6].y = 150;
+
+        gp.obj[7] = new OBJ_Door();
+        gp.obj[7].x = 1050;
+        gp.obj[7].y = 750;
 
     }
 

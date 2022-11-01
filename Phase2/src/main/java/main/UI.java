@@ -77,6 +77,9 @@ public class UI {
         else if(gp.gameState == gp.loseState){
             drawLoseScreen();
         }
+        else if(gp.gameState == gp.winState){
+            drawWinScreen();
+        }
     }
 
     /**
@@ -117,6 +120,17 @@ public class UI {
         g2.setColor(Color.black);
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
         String text = "YOU LOSE";
+        int x = getXForCenteredText(text);
+        int y = gp.screenHeight/2;
+        g2.drawString(text,x,y);
+
+    }
+    public void drawWinScreen(){
+        g2.setColor(new Color(40, 190, 90)); //if you want a coloured title scren
+        g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
+        g2.setColor(Color.black);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
+        String text = "YOU WIN";
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
         g2.drawString(text,x,y);
