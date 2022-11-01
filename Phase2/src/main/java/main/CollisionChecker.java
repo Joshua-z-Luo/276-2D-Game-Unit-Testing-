@@ -1,6 +1,8 @@
 package main;
 
+import Entities.Entity;
 import Entities.MovingObject;
+import Entities.StaticObject;
 
 /**
  * This class checks the characters' position on the map and sees if it is touching any tiles that you should not walk through

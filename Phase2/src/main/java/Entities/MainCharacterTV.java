@@ -1,5 +1,7 @@
 package Entities;
 
+import Entities.object.OBJ_Battery;
+import Entities.object.OBJ_Puddle;
 import main.GamePanel;
 import main.KeyHandler;
 
@@ -97,6 +99,7 @@ public class MainCharacterTV extends MovingObject {
             //Check Entities.monster collision
             int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
             interactMonster(monsterIndex);
+
             if (!collisionOn) {
                 switch (direction) {
                     case "up" -> y -= speed;
@@ -110,21 +113,34 @@ public class MainCharacterTV extends MovingObject {
     }
 
     public void pickUpObject(int index){
-        if(index!= 999){
+        if(index != 999 && gp.obj[index].getClass().equals(OBJ_Battery.class)){
             gp.obj[index] = null;
             life += 30;
             //when TVGuys touches battery, the battery just disappears.
             //so, here, later, implement something that increase TVGuy's life by 1 by picking up a battery?
             //**UPDATE** when TVGuy touches battery his life gets increased by 30 so 10ish seconds
         }
+        else if(index != 999 && gp.obj[index].getClass().equals(OBJ_Puddle.class)){
+            System.out.println("You walked into a trap!");
+            life = 0;
+        }
+    }
+
+    public void walkInTrap(int index){
+        if(index != 999){
+            System.out.println("You walked into a trap!");
+            life = 0;
+        }
     }
 
     public void interactMonster(int i ){
-        if(i!=999){
+        if(i != 999){
             System.out.println("You are hitting a monster");
             life = 0;
         }
     }
+
+
     /**
      * Draws the character
      * @param g2 Graphics2D Entities.object associated with the game panel
