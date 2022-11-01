@@ -122,14 +122,11 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
         else if(gameState==pauseState){
-            //pause
+            //pause - don't update player information
         }
-//        for(int i = 0;i<Entities.monster.length;i++){
-//            if(Entities.monster[i]!=null){
-//                Entities.monster[i].update();
-//            }
-//
-//        }
+        else if(gameState==loseState){
+            //lose screen is displayed - return to main screen afterwards
+        }
     }
 
     /**
