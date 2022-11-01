@@ -123,6 +123,12 @@ public class UI {
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
         g2.drawString(text,x,y);
+        g2.setColor(Color.black);
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+        String keytext = "press any key to continue";
+        int a = getXForCenteredText(keytext);
+        int b = gp.screenHeight - gp.screenHeight/3;
+        g2.drawString(keytext,a,b);
 
     }
     //win screen
