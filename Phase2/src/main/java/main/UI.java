@@ -125,6 +125,7 @@ public class UI {
         g2.drawString(text,x,y);
 
     }
+    //win screen
     public void drawWinScreen(){
         g2.setColor(new Color(40, 190, 90)); //if you want a coloured title scren
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
