@@ -8,13 +8,13 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Hayato add stuff here
+ * The battery class that draws and updates the battery
  * @author Hayato
  */
 public class OBJ_Battery extends StaticObject {
 
     /**
-     * Hayato add stuff here
+     *
      */
     public OBJ_Battery(){
         name = "Battery";

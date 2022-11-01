@@ -7,7 +7,7 @@ import java.awt.*;
 /**
  * Objects that don't move such as power-ups and traps
  * Extends the Entity class
- * @author Hayato
+ * @author Connor,Hayato
  */
 public class StaticObject extends Entity{
     public String name;

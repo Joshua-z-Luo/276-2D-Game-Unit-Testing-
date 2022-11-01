@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 import java.text.DecimalFormat;
 
 /**
- * Hayato add stuff here
+ * UI class that takes care of UI part of this game.
  * @author Hayato
  */
 public class UI {
@@ -28,7 +28,7 @@ public class UI {
     public int commandNum = 0;
 
     /**
-     * Hayato add stuff here
+     * Constructor that defines the font used in the game as well as showing the player's life with a battery image
      * @param gp
      */
     public UI(GamePanel gp){
@@ -44,18 +44,17 @@ public class UI {
         battery_full = battery.image5;
         battery_dead = battery.image6;
     }
+//
+//    /**
+//     * @param text
+//     */
+//    public void showMessage(String text){
+//        message = text;
+//        messageOn = true;
+//    }
 
     /**
-     * Hayato add stuff here
-     * @param text
-     */
-    public void showMessage(String text){
-        message = text;
-        messageOn = true;
-    }
-
-    /**
-     * Hayato add stuff here
+     * draws the UI of the game
      * @param g2
      */
     public void draw(Graphics2D g2) {
@@ -80,6 +79,9 @@ public class UI {
         }
     }
 
+    /**
+     * Connor add stuff here
+     */
     public void drawPlayerLife(){
         int x = gp.screenWidth - gp.tileSize*3;
         int y = gp.tileSize + 2;
@@ -106,6 +108,9 @@ public class UI {
         }
     }
 
+    /**
+     * Connor add stuff here
+     */
     public void drawLoseScreen(){
         g2.setColor(new Color(255, 0, 0)); //if you want a coloured title scren
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
@@ -119,7 +124,7 @@ public class UI {
     }
 
     /**
-     * Hayato add stuff here
+     * draws the text "Pause" when user clicks p
      */
     public void drawPauseScreen(){
         String text = "PAUSED";
@@ -129,6 +134,9 @@ public class UI {
        g2.drawString(text,x,y);
     }
 
+    /**
+     * Connor add stuff here
+     */
     public void drawTitleScreen(){
         g2.setColor(new Color(255, 255, 255)); //if you want a coloured title scren
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
@@ -171,9 +179,9 @@ public class UI {
     }
 
     /**
-     * Hayato add stuff here
+     * gets the x coordinate of the text "Pause"
      * @param text
-     * @return
+     * @return int (x coordinate of the text "Pause"
      */
     public int getXForCenteredText(String text){
         int length = (int)g2.getFontMetrics().getStringBounds(text,g2).getWidth();

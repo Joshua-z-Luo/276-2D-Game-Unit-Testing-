@@ -6,7 +6,7 @@ import main.GamePanel;
 import java.awt.*;
 
 /**
- * Hayato add stuff here
+ * monsterEntity class that takes care of any monster's drawing and updating.
  * @author Hayato
  */
 public class monsterEntity extends MovingObject {
@@ -29,7 +29,7 @@ public class monsterEntity extends MovingObject {
     public int actionLockCounter = 0;
 
     /**
-     * Hayato add stuff here
+     * Constructor that takes GamePanel as a parameter and sets the solidArea of a monster
      * @param gp
      */
     public monsterEntity(GamePanel gp){
@@ -38,17 +38,17 @@ public class monsterEntity extends MovingObject {
     }
 
     /**
-     * Hayato add stuff here
+     * defines how a monster moves
      */
     public void setAction(){
 
     }
 
     /**
-     * Hayato add stuff here
+     * updates the state of a monster. it takes care of collision check of a monster with other entities.
      */
     public void update(){
-        setAction();//if subclass has setAction() too, then that is priority
+        setAction();
 
         collisionOn = false;
         gp.cChecker.checkTile(this);
@@ -67,7 +67,7 @@ public class monsterEntity extends MovingObject {
     }
 
     /**
-     * Hayato add stuff here
+     * draws an image of a monster on the game window.
      * @param g2
      * @param gp
      */

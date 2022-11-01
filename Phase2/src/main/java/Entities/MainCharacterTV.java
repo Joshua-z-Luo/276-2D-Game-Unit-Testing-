@@ -116,8 +116,6 @@ public class MainCharacterTV extends MovingObject {
         if(index != 999 && gp.obj[index].getClass().equals(OBJ_Battery.class)){
             gp.obj[index] = null;
             life += 30;
-            //when TVGuys touches battery, the battery just disappears.
-            //so, here, later, implement something that increase TVGuy's life by 1 by picking up a battery?
             //**UPDATE** when TVGuy touches battery his life gets increased by 30 so 10ish seconds
         }
         else if(index != 999 && gp.obj[index].getClass().equals(OBJ_Puddle.class)){

@@ -5,14 +5,14 @@ import Entities.object.OBJ_Battery;
 import Entities.object.OBJ_Puddle;
 
 /**
- * Hayato add stuff here
+ * AssetSetter class that will take care of initiating static/moving objects needed in the game window.
  * @author Hayato
  */
 public class AssetSetter {
     GamePanel gp;
 
     /**
-     * Hayato add stuff here
+     * Constructor of AssetSetter that takes GamePanel as a parameter
      * @param gp
      */
     public AssetSetter(GamePanel gp){
@@ -21,7 +21,7 @@ public class AssetSetter {
     }
 
     /**
-     * Hayato add stuff here
+     * get all the static object items(battery, puddle) ready when setting up the game so that they appear when the game is opened
      */
     public void setObject(){
 
@@ -46,7 +46,7 @@ public class AssetSetter {
     }
 
     /**
-     * Hayato add stuff here
+     * get all the enemies(ScrewDude) ready when setting up the game so that they appear when the game is opened
      */
     public void setMonster(){
         gp.monster[0] = new MON_ScrewDude(gp);

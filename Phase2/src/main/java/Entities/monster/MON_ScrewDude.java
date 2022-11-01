@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Random;
 
 /**
- * Hayato add stuff here
+ * The ScrewDude class that draw the screwDude and defines how it moves
  * @author Hayato
  */
 public class MON_ScrewDude extends monsterEntity {
@@ -18,7 +18,7 @@ public class MON_ScrewDude extends monsterEntity {
 //    public int actionLockCounter ;
 
     /**
-     * Hayato add stuff here
+     * Constructor for initiating the screwDude.
      * @param gp
      */
     public MON_ScrewDude(GamePanel gp){
@@ -40,14 +40,14 @@ public class MON_ScrewDude extends monsterEntity {
 
         solidAreaDefaultX = 0;
         solidAreaDefaultY = gp.tileSize;
-        getMonsterImage();
+        setMonsterImage();
 
     }
 
     /**
-     * Hayato add stuff here
+     * sets the drawing of the screwdude
      */
-    public void getMonsterImage(){
+    public void setMonsterImage(){
         try{
 
             walk = ImageIO.read(new File("src/Sprites/screwdude.png"));
@@ -76,7 +76,7 @@ public class MON_ScrewDude extends monsterEntity {
     //set Entities.monster's behaviour
 
     /**
-     * Hayato add stuff here
+     * defines how the screwdude will move randomly.
      */
     public void setAction(){
         actionLockCounter ++;
