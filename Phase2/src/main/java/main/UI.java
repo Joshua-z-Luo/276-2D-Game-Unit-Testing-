@@ -117,13 +117,31 @@ public class UI {
     public void drawLoseScreen(){
         g2.setColor(new Color(255, 0, 0)); //if you want a coloured title scren
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
+        // YOU LOSE
         g2.setColor(Color.black);
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
         String text = "YOU LOSE";
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
         g2.drawString(text,x,y);
-
+        // retry
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+        text = "retry";
+        x = getXForCenteredText(text);
+        y += gp.tileSize*4;
+        g2.drawString(text,x,y);
+        if(commandNum == 0) {
+            g2.drawString(">", x-40, y);
+        }
+        // quit
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+        text = "quit";
+        x = getXForCenteredText(text);
+        y += 55;
+        g2.drawString(text,x,y);
+        if(commandNum == 1) {
+            g2.drawString(">", x-40, y);
+        }
     }
     /**
      * draws win screen when player reaches the door (win)

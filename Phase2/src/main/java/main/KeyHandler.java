@@ -2,6 +2,7 @@ package main;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.security.Key;
 
 /**
  * Class that will take input from the keyboard and move the character accordingly
@@ -84,9 +85,7 @@ public class KeyHandler implements KeyListener {
             }
         }
         if(gp.gameState == gp.loseState) {
-            if(code == KeyEvent.VK_P) {
-                gp.gameState = gp.titleState;
-            }
+            loseState(code);
         }
     }
 
@@ -106,5 +105,31 @@ public class KeyHandler implements KeyListener {
         if(code == KeyEvent.VK_D){
             rightPressed = false;
         }
+    }
+
+    public void loseState(int code) {
+        if(code == KeyEvent.VK_W) {
+            gp.ui.commandNum--;
+            if(gp.ui.commandNum < 0) {
+                gp.ui.commandNum = 1;
+            }
+        }
+        if(code == KeyEvent.VK_S) {
+            gp.ui.commandNum++;
+            if(gp.ui.commandNum > 1) {
+                gp.ui.commandNum = 0;
+            }
+        }
+        if(code == KeyEvent.VK_ENTER) {
+            if(gp.ui.commandNum == 0) {
+                gp.gameState = gp.playState;
+                gp.retry();
+            }
+            else if(gp.ui.commandNum == 1) {
+                gp.gameState = gp.titleState;
+                gp.restart();
+            }
+        }
+
     }
 }
