@@ -12,7 +12,6 @@ import java.io.IOException;
  */
 public class OBJ_ScrewDude extends StaticObject {
 
-    //ctor
 
     /**
      * Hayato add stuff here
