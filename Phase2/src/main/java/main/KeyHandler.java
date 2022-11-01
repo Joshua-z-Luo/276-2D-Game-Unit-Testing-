@@ -84,7 +84,7 @@ public class KeyHandler implements KeyListener {
             }
         }
         if(gp.gameState == gp.loseState) {
-            if(code == KeyEvent.VK_P) {
+            if((((code>=65)&&(code<=90))||((code>=97)&&(code<=122))||((code>=48)&&(code<=57)))) {
                 gp.gameState = gp.titleState;
             }
         }
