@@ -49,6 +49,7 @@ public class AssetSetter {
         gp.obj[7].x = 1050;
         gp.obj[7].y = 750;
 
+        //key card
         gp.obj[8] = new OBJ_KeyCard();
         gp.obj[8].x = 450;
         gp.obj[8].y = 650;
