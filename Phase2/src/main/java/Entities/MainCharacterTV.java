@@ -1,6 +1,7 @@
 package Entities;
 
 import Entities.object.OBJ_Battery;
+import Entities.object.OBJ_KeyCard;
 import Entities.object.OBJ_Puddle;
 import main.GamePanel;
 import main.KeyHandler;
@@ -19,6 +20,9 @@ public class MainCharacterTV extends MovingObject {
     GamePanel gp;
     KeyHandler keyH;
 
+
+    Boolean hasKeyCard;
+
     /**
      * Constructor that will take in the game panel and a key handler as well as set the size of the collision box
      * @param gp The main game panel
@@ -27,6 +31,7 @@ public class MainCharacterTV extends MovingObject {
     public MainCharacterTV(GamePanel gp, KeyHandler keyH){
         this.gp = gp;
         this.keyH = keyH;
+        hasKeyCard = false;
 
         //because we start at top left of screen and we are saying hitbox start at bottom left of entity
         solidArea = new Rectangle(0, 0, gp.tileSize, gp.tileSize);
@@ -98,11 +103,14 @@ public class MainCharacterTV extends MovingObject {
            //if objIndex is the index of door, then
            //show win screen
             if(objIndex ==7){
-                System.out.println("doordoor");
+                if(hasKeyCard){
+                    gp.gameState = gp.winState;
+                }
                 //jump to the main page
-                gp.gameState = gp.winState;
             }
-            pickUpObject(objIndex);
+            else{
+                pickUpObject(objIndex);
+            }
             //Check Entities.monster collision
             int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
             interactMonster(monsterIndex);
@@ -128,6 +136,11 @@ public class MainCharacterTV extends MovingObject {
         else if(index != 999 && gp.obj[index].getClass().equals(OBJ_Puddle.class)){
             System.out.println("You walked into a trap!");
             life = 0;
+        }
+        else if(index != 999 && gp.obj[index].getClass().equals(OBJ_KeyCard.class)){
+            System.out.println("You got a key");
+            gp.obj[index] = null;
+            this.hasKeyCard = true;
         }
     }
 

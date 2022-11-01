@@ -3,6 +3,7 @@ package main;
 import Entities.monster.MON_ScrewDude;
 import Entities.object.OBJ_Battery;
 import Entities.object.OBJ_Door;
+import Entities.object.OBJ_KeyCard;
 import Entities.object.OBJ_Puddle;
 
 /**
@@ -48,6 +49,9 @@ public class AssetSetter {
         gp.obj[7].x = 1050;
         gp.obj[7].y = 750;
 
+        gp.obj[8] = new OBJ_KeyCard();
+        gp.obj[8].x = 450;
+        gp.obj[8].y = 650;
     }
 
     /**
