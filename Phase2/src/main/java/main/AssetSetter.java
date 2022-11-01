@@ -2,6 +2,7 @@ package main;
 
 import Entities.monster.MON_ScrewDude;
 import Entities.object.OBJ_Battery;
+import Entities.object.OBJ_Puddle;
 
 /**
  * Hayato add stuff here
@@ -27,12 +28,21 @@ public class AssetSetter {
         //screwDude is subClass of SuperObject, so we can instantiate them like this
         gp.obj[3] = new OBJ_Battery();
         gp.obj[3].x = 200;
-        gp.obj[3].y = 400;
+        gp.obj[3].y = 450;
 
 
         gp.obj[4] = new OBJ_Battery();
         gp.obj[4].x = 600;
         gp.obj[4].y = 200;
+
+        gp.obj[5] = new OBJ_Battery();
+        gp.obj[5].x = 650;
+        gp.obj[5].y = 500;
+
+        gp.obj[6] = new OBJ_Puddle();
+        gp.obj[6].x = 650;
+        gp.obj[6].y = 150;
+
     }
 
     /**
