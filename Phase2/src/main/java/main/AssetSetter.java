@@ -8,18 +8,17 @@ import Entities.object.OBJ_Puddle;
 
 /**
  * AssetSetter class that will take care of initiating static/moving objects needed in the game window.
- * @author Hayato
+ * @author Hayato, Connor, Rose, Joshua
  */
 public class AssetSetter {
     GamePanel gp;
 
     /**
      * Constructor of AssetSetter that takes GamePanel as a parameter
-     * @param gp
+     * @param gp the GamePanel object that is the main game window
      */
     public AssetSetter(GamePanel gp){
         this.gp = gp;
-
     }
 
     /**

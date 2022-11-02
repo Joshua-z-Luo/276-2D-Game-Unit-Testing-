@@ -49,8 +49,8 @@ public class MON_ScrewDude extends monsterEntity {
      */
     public void setMonsterImage(){
         try{
-
             walk = ImageIO.read(new File("src/Sprites/screwdude.png"));
+
         }catch(IOException e){
             e.printStackTrace();
         }

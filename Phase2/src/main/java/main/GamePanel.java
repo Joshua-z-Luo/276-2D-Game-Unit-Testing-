@@ -13,7 +13,6 @@ import java.awt.*;
  */
 public class GamePanel extends JPanel implements Runnable {
     final int originalTileSize = 16; //16x16 tile
-
     final int originalEntityWidth = 16; //16x32 entity
 
     final int originalEntityHeight = 32; //16x32 entity
@@ -21,27 +20,27 @@ public class GamePanel extends JPanel implements Runnable {
 
     public final int tileSize = originalTileSize * scale; //48x48 tile
 
-    public final int entityWidth = originalEntityWidth * scale;
+    public final int imageEntityWidth = originalEntityWidth * scale;
+    public final int imageEntityHeight = originalEntityHeight * scale;
 
-    public final int entityHeight = originalEntityHeight * scale;
-    public final int maxScreenCol = 24; // 16
-    public final int maxScreenRow = 18; // 12
+    public final int maxScreenCol = 24; // 16 original
+    public final int maxScreenRow = 18; // 12 original
+
     public final int screenWidth = tileSize * maxScreenCol; //768 pixels make it 1920 if fullscreen
     public final int screenHeight = tileSize * maxScreenRow; //576 pixels make it 1080 if fullscreen
 
-    TileManager tileM = new TileManager(this);
-    KeyHandler keyH = new KeyHandler(this);
-    Thread gameThread;
-    public CollisionChecker cChecker = new CollisionChecker(this);
-    public AssetSetter aSetter = new AssetSetter(this);
+    TileManager tileM = new TileManager(this); //Manages the tiles
+    KeyHandler keyH = new KeyHandler(this); //Manages key input
+    Thread gameThread; //Thread that the game will run on
+    public CollisionChecker cChecker = new CollisionChecker(this); //Checks if there are any collisions between entities or walls
+    public AssetSetter aSetter = new AssetSetter(this); //Sets the entities up in the game
 
-    public UI ui = new UI(this);
-    public MainCharacterTV tvGuy = new MainCharacterTV(this, keyH);
-    public StaticObject obj[] = new StaticObject[10];
+    public UI ui = new UI(this); //UI manager
+    public MainCharacterTV tvGuy = new MainCharacterTV(this, keyH); //Main character
+    public StaticObject obj[] = new StaticObject[10]; //array of objects such as power ups, puddles and key cards
+    public  monsterEntity monster[] = new monsterEntity[10]; //array of enemies
 
-    public  monsterEntity monster[] = new monsterEntity[10];
-
-    //Game State
+    //Game States
     public int gameState;
     public final int titleState = 0;
     public final int playState = 1;
@@ -70,6 +69,9 @@ public class GamePanel extends JPanel implements Runnable {
         aSetter.setMonster();
     }
 
+    /**
+     * Restores the game state like when the game was first opened. ie. everything is back in its original position
+     */
     public void retry() {
         tvGuy.setDefaultPosition();
         tvGuy.restoreLife();
@@ -77,6 +79,9 @@ public class GamePanel extends JPanel implements Runnable {
         aSetter.setMonster();
     }
 
+    /**
+     * Restores the game state like when the game was first opened. ie. everything is back in its original position
+     */
     public void restart() {
         tvGuy.setDefaultPosition();
         tvGuy.setDefaultValues();
@@ -145,7 +150,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     /**
      * Used to draw the entities such as the main character, enemies, map, and rewards
-     * @param g Graphics Entities.object that will be turned into a Graphics2D Entities.object
+     * @param g Graphics object that will be turned into a Graphics2D object
      */
     public void paintComponent(Graphics g) {
 
@@ -157,7 +162,6 @@ public class GamePanel extends JPanel implements Runnable {
             ui.draw(g2);
         }
         else {
-
             tileM.draw(g2);
 
             //Object (temporary). will delete later
@@ -178,10 +182,8 @@ public class GamePanel extends JPanel implements Runnable {
             //UI
             ui.draw(g2);
 
-
             g2.dispose();
         }
     }
-
 
 }

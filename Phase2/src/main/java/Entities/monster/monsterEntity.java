@@ -2,7 +2,6 @@ package Entities.monster;
 
 import Entities.MovingObject;
 import main.GamePanel;
-
 import java.awt.*;
 
 /**
@@ -30,7 +29,7 @@ public class monsterEntity extends MovingObject {
 
     /**
      * Constructor that takes GamePanel as a parameter and sets the solidArea of a monster
-     * @param gp
+     * @param gp GamePanel object that holds the game
      */
     public monsterEntity(GamePanel gp){
         this.gp = gp;
@@ -38,14 +37,14 @@ public class monsterEntity extends MovingObject {
     }
 
     /**
-     * defines how a monster moves
+     * defines how a monster moves ***WHAT IS THIS FOR???***
      */
     public void setAction(){
 
     }
 
     /**
-     * updates the state of a monster. it takes care of collision check of a monster with other entities.
+     * updates the state of a monster. it takes care of collision check if an enemy collides with other entities.
      */
     public void update(){
         setAction();
@@ -68,10 +67,10 @@ public class monsterEntity extends MovingObject {
 
     /**
      * draws an image of a monster on the game window.
-     * @param g2
-     * @param gp
+     * @param g2 Graphics2D object that draws the game
+     * @param gp GamePanel object that holds the game
      */
     public void draw(Graphics2D g2, GamePanel gp){
-        g2.drawImage(walk, x, y, gp.entityWidth, gp.entityHeight, null);
+        g2.drawImage(walk, x, y, gp.imageEntityWidth, gp.imageEntityHeight, null);
     }
 }

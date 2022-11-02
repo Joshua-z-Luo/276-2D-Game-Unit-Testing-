@@ -9,7 +9,7 @@ import java.text.DecimalFormat;
 
 /**
  * UI class that takes care of UI part of this game.
- * @author Hayato
+ * @author Hayato, Connor, Rose, Joshua
  */
 public class UI {
 
@@ -29,7 +29,7 @@ public class UI {
 
     /**
      * Constructor that defines the font used in the game as well as showing the player's life with a battery image
-     * @param gp
+     * @param gp The game panel object that holds the game
      */
     public UI(GamePanel gp){
         this.gp = gp;
@@ -55,7 +55,7 @@ public class UI {
 
     /**
      * draws the UI of the game
-     * @param g2
+     * @param g2 Graphics2D object that draws on screen
      */
     public void draw(Graphics2D g2) {
         this.g2 = g2;
@@ -83,7 +83,7 @@ public class UI {
     }
 
     /**
-     * Connor add stuff here
+     * Draws the battery health bar in the top right corner and will change based on the main character's health
      */
     public void drawPlayerLife(){
         int x = gp.screenWidth - gp.tileSize*3;
@@ -112,7 +112,7 @@ public class UI {
     }
 
     /**
-     * Connor add stuff here
+     * If the main character's health becomes 0, the game will end immediately and a lose screen shows up showing options to retry or to quit
      */
     public void drawLoseScreen(){
         g2.setColor(new Color(255, 0, 0)); //if you want a coloured title scren
@@ -156,6 +156,26 @@ public class UI {
         int y = gp.screenHeight/2;
         g2.drawString(text,x,y);
 
+        // continue
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+        text = "continue [currently retry method until levels implemented]";
+        x = getXForCenteredText(text);
+        y += gp.tileSize*4;
+        g2.drawString(text,x,y);
+        if(commandNum == 0) {
+            g2.drawString(">", x-40, y);
+        }
+
+        // quit
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+        text = "quit";
+        x = getXForCenteredText(text);
+        y += 55;
+        g2.drawString(text,x,y);
+        if(commandNum == 1) {
+            g2.drawString(">", x-40, y);
+        }
+
     }
 
     /**
@@ -165,34 +185,35 @@ public class UI {
         String text = "PAUSED";
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
-
-       g2.drawString(text,x,y);
+        g2.drawString(text,x,y);
     }
 
     /**
-     * Connor add stuff here
+     * When the game is booted up, the main screen is drawn with the title of the game and a picture of the main character
+     * There is menu functionality to cycle between the options which are to start the game and to quit
      */
     public void drawTitleScreen(){
-        g2.setColor(new Color(255, 255, 255)); //if you want a coloured title scren
+        g2.setColor(new Color(255, 255, 255)); //if you want a coloured title screen
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
-        String text = "TV Guy Escape!";
+        String text = "TV Guy Escape!"; //Title of the game
         int x = getXForCenteredText(text);
         int y = gp.tileSize*3;
 
-        //shadow
+        //shadow of the text
         g2.setColor(Color.gray);
         g2.drawString(text, x+5, y+5);
 
-        //main colour
+        //main colour of the text
         g2.setColor(Color.black);
         g2.drawString(text, x, y);
 
+        //image of main character
         x = gp.screenWidth/2 - (gp.tileSize*2)/2;
         y += gp.tileSize*2;
-        g2.drawImage(gp.tvGuy.walk, x, y, gp.entityWidth*2, gp.entityHeight*2, null);
+        g2.drawImage(gp.tvGuy.walk, x, y, gp.imageEntityWidth *2, gp.imageEntityHeight *2, null);
 
-        //Menu
+        //Menu options
         g2.setFont(g2.getFont().deriveFont(Font.BOLD,48F));
 
         text = "PLAY GAME";
