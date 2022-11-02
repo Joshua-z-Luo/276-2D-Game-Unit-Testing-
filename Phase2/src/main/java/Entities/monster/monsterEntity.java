@@ -51,7 +51,7 @@ public class monsterEntity extends MovingObject {
         setAction();
 
         collisionOn = false;
-        gp.cChecker.checkTile(this);
+        gp.cChecker.checkWall(this);
         gp.cChecker.checkEntity(this, gp.monster);
         gp.cChecker.checkPlayer(this);
         if(!collisionOn){

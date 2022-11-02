@@ -1,43 +1,40 @@
-package tile;
+package Entities.wall;
 
 import main.GamePanel;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
-/**
- * Will manage the map and all the tiles it will contain.
- * Can load a map through a .txt file
- * @author Connor
- */
-public class TileManager {
+public class WallManager{
     GamePanel gp;
-    public Tile[] tile;
-    public int mapTileNum[][];
+    public Wall[] wall;
+    public int mapWallNum[][];
 
-    /**
-     * Constructor that will initialize the necessary variables such as an array containing the tiles
-     * @param gp The main game panel containing the game
-     */
-    public TileManager(GamePanel gp){
+    public WallManager(GamePanel gp){
         this.gp = gp;
 
-        tile = new Tile[10];
-        mapTileNum = new int[gp.maxScreenCol][gp.maxScreenRow];
-        getTileImage();
+        wall = new Wall[10];
+        mapWallNum = new int[gp.maxScreenCol][gp.maxScreenRow];
+        getWallImage();
         loadMap();
     }
 
     /**
      * Initializes the used tiles from the images and sets if the tile can be collided with
      */
-    public void getTileImage(){
+    public void getWallImage(){
         try{
-            tile[0] = new Tile();
-            tile[0].image = ImageIO.read(new File("src/Sprites/tile1.png"));
+            //wall[0] is redundant we can probably get rid of it just check for related dependencies
+            wall[0] = new Wall();
+            wall[0].image = ImageIO.read(new File("src/Sprites/wall1.png"));
 
-            tile[1] = new Tile();
-            tile[1].image = ImageIO.read(new File("src/Sprites/tile1.png"));
+            wall[1] = new Wall();
+            wall[1].image = ImageIO.read(new File("src/Sprites/wall1.png"));
+            wall[1].collision = true;
 
         }catch(IOException e){
             e.printStackTrace();
@@ -50,9 +47,8 @@ public class TileManager {
      */
     public void loadMap(){
         try{
-            File is = new File("src/Maps/map1.txt");
+            File is = new File("src/Maps/wallMap.txt");
             BufferedReader br = new BufferedReader(new FileReader(is));
-
 
             int col = 0;
             int row = 0;
@@ -64,7 +60,7 @@ public class TileManager {
                     String[] numbers = line.split(" ");
                     int num = Integer.parseInt(numbers[col]);
 
-                    mapTileNum[col][row] = num;
+                    mapWallNum[col][row] = num;
                     col++;
                 }
                 if(col == gp.maxScreenCol){
@@ -92,18 +88,18 @@ public class TileManager {
 
         while(col < gp.maxScreenCol && row < gp.maxScreenRow){
 
-            int tileNum = mapTileNum[col][row];
+            int wallNum = mapWallNum[col][row];
 
             // it looks like the hitbox for the y at least is just going to place itself in the middle
             // so for example if we have a hitbox of one pixel in the y axis, and our picture is 3 pixel in the y axis
             // on default we just draw the hitbox in the middle, so at the second pixel
-            g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
 
-            //if(tile[tileNum].collision){
-            //    g2.drawImage(tile[tileNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
-            //}else {
-            //    g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
-            //}
+            switch(wallNum){
+                case 1:
+                    g2.drawImage(wall[wallNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
+                default:
+                    //dont do anything,
+            }
 
 
             col++;

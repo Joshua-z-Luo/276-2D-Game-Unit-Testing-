@@ -107,7 +107,7 @@ public class MainCharacterTV extends MovingObject {
             //
 
             //Check Tile Collision
-            gp.cChecker.checkTile(this);
+            gp.cChecker.checkWall(this);
 
             //check Entities.object collision
             int objIndex = gp.cChecker.checkObject(this, true);

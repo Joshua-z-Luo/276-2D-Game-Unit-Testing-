@@ -3,6 +3,7 @@ package main;
 import Entities.MainCharacterTV;
 import Entities.StaticObject;
 import Entities.monster.monsterEntity;
+import Entities.wall.WallManager;
 import tile.TileManager;
 import javax.swing.*;
 import java.awt.*;
@@ -30,6 +31,8 @@ public class GamePanel extends JPanel implements Runnable {
     public final int screenHeight = tileSize * maxScreenRow; //576 pixels make it 1080 if fullscreen
 
     TileManager tileM = new TileManager(this);
+
+    WallManager wallM = new WallManager(this);
     KeyHandler keyH = new KeyHandler(this);
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);
@@ -175,6 +178,7 @@ public class GamePanel extends JPanel implements Runnable {
             }
             tvGuy.draw(g2);
 
+            wallM.draw(g2);
             //UI
             ui.draw(g2);
 

@@ -23,7 +23,10 @@ public class CollisionChecker {
      * This will check the tiles the character is on and make sure the character will not walk through walls or blocked areas
      * @param character The character that will be checked. Could be enemy or main character
      */
-    public void checkTile(MovingObject character){
+
+
+
+    public void checkWall(MovingObject character){
         int characterLeftX = character.x + character.solidArea.x;
         int characterRightX = character.x + character.solidArea.x + character.solidArea.width;
         int characterTopY = character.y + character.solidArea.y;
@@ -34,82 +37,37 @@ public class CollisionChecker {
         int characterTopRow = characterTopY/gp.tileSize;
         int characterBottomRow = characterBottomY/gp.tileSize;
 
-        int tileNum1, tileNum2;
-
-
-        //for multimovement
-        /*
-        //go right
-        if(character.directionX>0){
-            characterRightCol = (characterRightX + character.speed)/gp.tileSize;
-            tileNum1 = gp.tileM.mapTileNum[characterRightCol][characterTopRow];
-            tileNum2 = gp.tileM.mapTileNum[characterRightCol][characterBottomRow];
-            if(gp.tileM.tile[tileNum1].collision || gp.tileM.tile[tileNum2].collision){
-                character.collisionOn = true;
-            }
-        }
-
-        //go left
-        if(character.directionX<0){
-            characterLeftCol = (characterLeftX - character.speed)/gp.tileSize;
-            tileNum1 = gp.tileM.mapTileNum[characterLeftCol][characterTopRow];
-            tileNum2 = gp.tileM.mapTileNum[characterLeftCol][characterBottomRow];
-            if(gp.tileM.tile[tileNum1].collision || gp.tileM.tile[tileNum2].collision){
-                character.collisionOn = true;
-            }
-        }
-
-        //up
-        if(character.directionY<0){
-            characterTopRow = (characterTopY - character.speed)/gp.tileSize;
-            tileNum1 = gp.tileM.mapTileNum[characterLeftCol][characterTopRow];
-            tileNum2 = gp.tileM.mapTileNum[characterRightCol][characterTopRow];
-            if(gp.tileM.tile[tileNum1].collision || gp.tileM.tile[tileNum2].collision){
-                character.collisionOn = true;
-            }
-        }
-
-        //down
-        if(character.directionY>0){
-            characterBottomRow = (characterBottomY + character.speed)/gp.tileSize;
-            tileNum1 = gp.tileM.mapTileNum[characterLeftCol][characterBottomRow];
-            tileNum2 = gp.tileM.mapTileNum[characterRightCol][characterBottomRow];
-            if(gp.tileM.tile[tileNum1].collision|| gp.tileM.tile[tileNum2].collision){
-                character.collisionOn = true;
-            }
-        }
-
-         */
+        int wallNum1, wallNum2;
 
         switch(character.direction){
             case "up":
                 characterTopRow = (characterTopY - character.speed)/gp.tileSize;
-                tileNum1 = gp.tileM.mapTileNum[characterLeftCol][characterTopRow];
-                tileNum2 = gp.tileM.mapTileNum[characterRightCol][characterTopRow];
-                if(gp.tileM.tile[tileNum1].collision || gp.tileM.tile[tileNum2].collision){
+                wallNum1 = gp.wallM.mapWallNum[characterLeftCol][characterTopRow];
+                wallNum2 = gp.wallM.mapWallNum[characterRightCol][characterTopRow];
+                if(gp.wallM.wall[wallNum1].collision || gp.wallM.wall[wallNum2].collision){
                     character.collisionOn = true;
                 }
                 break;
             case "down":
                 characterBottomRow = (characterBottomY + character.speed)/gp.tileSize;
-                tileNum1 = gp.tileM.mapTileNum[characterLeftCol][characterBottomRow];
-                tileNum2 = gp.tileM.mapTileNum[characterRightCol][characterBottomRow];
-                if(gp.tileM.tile[tileNum1].collision|| gp.tileM.tile[tileNum2].collision){
+                wallNum1 = gp.wallM.mapWallNum[characterLeftCol][characterBottomRow];
+                wallNum2 = gp.wallM.mapWallNum[characterRightCol][characterBottomRow];
+                if(gp.wallM.wall[wallNum1].collision|| gp.wallM.wall[wallNum2].collision){
                     character.collisionOn = true;
                 }
             case "left":
                 characterLeftCol = (characterLeftX - character.speed)/gp.tileSize;
-                tileNum1 = gp.tileM.mapTileNum[characterLeftCol][characterTopRow];
-                tileNum2 = gp.tileM.mapTileNum[characterLeftCol][characterBottomRow];
-                if(gp.tileM.tile[tileNum1].collision || gp.tileM.tile[tileNum2].collision){
+                wallNum1 = gp.wallM.mapWallNum[characterLeftCol][characterTopRow];
+                wallNum2 = gp.wallM.mapWallNum[characterLeftCol][characterBottomRow];
+                if(gp.wallM.wall[wallNum1].collision || gp.wallM.wall[wallNum2].collision){
                     character.collisionOn = true;
                 }
                 break;
             case "right":
                 characterRightCol = (characterRightX + character.speed)/gp.tileSize;
-                tileNum1 = gp.tileM.mapTileNum[characterRightCol][characterTopRow];
-                tileNum2 = gp.tileM.mapTileNum[characterRightCol][characterBottomRow];
-                if(gp.tileM.tile[tileNum1].collision || gp.tileM.tile[tileNum2].collision){
+                wallNum1 = gp.wallM.mapWallNum[characterRightCol][characterTopRow];
+                wallNum2 = gp.wallM.mapWallNum[characterRightCol][characterBottomRow];
+                if(gp.wallM.wall[wallNum1].collision || gp.wallM.wall[wallNum2].collision){
                     character.collisionOn = true;
                 }
                 break;
@@ -117,6 +75,7 @@ public class CollisionChecker {
 
 
     }
+
     public int checkObject(MovingObject mobile, boolean player){
         int index = 999;
 
