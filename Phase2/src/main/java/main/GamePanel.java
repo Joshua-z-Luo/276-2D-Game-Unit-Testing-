@@ -39,6 +39,7 @@ public class GamePanel extends JPanel implements Runnable {
     public MainCharacterTV tvGuy = new MainCharacterTV(this, keyH); //Main character
     public StaticObject obj[] = new StaticObject[20]; //array of objects such as power ups, puddles and key cards
     public  monsterEntity monster[] = new monsterEntity[10]; //array of enemies
+    public int powerUpTimer = 0;
 
     //Game States
     public int gameState;
@@ -133,6 +134,9 @@ public class GamePanel extends JPanel implements Runnable {
         if(gameState == playState){
             tvGuy.update();
             tvGuy.life -= 0.05;
+            powerUpTimer++;
+            System.out.println(powerUpTimer);
+            aSetter.objectUpdate();
 
             for(int i = 0;i<monster.length;i++){
                 if(monster[i]!=null){
