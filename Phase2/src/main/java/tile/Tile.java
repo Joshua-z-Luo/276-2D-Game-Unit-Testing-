@@ -1,7 +1,6 @@
 package tile;
 
 import Entities.Entity;
-
 import java.awt.image.BufferedImage;
 
 /**

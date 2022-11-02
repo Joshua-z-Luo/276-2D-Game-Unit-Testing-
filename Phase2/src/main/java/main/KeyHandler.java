@@ -2,11 +2,10 @@ package main;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.security.Key;
 
 /**
  * Class that will take input from the keyboard and move the character accordingly
- * @author Connor, Hayato
+ * @author Connor, Hayato, Rose, Joshua
  */
 public class KeyHandler implements KeyListener {
 
@@ -32,7 +31,8 @@ public class KeyHandler implements KeyListener {
 
     /**
      * Checks which key was pressed and sets the variable accordingly so the character will move
-     * @param e KeyEvent Entities.object that contains the key that was pressed
+     * Also checks what keys have been in the main menu or the win/lose screen
+     * @param e KeyEvent object that contains the key that was pressed
      */
     @Override
     public void keyPressed(KeyEvent e) {
@@ -92,6 +92,10 @@ public class KeyHandler implements KeyListener {
         }
     }
 
+    /**
+     * Checks if the key was released
+     * @param e KeyEvent object that contains the key that was pressed
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
@@ -110,6 +114,10 @@ public class KeyHandler implements KeyListener {
         }
     }
 
+    /**
+     * Implements the functionality for the lose screen, so you can cycle through the options
+     * @param code KeyEvent object that contains the key that was pressed
+     */
     public void loseState(int code) {
         if(code == KeyEvent.VK_W) {
             gp.ui.commandNum--;
@@ -135,6 +143,11 @@ public class KeyHandler implements KeyListener {
         }
 
     }
+
+    /**
+     * Implements the functionality for the win screen, so you can cycle through the options
+     * @param code KeyEvent object that contains the key that was pressed
+     */
     public void winState(int code) {
         if(code == KeyEvent.VK_W) {
             gp.ui.commandNum--;

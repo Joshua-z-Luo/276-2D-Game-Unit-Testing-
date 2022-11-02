@@ -6,7 +6,7 @@ import Entities.StaticObject;
 
 /**
  * This class checks the characters' position on the map and sees if it is touching any tiles that you should not walk through
- * @author Connor
+ * @author Connor, Hayato, Rose, Joshua
  */
 public class CollisionChecker {
     GamePanel gp;
@@ -117,6 +117,13 @@ public class CollisionChecker {
 
 
     }
+
+    /**
+     * Checks if the the moving entity is hitting anything
+     * @param mobile the given entity that will be checked
+     * @param player if true then that means that the moving object is the character
+     * @return index of the object that was collided with
+     */
     public int checkObject(MovingObject mobile, boolean player){
         int index = 999;
 
@@ -185,6 +192,12 @@ public class CollisionChecker {
         return index;
     }
 
+    /**
+     * Checks the moving entity (usually the main character) and if it has collided with another moving object such as an enemy
+     * @param mobile The moving entity that is being checked
+     * @param target The other entity that has been collided with
+     * @return Index of the moving entity that was collided with
+     */
     public int checkEntity(MovingObject mobile, MovingObject[] target){
         int index = 999;
 
@@ -248,6 +261,11 @@ public class CollisionChecker {
         }
         return index;
     }
+
+    /**
+     * Checks if another moving entity (enemy) has collided with the main character
+     * @param mobile The enemy being checked if it has collided with the main character
+     */
     public void checkPlayer(MovingObject mobile){
 
         //Get MainCharacter.Entity's solid area position
