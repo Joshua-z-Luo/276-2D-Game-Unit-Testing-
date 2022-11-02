@@ -52,7 +52,7 @@ public class MainCharacterTV extends MovingObject {
         x = 100;
         y = 100;
         speed = 4;
-
+        keyCardCount = 0;
         //how much we will move in the next update
         direction = "down";
         directionX = 0;
