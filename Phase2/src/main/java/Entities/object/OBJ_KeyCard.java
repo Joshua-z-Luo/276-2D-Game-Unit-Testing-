@@ -19,7 +19,7 @@ public class OBJ_KeyCard extends StaticObject {
      */
     public OBJ_KeyCard(){
         name = "KeyCard";
-        solidArea = new Rectangle(8,16, 32, 32);
+        solidArea = new Rectangle(0,48, 48, 48);
 
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
