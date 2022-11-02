@@ -37,7 +37,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     public UI ui = new UI(this); //UI manager
     public MainCharacterTV tvGuy = new MainCharacterTV(this, keyH); //Main character
-    public StaticObject obj[] = new StaticObject[10]; //array of objects such as power ups, puddles and key cards
+    public StaticObject obj[] = new StaticObject[20]; //array of objects such as power ups, puddles and key cards
     public  monsterEntity monster[] = new monsterEntity[10]; //array of enemies
 
     //Game States
