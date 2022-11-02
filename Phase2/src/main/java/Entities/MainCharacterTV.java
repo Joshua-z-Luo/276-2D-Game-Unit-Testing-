@@ -117,7 +117,7 @@ public class MainCharacterTV extends MovingObject {
             int objIndex = gp.cChecker.checkObject(this, true);
 
            //if objIndex is the index of door and has collected the keycard, then
-           //show win screen
+           //show win screen & reset keycard count to 0 to replay
             if(objIndex == 7){
                 if(keyCardCount == 3){
                     gp.gameState = gp.winState;
