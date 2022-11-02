@@ -20,7 +20,9 @@ public class OBJ_Battery extends StaticObject {
      */
     public OBJ_Battery(){
         name = "Battery";
-        solidArea = new Rectangle(8,16, 32, 32);
+
+        //using 48 right now, but should be using gp.tileSize
+        solidArea = new Rectangle(0, 48, 48, 48);
 
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;

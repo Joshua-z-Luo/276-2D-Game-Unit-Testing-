@@ -11,6 +11,7 @@ import java.awt.*;
  */
 public class StaticObject extends Entity{
     public String name;
+
     /**
      * Draws the image of the static object
      * @param g2 Graphics object used to draw

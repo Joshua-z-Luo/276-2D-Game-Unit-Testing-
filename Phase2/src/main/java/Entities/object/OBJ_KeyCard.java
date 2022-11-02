@@ -1,6 +1,7 @@
 package Entities.object;
 
 import Entities.StaticObject;
+import main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -17,10 +18,14 @@ public class OBJ_KeyCard extends StaticObject {
         solidAreaDefaultY = solidArea.y;
 
         try{
-            image = ImageIO.read(new File("src/Sprites/temporaryKeyCard.png"));
+            image = ImageIO.read(new File("src/Sprites/keycard.png"));
         }catch(IOException e){
             e.printStackTrace();
         }
+    }
+
+    public void draw(Graphics2D g2, GamePanel gp){
+        g2.drawImage(image, x, y, gp.imageEntityWidth, gp.imageEntityHeight, null);
     }
 
 }

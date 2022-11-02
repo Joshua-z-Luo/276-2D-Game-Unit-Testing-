@@ -14,6 +14,8 @@ public class Entity {
     public int solidAreaDefaultX,solidAreaDefaultY;
     public boolean collisionOn = false;
 
+
+    //some things like maxlife and life should not be in entity class
     public double maxLife;
     public double life; //currently player has about 33 seconds of life
 }
