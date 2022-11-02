@@ -87,6 +87,9 @@ public class KeyHandler implements KeyListener {
         if(gp.gameState == gp.loseState) {
             loseState(code);
         }
+        if(gp.gameState == gp.winState) {
+            winState(code);
+        }
     }
 
     @Override
@@ -108,6 +111,31 @@ public class KeyHandler implements KeyListener {
     }
 
     public void loseState(int code) {
+        if(code == KeyEvent.VK_W) {
+            gp.ui.commandNum--;
+            if(gp.ui.commandNum < 0) {
+                gp.ui.commandNum = 1;
+            }
+        }
+        if(code == KeyEvent.VK_S) {
+            gp.ui.commandNum++;
+            if(gp.ui.commandNum > 1) {
+                gp.ui.commandNum = 0;
+            }
+        }
+        if(code == KeyEvent.VK_ENTER) {
+            if(gp.ui.commandNum == 0) {
+                gp.gameState = gp.playState;
+                gp.retry();
+            }
+            else if(gp.ui.commandNum == 1) {
+                gp.gameState = gp.titleState;
+                gp.restart();
+            }
+        }
+
+    }
+    public void winState(int code) {
         if(code == KeyEvent.VK_W) {
             gp.ui.commandNum--;
             if(gp.ui.commandNum < 0) {
