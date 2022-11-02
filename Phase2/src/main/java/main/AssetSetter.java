@@ -53,7 +53,7 @@ public class AssetSetter {
         gp.obj[8].x = 450;
         gp.obj[8].y = 650;
 
-<<<<<<< HEAD
+
         gp.obj[9] = new OBJ_KeyCard();
         gp.obj[9].x = 750;
         gp.obj[9].y = 350;
@@ -61,19 +61,18 @@ public class AssetSetter {
         gp.obj[10] = new OBJ_KeyCard();
         gp.obj[10].x = 750;
         gp.obj[10].y = 150;
-=======
-        gp.obj[9] = new OBJ_Battery();
-        gp.obj[9].x = 50;
-        gp.obj[9].y = 700;
 
-        gp.obj[10] = new OBJ_Puddle();
-        gp.obj[10].x = 1050;
-        gp.obj[10].y = 550;
+        gp.obj[11] = new OBJ_Battery();
+        gp.obj[11].x = 50;
+        gp.obj[11].y = 700;
 
-        gp.obj[11] = new OBJ_Puddle();
-        gp.obj[11].x = 955;
-        gp.obj[11].y = 250;
->>>>>>> 3560f3bdca5db6a9c8c4d8c383440e43a25a4bff
+        gp.obj[12] = new OBJ_Puddle();
+        gp.obj[12].x = 1050;
+        gp.obj[12].y = 550;
+
+        gp.obj[13] = new OBJ_Puddle();
+        gp.obj[13].x = 955;
+        gp.obj[13].y = 250;
     }
 
     /**

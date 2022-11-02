@@ -119,7 +119,7 @@ public class MainCharacterTV extends MovingObject {
            //if objIndex is the index of door and has collected the keycard, then
            //show win screen
             if(objIndex == 7){
-                if(keyCardCount==3){
+                if(keyCardCount == 3){
                     gp.gameState = gp.winState;
                 }
             }
