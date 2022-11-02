@@ -122,6 +122,9 @@ public class MainCharacterTV extends MovingObject {
                 if(keyCardCount == 3){
                     gp.gameState = gp.winState;
                 }
+                if(keyCardCount == 3 && gp.gameState == gp.winState){
+                    keyCardCount = 0;
+                }
             }
             //check for the other objects
             else{
