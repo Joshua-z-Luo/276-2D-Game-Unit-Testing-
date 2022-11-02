@@ -8,18 +8,17 @@ import Entities.object.OBJ_Puddle;
 
 /**
  * AssetSetter class that will take care of initiating static/moving objects needed in the game window.
- * @author Hayato
+ * @author Hayato, Connor, Rose, Joshua
  */
 public class AssetSetter {
     GamePanel gp;
 
     /**
      * Constructor of AssetSetter that takes GamePanel as a parameter
-     * @param gp
+     * @param gp the GamePanel object that is the main game window
      */
     public AssetSetter(GamePanel gp){
         this.gp = gp;
-
     }
 
     /**
@@ -35,7 +34,7 @@ public class AssetSetter {
 
         gp.obj[4] = new OBJ_Battery();
         gp.obj[4].x = 600;
-        gp.obj[4].y = 200;
+        gp.obj[4].y = 150;
 
         gp.obj[5] = new OBJ_Battery();
         gp.obj[5].x = 650;
@@ -53,6 +52,36 @@ public class AssetSetter {
         gp.obj[8] = new OBJ_KeyCard();
         gp.obj[8].x = 450;
         gp.obj[8].y = 650;
+
+        gp.obj[9] = new OBJ_KeyCard();
+        gp.obj[9].x = 750;
+        gp.obj[9].y = 350;
+
+        gp.obj[10] = new OBJ_KeyCard();
+        gp.obj[10].x = 750;
+        gp.obj[10].y = 150;
+
+        gp.obj[11] = new OBJ_Battery();
+        gp.obj[11].x = 50;
+        gp.obj[11].y = 700;
+
+        gp.obj[12] = new OBJ_Battery();
+        gp.obj[12].x = 50;
+        gp.obj[12].y = 700;
+
+
+        gp.obj[13] = new OBJ_Puddle();
+        gp.obj[13].x = 1050;
+        gp.obj[13].y = 550;
+
+        gp.obj[14] = new OBJ_Puddle();
+        gp.obj[14].x = 955;
+        gp.obj[14].y = 250;
+
+        gp.obj[15] = new OBJ_Puddle();
+        gp.obj[15].x = 955;
+        gp.obj[15].y = 250;
+
     }
 
     /**
@@ -70,6 +99,10 @@ public class AssetSetter {
         gp.monster[2] = new MON_ScrewDude(gp);
         gp.monster[2].x = 350;
         gp.monster[2].y = 100;
+
+        gp.monster[3] = new MON_ScrewDude(gp);
+        gp.monster[3].x = 1000;
+        gp.monster[3].y = 350;
 
     }
 }

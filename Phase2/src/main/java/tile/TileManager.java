@@ -8,7 +8,7 @@ import java.io.*;
 /**
  * Will manage the map and all the tiles it will contain.
  * Can load a map through a .txt file
- * @author Connor
+ * @author Connor, Joshua
  */
 public class TileManager {
     GamePanel gp;

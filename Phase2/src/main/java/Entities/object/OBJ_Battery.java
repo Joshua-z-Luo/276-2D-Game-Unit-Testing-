@@ -2,7 +2,6 @@ package Entities.object;
 
 import Entities.StaticObject;
 import main.GamePanel;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
@@ -16,7 +15,8 @@ import java.io.IOException;
 public class OBJ_Battery extends StaticObject {
 
     /**
-     *
+     * Constructor for the battery power up entity
+     * Sets up size of the hit box and the sprite it will use
      */
     public OBJ_Battery(){
         name = "Battery";
@@ -34,6 +34,11 @@ public class OBJ_Battery extends StaticObject {
         }
     }
 
+    /**
+     * Draws the battery object
+     * @param g2 Graphics object used to draw
+     * @param gp The game panel where the drawing will go
+     */
     public void draw(Graphics2D g2, GamePanel gp){
         g2.drawImage(image, x, y, gp.imageEntityWidth, gp.imageEntityHeight, null);
     }
