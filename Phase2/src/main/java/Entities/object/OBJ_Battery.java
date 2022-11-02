@@ -1,11 +1,14 @@
 package Entities.object;
 
 import Entities.StaticObject;
+import main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
 
 /**
  * The battery class that draws and updates the battery
@@ -28,5 +31,9 @@ public class OBJ_Battery extends StaticObject {
         }catch(IOException e){
             e.printStackTrace();
         }
+    }
+
+    public void draw(Graphics2D g2, GamePanel gp){
+        g2.drawImage(image, x, y, gp.entityWidth, gp.entityHeight, null);
     }
 }
