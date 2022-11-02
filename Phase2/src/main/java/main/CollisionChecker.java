@@ -262,6 +262,7 @@ public class CollisionChecker {
                 mobile.solidArea.y -= mobile.speed;
                 if(mobile.solidArea.intersects(gp.tvGuy.solidArea)){
                     System.out.println("up collision???");
+                    gp.tvGuy.life = 0;
 //                    if(gp.tvGuy!=mobile){
                         mobile.collisionOn=true;
 //                    }
@@ -271,6 +272,7 @@ public class CollisionChecker {
                 mobile.solidArea.y += mobile.speed;
                 if(mobile.solidArea.intersects(gp.tvGuy.solidArea)){
                     System.out.println("down collision???");
+                    gp.tvGuy.life = 0;
 //                    if(gp.tvGuy!=mobile){
                         mobile.collisionOn=true;
 //                    }
@@ -280,6 +282,7 @@ public class CollisionChecker {
                 mobile.solidArea.x -= mobile.speed;
                 if(mobile.solidArea.intersects(gp.tvGuy.solidArea)){
                     System.out.println("left collision???");
+                    gp.tvGuy.life = 0;
 //                    if(gp.tvGuy!=mobile){
                         mobile.collisionOn=true;
 //                    }
@@ -289,6 +292,7 @@ public class CollisionChecker {
                 mobile.solidArea.x += mobile.speed;
                 if(mobile.solidArea.intersects(gp.tvGuy.solidArea)){
                     System.out.println("right collision???");
+                    gp.tvGuy.life = 0;
 //                    if(gp.tvGuy!=mobile){
                         mobile.collisionOn=true;
 //                    }
