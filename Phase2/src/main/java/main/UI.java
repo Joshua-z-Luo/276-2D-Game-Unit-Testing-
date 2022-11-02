@@ -190,7 +190,7 @@ public class UI {
 
         x = gp.screenWidth/2 - (gp.tileSize*2)/2;
         y += gp.tileSize*2;
-        g2.drawImage(gp.tvGuy.walk, x, y, gp.entityWidth*2, gp.entityHeight*2, null);
+        g2.drawImage(gp.tvGuy.walk, x, y, gp.imageEntityWidth *2, gp.imageEntityHeight *2, null);
 
         //Menu
         g2.setFont(g2.getFont().deriveFont(Font.BOLD,48F));

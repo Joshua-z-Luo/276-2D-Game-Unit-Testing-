@@ -5,7 +5,6 @@ import Entities.object.OBJ_KeyCard;
 import Entities.object.OBJ_Puddle;
 import main.GamePanel;
 import main.KeyHandler;
-import main.Main;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -195,6 +194,6 @@ public class MainCharacterTV extends MovingObject {
                 break;
 
         }
-        g2.drawImage(image, x, y, gp.entityWidth, gp.entityHeight, null);
+        g2.drawImage(image, x, y, gp.imageEntityWidth, gp.imageEntityHeight, null);
     }
 }

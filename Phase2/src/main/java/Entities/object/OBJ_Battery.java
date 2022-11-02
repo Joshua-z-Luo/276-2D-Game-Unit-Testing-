@@ -5,7 +5,6 @@ import main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -34,6 +33,6 @@ public class OBJ_Battery extends StaticObject {
     }
 
     public void draw(Graphics2D g2, GamePanel gp){
-        g2.drawImage(image, x, y, gp.entityWidth, gp.entityHeight, null);
+        g2.drawImage(image, x, y, gp.imageEntityWidth, gp.imageEntityHeight, null);
     }
 }

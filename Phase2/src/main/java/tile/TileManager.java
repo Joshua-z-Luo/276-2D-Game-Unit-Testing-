@@ -101,7 +101,7 @@ public class TileManager {
             // so for example if we have a hitbox of one pixel in the y axis, and our picture is 3 pixel in the y axis
             // on default we just draw the hitbox in the middle, so at the second pixel
             if(tile[tileNum].collision){
-                g2.drawImage(tile[tileNum].image, x, y-(gp.entityHeight/2), gp.entityWidth, gp.entityHeight, null);
+                g2.drawImage(tile[tileNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
             }else {
                 g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
             }
