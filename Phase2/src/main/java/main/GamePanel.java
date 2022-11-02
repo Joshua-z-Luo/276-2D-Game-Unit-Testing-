@@ -73,8 +73,7 @@ public class GamePanel extends JPanel implements Runnable {
      * Restores the game state like when the game was first opened. ie. everything is back in its original position
      */
     public void retry() {
-        tvGuy.setDefaultPosition();
-        tvGuy.restoreLife();
+        tvGuy.setDefaultValues();
         aSetter.setObject();
         aSetter.setMonster();
     }
@@ -83,7 +82,6 @@ public class GamePanel extends JPanel implements Runnable {
      * Restores the game state like when the game was first opened. ie. everything is back in its original position
      */
     public void restart() {
-        tvGuy.setDefaultPosition();
         tvGuy.setDefaultValues();
         aSetter.setObject();
         aSetter.setMonster();
