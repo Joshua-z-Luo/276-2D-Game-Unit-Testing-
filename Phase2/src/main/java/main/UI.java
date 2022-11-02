@@ -126,7 +126,7 @@ public class UI {
         g2.drawString(text,x,y);
         // retry
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
-        text = "retry";
+        text = "RETRY";
         x = getXForCenteredText(text);
         y += gp.tileSize*4;
         g2.drawString(text,x,y);
@@ -135,7 +135,7 @@ public class UI {
         }
         // quit
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
-        text = "quit";
+        text = "QUIT";
         x = getXForCenteredText(text);
         y += 55;
         g2.drawString(text,x,y);
@@ -158,7 +158,7 @@ public class UI {
 
         // continue
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
-        text = "continue [currently retry method until levels implemented]";
+        text = "CONTINUE [currently retry method until levels implemented]";
         x = getXForCenteredText(text);
         y += gp.tileSize*4;
         g2.drawString(text,x,y);
@@ -168,7 +168,7 @@ public class UI {
 
         // quit
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
-        text = "quit";
+        text = "QUIT";
         x = getXForCenteredText(text);
         y += 55;
         g2.drawString(text,x,y);
