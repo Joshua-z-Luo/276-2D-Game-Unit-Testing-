@@ -19,6 +19,8 @@ public class MainCharacterTV extends MovingObject {
     GamePanel gp;
     KeyHandler keyH;
     Boolean hasKeyCard;
+
+    public int keyCardCount;
     public double maxLife;
     public double life;
 
@@ -31,6 +33,7 @@ public class MainCharacterTV extends MovingObject {
         this.gp = gp;
         this.keyH = keyH;
         hasKeyCard = false;
+        keyCardCount = 0;
 
         //because we start at top left of screen and we are saying hitbox start at bottom left of entity
         solidArea = new Rectangle(0, 0, gp.tileSize, gp.tileSize);
@@ -116,7 +119,7 @@ public class MainCharacterTV extends MovingObject {
            //if objIndex is the index of door and has collected the keycard, then
            //show win screen
             if(objIndex == 7){
-                if(hasKeyCard){
+                if(keyCardCount==3){
                     gp.gameState = gp.winState;
                 }
             }
@@ -160,7 +163,8 @@ public class MainCharacterTV extends MovingObject {
         else if(index != 999 && gp.obj[index].getClass().equals(OBJ_KeyCard.class)){
             System.out.println("You got a key");
             gp.obj[index] = null;
-            this.hasKeyCard = true;
+            this.keyCardCount++;
+//            this.hasKeyCard = true;
         }
     }
 
