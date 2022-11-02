@@ -22,15 +22,29 @@ public class AssetSetter {
     }
 
     /**
-     * get all the static object items(battery, puddle) ready when setting up the game so that they appear when the game is opened
+     * Takes away the power ups every "240 ticks" and after "500 ticks" the power ups reappear
      */
-    public void setObject(){
+    public void objectUpdate(){
+        if(gp.powerUpTimer > 240) {
+            gp.obj[3] = null;
+            gp.obj[4] = null;
+            gp.obj[5] = null;
+            gp.obj[11] = null;
+            gp.obj[12] = null;
+        }
+        if(gp.powerUpTimer > 500){
+            gp.powerUpTimer = 0;
+            setPowerUps();
+        }
+    }
 
-        //screwDude is subClass of SuperObject, so we can instantiate them like this
+    /**
+     * sets up the power ups on the map
+     */
+    public void setPowerUps(){
         gp.obj[3] = new OBJ_Battery();
         gp.obj[3].x = 200;
         gp.obj[3].y = 450;
-
 
         gp.obj[4] = new OBJ_Battery();
         gp.obj[4].x = 600;
@@ -39,6 +53,23 @@ public class AssetSetter {
         gp.obj[5] = new OBJ_Battery();
         gp.obj[5].x = 650;
         gp.obj[5].y = 500;
+
+        gp.obj[11] = new OBJ_Battery();
+        gp.obj[11].x = 50;
+        gp.obj[11].y = 700;
+
+        gp.obj[12] = new OBJ_Battery();
+        gp.obj[12].x = 50;
+        gp.obj[12].y = 700;
+    }
+
+    /**
+     * get all the static object items(battery, puddle) ready when setting up the game so that they appear when the game is opened
+     */
+    public void setObject(){
+
+        //screwDude is subClass of SuperObject, so we can instantiate them like this
+        setPowerUps();
 
         gp.obj[6] = new OBJ_Puddle();
         gp.obj[6].x = 650;
@@ -60,14 +91,6 @@ public class AssetSetter {
         gp.obj[10] = new OBJ_KeyCard();
         gp.obj[10].x = 750;
         gp.obj[10].y = 150;
-
-        gp.obj[11] = new OBJ_Battery();
-        gp.obj[11].x = 50;
-        gp.obj[11].y = 700;
-
-        gp.obj[12] = new OBJ_Battery();
-        gp.obj[12].x = 50;
-        gp.obj[12].y = 700;
 
 
         gp.obj[13] = new OBJ_Puddle();
