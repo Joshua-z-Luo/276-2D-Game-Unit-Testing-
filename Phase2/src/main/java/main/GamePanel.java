@@ -42,6 +42,7 @@ public class GamePanel extends JPanel implements Runnable {
     public StaticObject obj[] = new StaticObject[20];
     public  monsterEntity monster[] = new monsterEntity[10];
     public int powerUpTimer = 0;
+    public int level = 0;
 
     //Game State
     public int gameState;
@@ -50,6 +51,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final int pauseState = 2;
     public final int loseState = 3;
     public final int winState = 4;
+    public final int levelUpState = 5;
 
 
     /**
@@ -77,6 +79,7 @@ public class GamePanel extends JPanel implements Runnable {
      * Used when in the lose screen menu
      */
     public void retry() {
+        wallM.loadMap();
         tvGuy.setDefaultPosition();
         tvGuy.setDefaultValues();
         tvGuy.restoreLife();
@@ -89,6 +92,8 @@ public class GamePanel extends JPanel implements Runnable {
      * Used in the win screen menu
      */
     public void restart() {
+        level = 0;
+        wallM.loadMap();
         tvGuy.setDefaultPosition();
         tvGuy.setDefaultValues();
         aSetter.setObject();

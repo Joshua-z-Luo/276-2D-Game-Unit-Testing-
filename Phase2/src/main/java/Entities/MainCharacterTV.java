@@ -160,11 +160,11 @@ public class MainCharacterTV extends MovingObject {
             //**UPDATE** when TVGuy touches battery his life gets increased by 30 so 10ish seconds
         }
         else if(index != 999 && gp.obj[index].getClass().equals(OBJ_Puddle.class)){
-            System.out.println("You walked into a trap!");
+//            System.out.println("You walked into a trap!");
             life = 0;
         }
         else if(index != 999 && gp.obj[index].getClass().equals(OBJ_KeyCard.class)){
-            System.out.println("You got a key");
+//            System.out.println("You got a key");
             gp.obj[index] = null;
             this.keyCardCount++;
         }
@@ -176,7 +176,7 @@ public class MainCharacterTV extends MovingObject {
      */
     public void interactMonster(int i){
         if(i != 999){
-            System.out.println("You are hitting a monster");
+//            System.out.println("You are hitting a monster");
             life = 0;
         }
     }

@@ -9,11 +9,19 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Class that will handle the wall and their hitboxes
+ * @author Joshua
+ */
 public class WallManager{
     GamePanel gp;
     public Wall[] wall;
     public int mapWallNum[][];
 
+    /**
+     * Constructor for the WallManager that takes in the Game Panel
+     * @param gp Game Panel the holds the game
+     */
     public WallManager(GamePanel gp){
         this.gp = gp;
 
@@ -42,12 +50,17 @@ public class WallManager{
     }
 
     /**
-     * Loads the map from a text file and draws it using the tiles it has stored.
-     * Will account for different tiles based on the integer given in the text file
+     * Loads the walls from a text file and draws it using the walls it has stored.
      */
     public void loadMap(){
         try{
-            File is = new File("src/Maps/wallMap.txt");
+            File is;
+            if(gp.level == 0) {
+                is = new File("src/Maps/map1.txt");
+            }
+            else{
+                is = new File("src/Maps/map2.txt");
+            }
             BufferedReader br = new BufferedReader(new FileReader(is));
 
             int col = 0;
@@ -76,8 +89,8 @@ public class WallManager{
     }
 
     /**
-     * Draws the map onto the game panel
-     * @param g2 Graphics2D Entities.object from the game panel
+     * Draws the walls onto the game panel
+     * @param g2 Graphics2D object from the game panel
      */
     public void draw(Graphics2D g2){
 

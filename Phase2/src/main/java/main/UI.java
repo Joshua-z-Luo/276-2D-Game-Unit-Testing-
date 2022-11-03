@@ -111,7 +111,7 @@ public class UI {
         // YOU LOSE
         g2.setColor(Color.black);
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
-        String text = "YOU LOSE";
+        String text = "YOU DIED";
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
         g2.drawString(text,x,y);
@@ -141,23 +141,34 @@ public class UI {
         g2.setColor(new Color(40, 190, 90)); //if you want a coloured title scren
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
         g2.setColor(Color.black);
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
-        String text = "YOU WIN";
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 75F));
+        String text;
+        if(gp.level == 0) {
+           text = "YOU ESCAPED THIS LEVEL!";
+        }
+        else{
+            text = "YOU ESCAPED THE LAB!";
+        }
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
         g2.drawString(text,x,y);
 
         // continue
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
-        text = "CONTINUE [currently retry method until levels implemented]";
-        x = getXForCenteredText(text);
-        y += gp.tileSize*4;
-        g2.drawString(text,x,y);
-        if(commandNum == 0) {
-            g2.drawString(">", x-40, y);
+        if(gp.level == 0) {
+            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+            text = "CONTINUE TO NEXT LEVEL";
+            x = getXForCenteredText(text);
+            y += gp.tileSize * 4;
+            g2.drawString(text, x, y);
+            if (commandNum == 0) {
+                g2.drawString(">", x - 40, y);
+            }
         }
 
         // quit
+        if(gp.level != 0){
+            commandNum = 1;
+        }
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
         text = "QUIT";
         x = getXForCenteredText(text);
