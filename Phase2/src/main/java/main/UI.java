@@ -143,15 +143,22 @@ public class UI {
         g2.setColor(Color.black);
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 75F));
         String text;
+        String text2 = "Score: " + gp.tvGuy.score;
         if(gp.level == 0) {
            text = "YOU ESCAPED THIS LEVEL!";
         }
         else{
             text = "YOU ESCAPED THE LAB!";
+            text2 = "Total Score: " + gp.tvGuy.score;
         }
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
         g2.drawString(text,x,y);
+
+
+        x = getXForCenteredText(text2);
+        y += gp.tileSize * 2;
+        g2.drawString(text2,x,y);
 
         // continue
         if(gp.level == 0) {

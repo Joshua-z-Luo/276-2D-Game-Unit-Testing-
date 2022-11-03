@@ -161,7 +161,6 @@ public class CollisionChecker {
                     case "up":
                         mobile.solidArea.y -= mobile.speed;
                         if(mobile.solidArea.intersects(target[i].solidArea)){
-//                            System.out.println("up collision!!!");
                             if(target[i]!=mobile){
                                 mobile.collisionOn=true;
                                 index = i;
@@ -171,7 +170,6 @@ public class CollisionChecker {
                     case "down":
                         mobile.solidArea.y += mobile.speed;
                         if(mobile.solidArea.intersects(target[i].solidArea)){
-//                            System.out.println("down collision!!!");
                             if(target[i]!=mobile){
                                 mobile.collisionOn=true;
                                 index = i;
@@ -181,7 +179,6 @@ public class CollisionChecker {
                     case "left":
                         mobile.solidArea.x -= mobile.speed;
                         if(mobile.solidArea.intersects(target[i].solidArea)){
-//                            System.out.println("left collision!!!");
                             if(target[i]!=mobile){
                                 mobile.collisionOn=true;
                                 index = i;
@@ -191,7 +188,6 @@ public class CollisionChecker {
                     case "right":
                         mobile.solidArea.x += mobile.speed;
                         if(mobile.solidArea.intersects(target[i].solidArea)){
-//                            System.out.println("right collision!!!");
                             if(target[i]!=mobile){
                                 mobile.collisionOn=true;
                                 index = i;
@@ -228,7 +224,6 @@ public class CollisionChecker {
             case "down":
                 mobile.solidArea.y += mobile.speed;
                 if(mobile.solidArea.intersects(gp.tvGuy.solidArea)){
-                    System.out.println("down collision???");
                     gp.tvGuy.life = 0;
                     mobile.collisionOn=true;
                 }
@@ -244,7 +239,6 @@ public class CollisionChecker {
             case "right":
                 mobile.solidArea.x += mobile.speed;
                 if(mobile.solidArea.intersects(gp.tvGuy.solidArea)){
-                    System.out.println("right collision???");
                     gp.tvGuy.life = 0;
                     mobile.collisionOn=true;
                 }

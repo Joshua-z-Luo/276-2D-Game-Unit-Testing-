@@ -4,7 +4,7 @@ import Entities.MainCharacterTV;
 import Entities.StaticObject;
 import Entities.monster.monsterEntity;
 import Entities.wall.WallManager;
-import tile.TileManager;
+import Entities.tile.TileManager;
 import javax.swing.*;
 import java.awt.*;
 
@@ -13,14 +13,14 @@ import java.awt.*;
  * @author Connor, Hayato, Rose, Joshua
  */
 public class GamePanel extends JPanel implements Runnable {
-    final int originalTileSize = 16; //16x16 tile
+    final int originalTileSize = 16; //16x16 Entities.tile
 
     final int originalEntityWidth = 16; //16x32 entity
 
     final int originalEntityHeight = 32; //16x32 entity
     public final int scale = 3;
 
-    public final int tileSize = originalTileSize * scale; //48x48 tile
+    public final int tileSize = originalTileSize * scale; //48x48 Entities.tile
 
     public final int imageEntityWidth = originalEntityWidth * scale;
 
@@ -51,7 +51,6 @@ public class GamePanel extends JPanel implements Runnable {
     public final int pauseState = 2;
     public final int loseState = 3;
     public final int winState = 4;
-    public final int levelUpState = 5;
 
 
     /**
@@ -72,11 +71,13 @@ public class GamePanel extends JPanel implements Runnable {
         gameState = titleState;
         aSetter.setObject();
         aSetter.setMonster();
+        wallM.loadMap();
+        tileM.loadMap();
     }
 
     /**
      * Resets everything to be like the game was just opened
-     * Used when in the lose screen menu
+     * Only after you die
      */
     public void retry() {
         wallM.loadMap();
@@ -88,11 +89,10 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     /**
-     * Resets everything to be like the game was just opened
-     * Used in the win screen menu
+     * Loads the next level
+     *
      */
     public void restart() {
-        level = 0;
         wallM.loadMap();
         tvGuy.setDefaultPosition();
         tvGuy.setDefaultValues();
@@ -109,7 +109,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     /**
-     * Overriding the run method to update and re-tile the map if needed as well as make the game run in 60FPS
+     * Overriding the run method to update and re-Entities.tile the map if needed as well as make the game run in 60FPS
      */
     @Override
     public void run(){

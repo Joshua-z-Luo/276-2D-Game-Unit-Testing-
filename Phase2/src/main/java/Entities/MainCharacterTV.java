@@ -23,6 +23,7 @@ public class MainCharacterTV extends MovingObject {
     public int keyCardCount;
     public double maxLife;
     public double life;
+    public int score = 0;
 
     /**
      * Constructor that will take in the game panel and a key handler as well as set the size of the collision box
@@ -48,8 +49,8 @@ public class MainCharacterTV extends MovingObject {
      * Sets the default values for the main character such as position and speed and as well as direction
      */
     public void setDefaultValues(){
-        x = 100;
-        y = 100;
+        x = 75;
+        y = 50;
         speed = 4;
         keyCardCount = 0;
         //how much we will move in the next update
@@ -59,14 +60,15 @@ public class MainCharacterTV extends MovingObject {
 
         maxLife = 100.0;
         life = maxLife;
+
     }
 
     /**
      * Sets the default location of entities and their direction
      */
     public void setDefaultPosition() {
-        x = 100;
-        y = 100;
+        x = 75;
+        y = 50;
         //how much we will move in the next update
         direction = "down";
     }
@@ -91,10 +93,9 @@ public class MainCharacterTV extends MovingObject {
 
     /**
      * Checks if a key was pressed and updates accordingly of which direction the character should move on screen
-     * Also will check if there has been a collision with a solid tile
+     * Also will check if there has been a collision with a solid Entities.tile
      */
     public void update() {
-        System.out.println(keyCardCount);
         if(life <= 0){
             gp.gameState = gp.loseState;
         }
@@ -157,6 +158,10 @@ public class MainCharacterTV extends MovingObject {
         if(index != 999 && gp.obj[index].getClass().equals(OBJ_Battery.class)){
             gp.obj[index] = null;
             life += 30;
+            if(life > maxLife){
+                life = maxLife;
+            }
+            score += 100;
             //**UPDATE** when TVGuy touches battery his life gets increased by 30 so 10ish seconds
         }
         else if(index != 999 && gp.obj[index].getClass().equals(OBJ_Puddle.class)){

@@ -32,7 +32,7 @@ public class WallManager{
     }
 
     /**
-     * Initializes the used tiles from the images and sets if the tile can be collided with
+     * Initializes the used tiles from the images and sets if the Entities.tile can be collided with
      */
     public void getWallImage(){
         try{

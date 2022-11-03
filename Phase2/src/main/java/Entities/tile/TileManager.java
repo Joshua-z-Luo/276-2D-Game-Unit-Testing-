@@ -1,4 +1,4 @@
-package tile;
+package Entities.tile;
 
 import main.GamePanel;
 import javax.imageio.ImageIO;
@@ -29,7 +29,7 @@ public class TileManager {
     }
 
     /**
-     * Initializes the used tiles from the images and sets if the tile can be collided with
+     * Initializes the used tiles from the images and sets if the Entities.tile can be collided with
      */
     public void getTileImage(){
         try{
@@ -50,7 +50,13 @@ public class TileManager {
      */
     public void loadMap(){
         try{
-            File is = new File("src/Maps/map1.txt");
+            File is;
+            if(gp.level == 0) {
+                is = new File("src/Maps/map1.txt");
+            }
+            else{
+                is  = new File("src/Maps/map2.txt");
+            }
             BufferedReader br = new BufferedReader(new FileReader(is));
 
 
@@ -99,10 +105,10 @@ public class TileManager {
             // on default we just draw the hitbox in the middle, so at the second pixel
             g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
 
-            //if(tile[tileNum].collision){
-            //    g2.drawImage(tile[tileNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
+            //if(Entities.tile[tileNum].collision){
+            //    g2.drawImage(Entities.tile[tileNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
             //}else {
-            //    g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
+            //    g2.drawImage(Entities.tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
             //}
 
             col++;
