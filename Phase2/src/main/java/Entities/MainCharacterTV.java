@@ -94,6 +94,7 @@ public class MainCharacterTV extends MovingObject {
      * Also will check if there has been a collision with a solid tile
      */
     public void update() {
+        System.out.println(keyCardCount);
         if(life <= 0){
             gp.gameState = gp.loseState;
         }

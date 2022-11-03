@@ -104,7 +104,7 @@ public class TileManager {
             //}else {
             //    g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
             //}
-            
+
             col++;
             x += gp.tileSize;
 

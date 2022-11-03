@@ -78,6 +78,7 @@ public class GamePanel extends JPanel implements Runnable {
      */
     public void retry() {
         tvGuy.setDefaultPosition();
+        tvGuy.setDefaultValues();
         tvGuy.restoreLife();
         aSetter.setObject();
         aSetter.setMonster();

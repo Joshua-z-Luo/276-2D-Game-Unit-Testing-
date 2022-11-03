@@ -72,27 +72,27 @@ public class AssetSetter {
         setPowerUps();
 
         gp.obj[5] = new OBJ_Puddle();
-        gp.obj[5].x = 650;
+        gp.obj[5].x = 675;
         gp.obj[5].y = 150;
 
-        gp.obj[6] = new OBJ_Door();
-        gp.obj[6].x = 1050;
-        gp.obj[6].y = 750;
+        gp.obj[7] = new OBJ_Door();
+        gp.obj[7].x = 1050;
+        gp.obj[7].y = 750;
 
         //key card
-        gp.obj[7] = new OBJ_KeyCard();
-        gp.obj[7].x = 450;
-        gp.obj[7].y = 650;
+        gp.obj[6] = new OBJ_KeyCard();
+        gp.obj[6].x = 450;
+        gp.obj[6].y = 650;
 
         gp.obj[8] = new OBJ_KeyCard();
         gp.obj[8].x = 800;
         gp.obj[8].y = 600;
 
         gp.obj[9] = new OBJ_KeyCard();
-        gp.obj[9].x = 800;
-        gp.obj[9].y = 150;
+        gp.obj[9].x = 675;
+        gp.obj[9].y = 50;
 
-
+        //Traps
         gp.obj[10] = new OBJ_Puddle();
         gp.obj[10].x = 1050;
         gp.obj[10].y = 550;
@@ -102,8 +102,20 @@ public class AssetSetter {
         gp.obj[11].y = 250;
 
         gp.obj[12] = new OBJ_Puddle();
-        gp.obj[12].x = 955;
-        gp.obj[12].y = 250;
+        gp.obj[12].x = 100;
+        gp.obj[12].y = 50;
+
+        gp.obj[13] = new OBJ_Puddle();
+        gp.obj[13].x = 400;
+        gp.obj[13].y = 100;
+
+        gp.obj[14] = new OBJ_Puddle();
+        gp.obj[14].x = 50;
+        gp.obj[14].y = 635;
+
+        gp.obj[15] = new OBJ_Puddle();
+        gp.obj[15].x = 955;
+        gp.obj[15].y = 250;
 
     }
 
@@ -126,6 +138,10 @@ public class AssetSetter {
         gp.monster[3] = new MON_ScrewDude(gp);
         gp.monster[3].x = 1000;
         gp.monster[3].y = 350;
+
+        gp.monster[4] = new MON_ScrewDude(gp);
+        gp.monster[4].x = 450;
+        gp.monster[4].y = 650;
 
     }
 }
