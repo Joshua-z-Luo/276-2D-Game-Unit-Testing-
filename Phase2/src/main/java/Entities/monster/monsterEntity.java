@@ -17,7 +17,6 @@ public class monsterEntity extends MovingObject {
 //    public int speed;
     public int maxLife;
     public int life;
-
     public String name;
 
 //    public String direction;

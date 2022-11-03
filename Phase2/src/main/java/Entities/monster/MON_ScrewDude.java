@@ -1,8 +1,6 @@
 package Entities.monster;
 
-//import MainCharacter.Mobile;
 import main.GamePanel;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
@@ -19,7 +17,7 @@ public class MON_ScrewDude extends monsterEntity {
 
     /**
      * Constructor for initiating the screwDude.
-     * @param gp
+     * @param gp Game Panel that holds the game
      */
     public MON_ScrewDude(GamePanel gp){
         super(gp);
@@ -45,7 +43,7 @@ public class MON_ScrewDude extends monsterEntity {
     }
 
     /**
-     * sets the drawing of the screwdude
+     * Draws the moving enemy
      */
     public void setMonsterImage(){
         try{
@@ -76,7 +74,7 @@ public class MON_ScrewDude extends monsterEntity {
     //set Entities.monster's behaviour
 
     /**
-     * defines how the screwdude will move randomly.
+     * Implements how the enemy moves
      */
     public void setAction(){
         actionLockCounter ++;

@@ -1,12 +1,10 @@
 package main;
 
-import Entities.Entity;
 import Entities.MovingObject;
-import Entities.StaticObject;
 
 /**
  * This class checks the characters' position on the map and sees if it is touching any tiles that you should not walk through
- * @author Connor
+ * @author Connor, Hayato, Rose, Joshua
  */
 public class CollisionChecker {
     GamePanel gp;
@@ -23,9 +21,6 @@ public class CollisionChecker {
      * This will check the tiles the character is on and make sure the character will not walk through walls or blocked areas
      * @param character The character that will be checked. Could be enemy or main character
      */
-
-
-
     public void checkWall(MovingObject character){
         int characterLeftX = character.x + character.solidArea.x;
         int characterRightX = character.x + character.solidArea.x + character.solidArea.width;
@@ -76,6 +71,12 @@ public class CollisionChecker {
 
     }
 
+    /**
+     * Checks if a moving entity (enemy) has collided with anything
+     * @param mobile The enemy being checked
+     * @param player True if the player is being hit
+     * @return Index of the enemy in the monster array
+     */
     public int checkObject(MovingObject mobile, boolean player){
         int index = 999;
 
@@ -220,11 +221,8 @@ public class CollisionChecker {
             case "up":
                 mobile.solidArea.y -= mobile.speed;
                 if(mobile.solidArea.intersects(gp.tvGuy.solidArea)){
-                    System.out.println("up collision???");
                     gp.tvGuy.life = 0;
-//                    if(gp.tvGuy!=mobile){
-                        mobile.collisionOn=true;
-//                    }
+                    mobile.collisionOn=true;
                 }
                 break;
             case "down":
@@ -232,19 +230,15 @@ public class CollisionChecker {
                 if(mobile.solidArea.intersects(gp.tvGuy.solidArea)){
                     System.out.println("down collision???");
                     gp.tvGuy.life = 0;
-//                    if(gp.tvGuy!=mobile){
-                        mobile.collisionOn=true;
-//                    }
+                    mobile.collisionOn=true;
                 }
                 break;
             case "left":
                 mobile.solidArea.x -= mobile.speed;
                 if(mobile.solidArea.intersects(gp.tvGuy.solidArea)){
-                    System.out.println("left collision???");
                     gp.tvGuy.life = 0;
-//                    if(gp.tvGuy!=mobile){
-                        mobile.collisionOn=true;
-//                    }
+                    mobile.collisionOn=true;
+
                 }
                 break;
             case "right":
@@ -252,9 +246,7 @@ public class CollisionChecker {
                 if(mobile.solidArea.intersects(gp.tvGuy.solidArea)){
                     System.out.println("right collision???");
                     gp.tvGuy.life = 0;
-//                    if(gp.tvGuy!=mobile){
-                        mobile.collisionOn=true;
-//                    }
+                    mobile.collisionOn=true;
                 }
                 break;
         }

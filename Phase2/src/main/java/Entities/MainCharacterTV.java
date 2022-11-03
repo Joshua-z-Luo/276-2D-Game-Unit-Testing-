@@ -32,7 +32,6 @@ public class MainCharacterTV extends MovingObject {
     public MainCharacterTV(GamePanel gp, KeyHandler keyH){
         this.gp = gp;
         this.keyH = keyH;
-        hasKeyCard = false;
         keyCardCount = 0;
 
         //because we start at top left of screen and we are saying hitbox start at bottom left of entity
@@ -167,7 +166,6 @@ public class MainCharacterTV extends MovingObject {
             System.out.println("You got a key");
             gp.obj[index] = null;
             this.keyCardCount++;
-//            this.hasKeyCard = true;
         }
     }
 

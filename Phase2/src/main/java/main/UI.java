@@ -2,7 +2,6 @@ package main;
 
 import Entities.StaticObject;
 import Entities.object.OBJ_Life;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.text.DecimalFormat;
@@ -44,14 +43,6 @@ public class UI {
         battery_full = battery.image5;
         battery_dead = battery.image6;
     }
-//
-//    /**
-//     * @param text
-//     */
-//    public void showMessage(String text){
-//        message = text;
-//        messageOn = true;
-//    }
 
     /**
      * draws the UI of the game
@@ -236,8 +227,8 @@ public class UI {
 
     /**
      * gets the x coordinate of the text "Pause"
-     * @param text
-     * @return int (x coordinate of the text "Pause"
+     * @param text The given text that will be written
+     * @return int (x coordinate of the text) where the text will be centered
      */
     public int getXForCenteredText(String text){
         int length = (int)g2.getFontMetrics().getStringBounds(text,g2).getWidth();

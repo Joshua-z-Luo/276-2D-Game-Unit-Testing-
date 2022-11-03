@@ -7,7 +7,6 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-
 /**
  * The battery class that draws and updates the battery
  * @author Hayato

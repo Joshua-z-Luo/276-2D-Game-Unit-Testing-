@@ -10,7 +10,7 @@ import java.awt.*;
 
 /**
  * This class is where the main logic will go such as how the game will continually run and will update what is currently on screen.
- * @author Connor, Hayato
+ * @author Connor, Hayato, Rose, Joshua
  */
 public class GamePanel extends JPanel implements Runnable {
     final int originalTileSize = 16; //16x16 tile
@@ -25,13 +25,12 @@ public class GamePanel extends JPanel implements Runnable {
     public final int imageEntityWidth = originalEntityWidth * scale;
 
     public final int imageEntityHeight = originalEntityHeight * scale;
-    public final int maxScreenCol = 24; // 16
-    public final int maxScreenRow = 18; // 12
+    public final int maxScreenCol = 24; // 16 original
+    public final int maxScreenRow = 18; // 12 original
     public final int screenWidth = tileSize * maxScreenCol; //768 pixels make it 1920 if fullscreen
     public final int screenHeight = tileSize * maxScreenRow; //576 pixels make it 1080 if fullscreen
 
     TileManager tileM = new TileManager(this);
-
     WallManager wallM = new WallManager(this);
     KeyHandler keyH = new KeyHandler(this);
     Thread gameThread;
@@ -73,6 +72,10 @@ public class GamePanel extends JPanel implements Runnable {
         aSetter.setMonster();
     }
 
+    /**
+     * Resets everything to be like the game was just opened
+     * Used when in the lose screen menu
+     */
     public void retry() {
         tvGuy.setDefaultPosition();
         tvGuy.restoreLife();
@@ -80,6 +83,10 @@ public class GamePanel extends JPanel implements Runnable {
         aSetter.setMonster();
     }
 
+    /**
+     * Resets everything to be like the game was just opened
+     * Used in the win screen menu
+     */
     public void restart() {
         tvGuy.setDefaultPosition();
         tvGuy.setDefaultValues();
@@ -150,7 +157,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     /**
      * Used to draw the entities such as the main character, enemies, map, and rewards
-     * @param g Graphics Entities.object that will be turned into a Graphics2D Entities.object
+     * @param g Graphics object that will be turned into a Graphics2D object
      */
     public void paintComponent(Graphics g) {
 
@@ -184,10 +191,7 @@ public class GamePanel extends JPanel implements Runnable {
             //UI
             ui.draw(g2);
 
-
             g2.dispose();
         }
     }
-
-
 }

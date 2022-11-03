@@ -1,7 +1,6 @@
 package Entities.object;
 
 import Entities.StaticObject;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
@@ -9,6 +8,7 @@ import java.io.IOException;
 
 /**
  * Puddle object that acts as a trap for the main character
+ * If main character touches it, the game will end
  * @author Connor
  */
 public class OBJ_Puddle extends StaticObject {

@@ -22,7 +22,7 @@ public class KeyHandler implements KeyListener {
 
     /**
      * Not used but needed as key listener is an interface
-     * @param e the event to be processed
+     * @param e the key event to be processed
      */
     @Override
     public void keyTyped(KeyEvent e) {
