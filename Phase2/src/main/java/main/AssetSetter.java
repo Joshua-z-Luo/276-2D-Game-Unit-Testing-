@@ -116,8 +116,8 @@ public class AssetSetter {
             gp.obj[11].x = 955;
             gp.obj[11].y = 250;
 
-            gp.obj[12].x = 100;
-            gp.obj[12].y = 50;
+            gp.obj[12].x = 125;
+            gp.obj[12].y = 10;
 
             gp.obj[13].x = 400;
             gp.obj[13].y = 100;

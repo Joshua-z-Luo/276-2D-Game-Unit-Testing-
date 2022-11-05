@@ -1,6 +1,8 @@
 package Entities.object;
 
 import Entities.StaticObject;
+import main.GamePanel;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
@@ -19,15 +21,19 @@ public class OBJ_Puddle extends StaticObject {
      */
     public OBJ_Puddle() {
         name = "Puddle";
-        solidArea = new Rectangle(8, 16, 32, 32);
+        solidArea = new Rectangle(8, 16+48, 32, 32);
         collisionOn = true;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
 
         try {
-            image = ImageIO.read(new File("src/Sprites/puddle.png"));
+            image = ImageIO.read(new File("src/Sprites/hole.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void draw(Graphics2D g2, GamePanel gp){
+        g2.drawImage(image, x, y, gp.imageEntityWidth, gp.imageEntityHeight, null);
     }
 }
