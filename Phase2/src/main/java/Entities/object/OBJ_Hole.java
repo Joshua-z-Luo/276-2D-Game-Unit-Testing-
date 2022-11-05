@@ -13,13 +13,13 @@ import java.io.IOException;
  * If main character touches it, the game will end
  * @author Connor
  */
-public class OBJ_Puddle extends StaticObject {
+public class OBJ_Hole extends StaticObject {
 
     /**
      * Constructor for the Puddle trap
      * Sets up size of the hit box and the sprite it will use
      */
-    public OBJ_Puddle() {
+    public OBJ_Hole() {
         name = "Puddle";
         solidArea = new Rectangle(8, 16+48, 32, 32);
         collisionOn = true;
