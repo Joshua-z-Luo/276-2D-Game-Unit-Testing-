@@ -2,7 +2,7 @@ package Entities;
 
 import Entities.object.OBJ_Battery;
 import Entities.object.OBJ_KeyCard;
-import Entities.object.OBJ_Puddle;
+import Entities.object.OBJ_Hole;
 import main.GamePanel;
 import main.KeyHandler;
 import javax.imageio.ImageIO;
@@ -164,7 +164,7 @@ public class MainCharacterTV extends MovingObject {
             score += 100;
             //**UPDATE** when TVGuy touches battery his life gets increased by 30 so 10ish seconds
         }
-        else if(index != 999 && gp.obj[index].getClass().equals(OBJ_Puddle.class)){
+        else if(index != 999 && gp.obj[index].getClass().equals(OBJ_Hole.class)){
 //            System.out.println("You walked into a trap!");
             life = 0;
         }
