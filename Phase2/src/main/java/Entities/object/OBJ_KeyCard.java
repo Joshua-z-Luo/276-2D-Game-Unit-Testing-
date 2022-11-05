@@ -40,4 +40,6 @@ public class OBJ_KeyCard extends StaticObject {
         g2.drawImage(image, x, y, gp.imageEntityWidth, gp.imageEntityHeight, null);
     }
 
+
+
 }

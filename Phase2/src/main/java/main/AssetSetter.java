@@ -80,7 +80,7 @@ public class AssetSetter {
         //Door
         gp.obj[7] = new OBJ_Door();
         gp.obj[7].x = 1050;
-        gp.obj[7].y = 750;
+        gp.obj[7].y = 700;
 
         //key card
         gp.obj[6] = new OBJ_KeyCard();
