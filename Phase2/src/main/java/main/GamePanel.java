@@ -28,7 +28,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     public final int originalHealthImageSize = 64;
 
-    public final int healthImageSize = 64 * scale;
+    public final int healthImageSize = 64 * 2;
     public final int maxScreenCol = 24; // 16 original
     public final int maxScreenRow = 18; // 12 original
     public final int screenWidth = tileSize * maxScreenCol; //768 pixels make it 1920 if fullscreen
