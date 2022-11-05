@@ -22,11 +22,11 @@ public class OBJ_Life extends StaticObject {
         name = "Health";
 
         try{
-            image = ImageIO.read(new File("src/Sprites/lowBattery.png"));
-            image2 = ImageIO.read(new File("src/Sprites/quartBattery.png"));
-            image3 = ImageIO.read(new File("src/Sprites/halfBattery.png"));
-            image4 = ImageIO.read(new File("src/Sprites/3quartBattery.png"));
-            image5 = ImageIO.read(new File("src/Sprites/fullBattery.png"));
+            image = ImageIO.read(new File("src/Sprites/battery1hp.png"));
+            image2 = ImageIO.read(new File("src/Sprites/battery2hp.png"));
+            image3 = ImageIO.read(new File("src/Sprites/battery3hp.png"));
+            image4 = ImageIO.read(new File("src/Sprites/battery4hp.png"));
+            image5 = ImageIO.read(new File("src/Sprites/battery5hp.png"));
             image6 = ImageIO.read(new File("src/Sprites/deadBattery.png"));
 
 

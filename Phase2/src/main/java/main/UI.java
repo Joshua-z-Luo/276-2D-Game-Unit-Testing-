@@ -83,22 +83,22 @@ public class UI {
 
 
         if(gp.tvGuy.life >= 80){
-            g2.drawImage(battery_full, x, y, null);
+            g2.drawImage(battery_full, x, y, gp.healthImageSize, gp.healthImageSize, null);
         }
         else if(gp.tvGuy.life < 80 && gp.tvGuy.life >= 60){
-            g2.drawImage(battery_3quart, x, y, null);
+            g2.drawImage(battery_3quart, x, y, gp.healthImageSize, gp.healthImageSize, null);
         }
         else if(gp.tvGuy.life < 60 && gp.tvGuy.life >= 40){
-            g2.drawImage(battery_half, x, y, null);
+            g2.drawImage(battery_half, x, y, gp.healthImageSize, gp.healthImageSize, null);
         }
         else if(gp.tvGuy.life < 40 && gp.tvGuy.life >= 20){
-            g2.drawImage(battery_quart, x, y, null);
+            g2.drawImage(battery_quart, x, y, gp.healthImageSize, gp.healthImageSize, null);
         }
         else if(gp.tvGuy.life < 20 && gp.tvGuy.life > 0){
-            g2.drawImage(battery_low, x, y, null);
+            g2.drawImage(battery_low, x, y, gp.healthImageSize, gp.healthImageSize, null);
         }
         else{
-            g2.drawImage(battery_dead, x, y, null);
+            g2.drawImage(battery_dead, x, y, gp.healthImageSize, gp.healthImageSize, null);
         }
     }
 
