@@ -197,6 +197,9 @@ public class AssetSetter {
         gp.monster[3] = new MON_ScrewDude(gp);
         gp.monster[4] = new MON_ScrewDude(gp);
         if(gp.level == 0){
+            if(gp.monster[5] != null){
+                gp.monster[5] = null;
+            }
             gp.monster[0].x = 150;
             gp.monster[0].y = 150;
 
