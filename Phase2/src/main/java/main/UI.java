@@ -155,9 +155,8 @@ public class UI {
             text2 = "Total Score: " + gp.tvGuy.score;
         }
         int x = getXForCenteredText(text);
-        int y = gp.screenHeight/2;
+        int y = gp.screenHeight/3;
         g2.drawString(text,x,y);
-
 
         x = getXForCenteredText(text2);
         y += gp.tileSize * 2;
