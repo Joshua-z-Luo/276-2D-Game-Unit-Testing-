@@ -14,7 +14,7 @@ public class UI {
     GamePanel gp;
     Graphics2D g2;
     Font arial_40, arial_80B;
-    BufferedImage battery_low, battery_quart, battery_half, battery_3quart, battery_full, battery_dead;
+    BufferedImage battery_low, battery_quart, battery_half, battery_3quart, battery_full;
     public int commandNum = 0;
 
     /**
@@ -32,7 +32,6 @@ public class UI {
         battery_half = battery.image3;
         battery_3quart = battery.image4;
         battery_full = battery.image5;
-        battery_dead = battery.image6;
     }
 
     /**
@@ -99,9 +98,6 @@ public class UI {
         }
         else if(gp.tvGuy.life < 20 && gp.tvGuy.life > 0){
             g2.drawImage(battery_low, x, y, gp.healthImageSize, gp.healthImageSize, null);
-        }
-        else{
-            g2.drawImage(battery_dead, x, y, gp.healthImageSize, gp.healthImageSize, null);
         }
     }
 
