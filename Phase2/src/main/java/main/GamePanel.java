@@ -97,6 +97,7 @@ public class GamePanel extends JPanel implements Runnable {
      *
      */
     public void restart() {
+        level = 0;
         wallM.loadMap();
         tvGuy.setDefaultPosition();
         tvGuy.setDefaultValues();
