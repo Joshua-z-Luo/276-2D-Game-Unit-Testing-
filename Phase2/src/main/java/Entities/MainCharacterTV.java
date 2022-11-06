@@ -73,6 +73,10 @@ public class MainCharacterTV extends MovingObject {
         direction = "down";
     }
 
+    public void collectReward(){
+        life += 30;
+    }
+
     /**
      * Restores the life of the main character to full
      */
@@ -157,7 +161,7 @@ public class MainCharacterTV extends MovingObject {
     public void pickUpObject(int index){
         if(index != 999 && gp.obj[index].getClass().equals(OBJ_Battery.class)){
             gp.obj[index] = null;
-            life += 30;
+            collectReward();
             if(life > maxLife){
                 life = maxLife;
             }
