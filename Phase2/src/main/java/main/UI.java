@@ -43,6 +43,11 @@ public class UI {
         battery_dead = battery.image6;
     }
 
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of UI
+     */
     public static UI instance(GamePanel gp){
         if (ui == null) {
             ui = new UI(gp);

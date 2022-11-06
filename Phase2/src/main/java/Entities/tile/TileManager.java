@@ -29,6 +29,11 @@ public class TileManager {
         loadMap();
     }
 
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of TileManager
+     */
     public static TileManager instance(GamePanel gp){
         if (tileManager == null){
             tileManager = new TileManager(gp);

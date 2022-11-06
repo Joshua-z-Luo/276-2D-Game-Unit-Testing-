@@ -18,6 +18,11 @@ public class CollisionChecker {
         this.gp = gp;
     }
 
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of CollisionChecker
+     */
     public static CollisionChecker instance(GamePanel gp){
         if(collisionChecker == null){
             collisionChecker = new CollisionChecker(gp);

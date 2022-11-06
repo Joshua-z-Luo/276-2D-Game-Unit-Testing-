@@ -71,6 +71,10 @@ public class GamePanel extends JPanel implements Runnable {
         this.setFocusable(true);
     }
 
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @return the single instance of GamePanel
+     */
     public static GamePanel instance(){
         if (gameWindow == null){
             gameWindow = new GamePanel();

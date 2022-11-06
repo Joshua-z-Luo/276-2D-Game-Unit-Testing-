@@ -46,6 +46,13 @@ public class MainCharacterTV extends MovingObject {
         getPlayerImage();
     }
 
+    /**
+     *
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @param keyH key handler associated with the game panel
+     * @return the single instance of MainCharacterTV
+     */
     public static MainCharacterTV instance(GamePanel gp, KeyHandler keyH){
         if(tvGuy == null){
             tvGuy = new MainCharacterTV(gp, keyH);

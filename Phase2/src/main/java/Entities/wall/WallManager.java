@@ -32,6 +32,11 @@ public class WallManager{
         loadMap();
     }
 
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of WallManager
+     */
     public static WallManager instance(GamePanel gp){
         if (wallManager == null){
             wallManager = new WallManager(gp);

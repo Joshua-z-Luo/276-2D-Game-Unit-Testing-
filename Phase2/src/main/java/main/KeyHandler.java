@@ -21,6 +21,11 @@ public class KeyHandler implements KeyListener {
         this.gp = gp;
     }
 
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of KeyHandler
+     */
     public static KeyHandler instance(GamePanel gp){
         if(keyHandler == null){
             keyHandler = new KeyHandler(gp);

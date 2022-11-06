@@ -22,6 +22,11 @@ public class AssetSetter {
         this.gp = gp;
     }
 
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of AssetSetter
+     */
     public static AssetSetter instance(GamePanel gp){
         if(assetSetter == null){
             assetSetter = new AssetSetter(gp);
