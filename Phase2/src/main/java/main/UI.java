@@ -4,33 +4,24 @@ import Entities.StaticObject;
 import Entities.object.OBJ_Life;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.text.DecimalFormat;
 
 /**
  * UI class that takes care of UI part of this game.
  * @author Hayato, Connor, Rose, Joshua
  */
 public class UI {
-
+    private static UI ui = null;
     GamePanel gp;
-
     Graphics2D g2;
     Font arial_40, arial_80B;
     BufferedImage battery_low, battery_quart, battery_half, battery_3quart, battery_full, battery_dead;
-    public boolean messageOn = false;
-    public String message = "";
-    int messageCounter = 0;
-    public boolean gameFinished = false;
-
-    double playTime;
-    DecimalFormat dFormat = new DecimalFormat("#0.00");
     public int commandNum = 0;
 
     /**
      * Constructor that defines the font used in the game as well as showing the player's life with a battery image
      * @param gp The game panel object that holds the game
      */
-    public UI(GamePanel gp){
+    protected UI(GamePanel gp){
         this.gp = gp;
         arial_40 = new Font("Arial",Font.PLAIN,40 );
         arial_80B = new Font("Arial",Font.BOLD,80 );
@@ -42,6 +33,18 @@ public class UI {
         battery_3quart = battery.image4;
         battery_full = battery.image5;
         battery_dead = battery.image6;
+    }
+
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of UI
+     */
+    public static UI instance(GamePanel gp){
+        if (ui == null) {
+            ui = new UI(gp);
+        }
+        return ui;
     }
 
     /**
@@ -141,7 +144,7 @@ public class UI {
         g2.setColor(new Color(40, 190, 90)); //if you want a coloured title scren
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
         g2.setColor(Color.black);
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 75F));
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 70F));
         String text;
         String text2 = "Score: " + gp.tvGuy.score;
         if(gp.level == 0) {
@@ -152,9 +155,8 @@ public class UI {
             text2 = "Total Score: " + gp.tvGuy.score;
         }
         int x = getXForCenteredText(text);
-        int y = gp.screenHeight/2;
+        int y = gp.screenHeight/3;
         g2.drawString(text,x,y);
-
 
         x = getXForCenteredText(text2);
         y += gp.tileSize * 2;

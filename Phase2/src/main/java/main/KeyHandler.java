@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
  */
 public class KeyHandler implements KeyListener {
 
+    private static KeyHandler keyHandler = null;
     GamePanel gp;
     public boolean upPressed, downPressed, leftPressed, rightPressed;
 
@@ -16,8 +17,20 @@ public class KeyHandler implements KeyListener {
      * Constructor that takes the main game panel
      * @param gp Main game panel that will be associated with this key handler
      */
-    public KeyHandler(GamePanel gp){
+    protected KeyHandler(GamePanel gp){
         this.gp = gp;
+    }
+
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of KeyHandler
+     */
+    public static KeyHandler instance(GamePanel gp){
+        if(keyHandler == null){
+            keyHandler = new KeyHandler(gp);
+        }
+        return keyHandler;
     }
 
     /**

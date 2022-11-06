@@ -16,6 +16,7 @@ import java.io.IOException;
  * @author Connor, Hayato, Rose, Joshua
  */
 public class MainCharacterTV extends MovingObject {
+    private static MainCharacterTV tvGuy = null;
     GamePanel gp;
     KeyHandler keyH;
     Boolean hasKeyCard;
@@ -30,7 +31,7 @@ public class MainCharacterTV extends MovingObject {
      * @param gp The main game panel
      * @param keyH key handler associated with the game panel
      */
-    public MainCharacterTV(GamePanel gp, KeyHandler keyH){
+    protected MainCharacterTV(GamePanel gp, KeyHandler keyH){
         this.gp = gp;
         this.keyH = keyH;
         keyCardCount = 0;
@@ -43,6 +44,20 @@ public class MainCharacterTV extends MovingObject {
 
         setDefaultValues();
         getPlayerImage();
+    }
+
+    /**
+     *
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @param keyH key handler associated with the game panel
+     * @return the single instance of MainCharacterTV
+     */
+    public static MainCharacterTV instance(GamePanel gp, KeyHandler keyH){
+        if(tvGuy == null){
+            tvGuy = new MainCharacterTV(gp, keyH);
+        }
+        return tvGuy;
     }
 
     /**

@@ -11,6 +11,7 @@ import java.io.*;
  * @author Connor, Joshua
  */
 public class TileManager {
+    private static TileManager tileManager = null;
     GamePanel gp;
     public Tile[] tile;
     public int mapTileNum[][];
@@ -19,13 +20,25 @@ public class TileManager {
      * Constructor that will initialize the necessary variables such as an array containing the tiles
      * @param gp The main game panel containing the game
      */
-    public TileManager(GamePanel gp){
+    protected TileManager(GamePanel gp){
         this.gp = gp;
 
         tile = new Tile[10];
         mapTileNum = new int[gp.maxScreenCol][gp.maxScreenRow];
         getTileImage();
         loadMap();
+    }
+
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of TileManager
+     */
+    public static TileManager instance(GamePanel gp){
+        if (tileManager == null){
+            tileManager = new TileManager(gp);
+        }
+        return tileManager;
     }
 
     /**
@@ -104,12 +117,6 @@ public class TileManager {
             // so for example if we have a hitbox of one pixel in the y axis, and our picture is 3 pixel in the y axis
             // on default we just draw the hitbox in the middle, so at the second pixel
             g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
-
-            //if(Entities.tile[tileNum].collision){
-            //    g2.drawImage(Entities.tile[tileNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
-            //}else {
-            //    g2.drawImage(Entities.tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
-            //}
 
             col++;
             x += gp.tileSize;

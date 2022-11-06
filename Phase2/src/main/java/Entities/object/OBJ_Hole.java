@@ -2,25 +2,24 @@ package Entities.object;
 
 import Entities.StaticObject;
 import main.GamePanel;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
 /**
- * Puddle object that acts as a trap for the main character
+ * Hole object that acts as a trap for the main character
  * If main character touches it, the game will end
  * @author Connor
  */
 public class OBJ_Hole extends StaticObject {
 
     /**
-     * Constructor for the Puddle trap
+     * Constructor for the Hole trap
      * Sets up size of the hit box and the sprite it will use
      */
     public OBJ_Hole() {
-        name = "Puddle";
+        name = "Hole";
         solidArea = new Rectangle(8, 16+48, 32, 32);
         collisionOn = true;
         solidAreaDefaultX = solidArea.x;

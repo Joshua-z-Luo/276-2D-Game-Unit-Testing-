@@ -14,6 +14,7 @@ import java.io.IOException;
  * @author Joshua
  */
 public class WallManager{
+    private static WallManager wallManager = null;
     GamePanel gp;
     public Wall[] wall;
     public int mapWallNum[][];
@@ -22,13 +23,25 @@ public class WallManager{
      * Constructor for the WallManager that takes in the Game Panel
      * @param gp Game Panel the holds the game
      */
-    public WallManager(GamePanel gp){
+    protected WallManager(GamePanel gp){
         this.gp = gp;
 
         wall = new Wall[10];
         mapWallNum = new int[gp.maxScreenCol][gp.maxScreenRow];
         getWallImage();
         loadMap();
+    }
+
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of WallManager
+     */
+    public static WallManager instance(GamePanel gp){
+        if (wallManager == null){
+            wallManager = new WallManager(gp);
+        }
+        return wallManager;
     }
 
     /**
