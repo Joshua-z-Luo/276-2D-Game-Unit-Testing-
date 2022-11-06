@@ -158,6 +158,7 @@ public class KeyHandler implements KeyListener {
         else {
             if (code == KeyEvent.VK_ENTER) {
                 gp.gameState = gp.titleState;
+                gp.level--;
                 gp.restart();
             }
         }
