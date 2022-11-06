@@ -190,13 +190,15 @@ public class GamePanel extends JPanel implements Runnable {
 
                 }
             }
+
+            tvGuy.draw(g2);
             //Monster
             for (int i = 0; i < monster.length; i++) {
                 if (monster[i] != null) {
                     monster[i].draw(g2, this);
                 }
             }
-            tvGuy.draw(g2);
+
 
             wallM.draw(g2);
             //UI
