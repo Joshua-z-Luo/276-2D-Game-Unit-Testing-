@@ -3,7 +3,6 @@ package main;
 import Entities.MainCharacterTV;
 import Entities.StaticObject;
 import Entities.monster.monsterEntity;
-import Entities.tile.Tile;
 import Entities.wall.WallManager;
 import Entities.tile.TileManager;
 import javax.swing.*;

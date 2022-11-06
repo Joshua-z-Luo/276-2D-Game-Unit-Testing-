@@ -4,7 +4,6 @@ import Entities.StaticObject;
 import Entities.object.OBJ_Life;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.text.DecimalFormat;
 
 /**
  * UI class that takes care of UI part of this game.
@@ -16,13 +15,6 @@ public class UI {
     Graphics2D g2;
     Font arial_40, arial_80B;
     BufferedImage battery_low, battery_quart, battery_half, battery_3quart, battery_full, battery_dead;
-//    public boolean messageOn = false;
-//    public String message = "";
-//    int messageCounter = 0;
-//    public boolean gameFinished = false;
-//
-//    double playTime;
-//    DecimalFormat dFormat = new DecimalFormat("#0.00");
     public int commandNum = 0;
 
     /**

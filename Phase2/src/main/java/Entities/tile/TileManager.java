@@ -118,12 +118,6 @@ public class TileManager {
             // on default we just draw the hitbox in the middle, so at the second pixel
             g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
 
-            //if(Entities.tile[tileNum].collision){
-            //    g2.drawImage(Entities.tile[tileNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
-            //}else {
-            //    g2.drawImage(Entities.tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
-            //}
-
             col++;
             x += gp.tileSize;
 
