@@ -92,6 +92,15 @@ public class AssetSetter {
         gp.obj[10] = new OBJ_Puddle();
         gp.obj[11] = new OBJ_Puddle();
         gp.obj[12] = new OBJ_Puddle();
+        gp.obj[5] = new OBJ_Puddle();
+        gp.obj[10] = new OBJ_Puddle();
+        gp.obj[11] = new OBJ_Puddle();
+        gp.obj[12] = new OBJ_Puddle();
+        gp.obj[13] = new OBJ_Puddle();
+        gp.obj[14] = new OBJ_Puddle();
+        gp.obj[15] = new OBJ_Puddle();
+        gp.obj[17] = new OBJ_Puddle();
+
         gp.obj[13] = new OBJ_Puddle();
         gp.obj[14] = new OBJ_Puddle();
         gp.obj[15] = new OBJ_Puddle();
