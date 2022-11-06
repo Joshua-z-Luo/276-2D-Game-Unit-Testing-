@@ -80,23 +80,23 @@ public class MON_ScrewDude extends monsterEntity {
         actionLockCounter ++;
 
 
-        if(actionLockCounter==120){
+        if(actionLockCounter==60){
             Random random = new Random();
             int i  = random.nextInt(100)+1;//pick a number from 1 to 100
 
-            if(i <=25){
+            if(i <=25 && this.y>gp.tvGuy.y){
                 direction = "up";
 
             }
-            if(i>25 && i<=50){
+            if(i>25 && i<=50 && this.y<gp.tvGuy.y){
                 direction = "down";
 
             }
-            if(i > 50 && i <=75){
+            if(i > 50 && i <=75 && this.x>gp.tvGuy.x){
                 direction = "left";
 
             }
-            if(i > 75 && i <=100){
+            if(i > 75 && i <=100 && this.x<gp.tvGuy.x){
 
                 direction = "right";
             }
