@@ -114,23 +114,40 @@ public class UI {
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
         g2.drawString(text,x,y);
-        // retry
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
-        text = "RETRY";
-        x = getXForCenteredText(text);
-        y += gp.tileSize*4;
-        g2.drawString(text,x,y);
-        if(commandNum == 0) {
-            g2.drawString(">", x-40, y);
+        if(gp.retries > 0) {
+            // retry
+            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+            text = "RETRY: " + gp.retries + " attempts left to beat level!";
+            x = getXForCenteredText(text);
+            y += gp.tileSize * 4;
+            g2.drawString(text, x, y);
+            if (commandNum == 0) {
+                g2.drawString(">", x - 40, y);
+            }
+            // quit
+            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+            text = "QUIT";
+            x = getXForCenteredText(text);
+            y += 55;
+            g2.drawString(text, x, y);
+            if (commandNum == 1) {
+                g2.drawString(">", x - 40, y);
+            }
         }
-        // quit
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
-        text = "QUIT";
-        x = getXForCenteredText(text);
-        y += 55;
-        g2.drawString(text,x,y);
-        if(commandNum == 1) {
-            g2.drawString(">", x-40, y);
+        else {
+            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+            text = "NO RETRIES LEFT! GAME OVER";
+            x = getXForCenteredText(text);
+            y += gp.tileSize * 4;
+            g2.drawString(text, x, y);
+            // quit
+            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+            text = "RETURN TO MAIN MENU";
+            x = getXForCenteredText(text);
+            y += 55;
+            g2.drawString(text, x, y);
+            g2.drawString(">", x - 40, y);
+
         }
     }
     /**

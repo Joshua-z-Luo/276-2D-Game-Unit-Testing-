@@ -49,6 +49,7 @@ public class GamePanel extends JPanel implements Runnable {
     public  monsterEntity monster[] = new monsterEntity[10];
     public int powerUpTimer = 0;
     public int level = 0;
+    public int retries = 5;
 
     //Game State
     public int gameState;
@@ -97,6 +98,7 @@ public class GamePanel extends JPanel implements Runnable {
      * Only after you die
      */
     public void retry() {
+        retries--;
         wallM.loadMap();
         tvGuy.setDefaultPosition();
         tvGuy.setDefaultValues();
@@ -111,6 +113,7 @@ public class GamePanel extends JPanel implements Runnable {
      */
     public void restart() {
         level = 0;
+        retries = 5;
         wallM.loadMap();
         tvGuy.setDefaultPosition();
         tvGuy.setDefaultValues();
