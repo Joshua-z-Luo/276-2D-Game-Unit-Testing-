@@ -72,6 +72,10 @@ public class WallManager{
             wall[5].image = ImageIO.read(new File("src/Sprites/computer_wall.png"));
             wall[5].collision = true;
 
+            wall[6] = new Wall();
+            wall[6].image = ImageIO.read(new File("src/Sprites/mini_wall.png"));
+            wall[6].collision = true;
+
 
         }catch(IOException e){
             e.printStackTrace();
@@ -147,6 +151,8 @@ public class WallManager{
                 case 4:
                     g2.drawImage(wall[wallNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
                 case 5:
+                    g2.drawImage(wall[wallNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
+                case 6:
                     g2.drawImage(wall[wallNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
             }
 
