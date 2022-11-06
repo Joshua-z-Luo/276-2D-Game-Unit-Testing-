@@ -60,7 +60,7 @@ public class CollisionChecker {
                 characterBottomRow = (characterBottomY + character.speed)/gp.tileSize;
                 wallNum1 = gp.wallM.mapWallNum[characterLeftCol][characterBottomRow];
                 wallNum2 = gp.wallM.mapWallNum[characterRightCol][characterBottomRow];
-                if(gp.wallM.wall[wallNum1].collision|| gp.wallM.wall[wallNum2].collision){
+                if(gp.wallM.wall[wallNum1].collision || gp.wallM.wall[wallNum2].collision){
                     character.collisionOn = true;
                 }
             case "left":
