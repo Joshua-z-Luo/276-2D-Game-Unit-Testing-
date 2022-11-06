@@ -10,7 +10,7 @@ public class Main {
         window.setResizable(false);
         window.setTitle("TV Guy Escapes");
 
-        GamePanel gamePanel = new GamePanel();
+        GamePanel gamePanel = GamePanel.instance();
         window.add(gamePanel);
         window.pack();
 

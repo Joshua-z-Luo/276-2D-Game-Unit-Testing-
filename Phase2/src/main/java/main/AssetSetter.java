@@ -11,14 +11,22 @@ import Entities.object.OBJ_Hole;
  * @author Hayato, Connor, Rose, Joshua
  */
 public class AssetSetter {
+    private static AssetSetter assetSetter = null;
     GamePanel gp;
 
     /**
      * Constructor of AssetSetter that takes GamePanel as a parameter
      * @param gp the GamePanel object that is the main game window
      */
-    public AssetSetter(GamePanel gp){
+    protected AssetSetter(GamePanel gp){
         this.gp = gp;
+    }
+
+    public static AssetSetter instance(GamePanel gp){
+        if(assetSetter == null){
+            assetSetter = new AssetSetter(gp);
+        }
+        return assetSetter;
     }
 
     /**

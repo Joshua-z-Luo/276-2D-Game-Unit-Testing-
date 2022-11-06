@@ -3,6 +3,7 @@ package main;
 import Entities.MainCharacterTV;
 import Entities.StaticObject;
 import Entities.monster.monsterEntity;
+import Entities.tile.Tile;
 import Entities.wall.WallManager;
 import Entities.tile.TileManager;
 import javax.swing.*;
@@ -13,6 +14,8 @@ import java.awt.*;
  * @author Connor, Hayato, Rose, Joshua
  */
 public class GamePanel extends JPanel implements Runnable {
+    private static GamePanel gameWindow = null;
+
     final int originalTileSize = 16; //16x16 Entities.tile
 
     final int originalEntityWidth = 16; //16x32 entity
@@ -34,15 +37,15 @@ public class GamePanel extends JPanel implements Runnable {
     public final int screenWidth = tileSize * maxScreenCol; //768 pixels make it 1920 if fullscreen
     public final int screenHeight = tileSize * maxScreenRow; //576 pixels make it 1080 if fullscreen
 
-    TileManager tileM = new TileManager(this);
-    WallManager wallM = new WallManager(this);
-    KeyHandler keyH = new KeyHandler(this);
+    TileManager tileM = TileManager.instance(this);
+    WallManager wallM = WallManager.instance(this);
+    KeyHandler keyH = KeyHandler.instance(this);
     Thread gameThread;
-    public CollisionChecker cChecker = new CollisionChecker(this);
-    public AssetSetter aSetter = new AssetSetter(this);
+    public CollisionChecker cChecker = CollisionChecker.instance(this);
+    public AssetSetter aSetter = AssetSetter.instance(this);
 
-    public UI ui = new UI(this);
-    public MainCharacterTV tvGuy = new MainCharacterTV(this, keyH);
+    public UI ui = UI.instance(this);
+    public MainCharacterTV tvGuy = MainCharacterTV.instance(this, keyH);
     public StaticObject obj[] = new StaticObject[20];
     public  monsterEntity monster[] = new monsterEntity[10];
     public int powerUpTimer = 0;
@@ -60,12 +63,19 @@ public class GamePanel extends JPanel implements Runnable {
     /**
      * The constructor that will set the height and width of the window when it pops up as well as the background colour and also will add a key listener
      */
-    public GamePanel(){
+    protected GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight)); //setting the panel size
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+    }
+
+    public static GamePanel instance(){
+        if (gameWindow == null){
+            gameWindow = new GamePanel();
+        }
+        return gameWindow;
     }
 
     /**

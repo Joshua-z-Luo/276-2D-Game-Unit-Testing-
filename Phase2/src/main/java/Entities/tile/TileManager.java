@@ -11,6 +11,7 @@ import java.io.*;
  * @author Connor, Joshua
  */
 public class TileManager {
+    private static TileManager tileManager = null;
     GamePanel gp;
     public Tile[] tile;
     public int mapTileNum[][];
@@ -19,13 +20,20 @@ public class TileManager {
      * Constructor that will initialize the necessary variables such as an array containing the tiles
      * @param gp The main game panel containing the game
      */
-    public TileManager(GamePanel gp){
+    protected TileManager(GamePanel gp){
         this.gp = gp;
 
         tile = new Tile[10];
         mapTileNum = new int[gp.maxScreenCol][gp.maxScreenRow];
         getTileImage();
         loadMap();
+    }
+
+    public static TileManager instance(GamePanel gp){
+        if (tileManager == null){
+            tileManager = new TileManager(gp);
+        }
+        return tileManager;
     }
 
     /**
