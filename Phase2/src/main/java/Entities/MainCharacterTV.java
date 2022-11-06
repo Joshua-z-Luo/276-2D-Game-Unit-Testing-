@@ -37,7 +37,7 @@ public class MainCharacterTV extends MovingObject {
         keyCardCount = 0;
 
         //because we start at top left of screen and we are saying hitbox start at bottom left of entity
-        solidArea = new Rectangle(0,  gp.tileSize, gp.tileSize, gp.tileSize);
+        solidArea = new Rectangle(8,  gp.tileSize, 32, 32);
 
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
