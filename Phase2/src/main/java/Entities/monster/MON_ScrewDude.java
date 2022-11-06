@@ -82,23 +82,24 @@ public class MON_ScrewDude extends monsterEntity {
         if(actionLockCounter == 25){
             Random random = new Random();
             int i  = random.nextInt(100)+1;//pick a number from 1 to 100
-            if(collisionDetect!="up" && collisionDetect!="down"){
-                if(i <=25 && (this.y>gp.tvGuy.y || this.collisionOn)){
+
+            if(collisionDetect!="up" && collisionDetect!="down" && this.collisionOn){
+                if(i <=25 && (this.y>gp.tvGuy.y)){
                     direction = "up";
 
                 }
-                if(i>25 && i<=50 && (this.y<gp.tvGuy.y || this.collisionOn)){
+                if(i>25 && i<=50 && (this.y<gp.tvGuy.y)){
                     direction = "down";
 
                 }
             }
 
-            if(collisionDetect!="left" && collisionDetect!="right"){
-                if(i > 50 && i <=75 && (this.x>gp.tvGuy.x || this.collisionOn)){
+            if(collisionDetect!="left" && collisionDetect!="right" && this.collisionOn){
+                if(i > 50 && i <=75 && (this.x>gp.tvGuy.x)){
                     direction = "left";
 
                 }
-                if(i > 75 && i <=100 && (this.x<gp.tvGuy.x || this.collisionOn)){
+                if(i > 75 && i <=100 && (this.x<gp.tvGuy.x)){
                     direction = "right";
                 }
             }
