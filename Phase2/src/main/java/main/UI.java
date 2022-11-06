@@ -16,13 +16,13 @@ public class UI {
     Graphics2D g2;
     Font arial_40, arial_80B;
     BufferedImage battery_low, battery_quart, battery_half, battery_3quart, battery_full, battery_dead;
-    public boolean messageOn = false;
-    public String message = "";
-    int messageCounter = 0;
-    public boolean gameFinished = false;
-
-    double playTime;
-    DecimalFormat dFormat = new DecimalFormat("#0.00");
+//    public boolean messageOn = false;
+//    public String message = "";
+//    int messageCounter = 0;
+//    public boolean gameFinished = false;
+//
+//    double playTime;
+//    DecimalFormat dFormat = new DecimalFormat("#0.00");
     public int commandNum = 0;
 
     /**
@@ -152,7 +152,7 @@ public class UI {
         g2.setColor(new Color(40, 190, 90)); //if you want a coloured title scren
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
         g2.setColor(Color.black);
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 75F));
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 70F));
         String text;
         String text2 = "Score: " + gp.tvGuy.score;
         if(gp.level == 0) {
