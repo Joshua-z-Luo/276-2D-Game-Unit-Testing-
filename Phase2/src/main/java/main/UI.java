@@ -126,7 +126,7 @@ public class UI {
             }
             // quit
             g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
-            text = "QUIT";
+            text = "RETURN TO MAIN MENU";
             x = getXForCenteredText(text);
             y += 55;
             g2.drawString(text, x, y);
@@ -192,7 +192,8 @@ public class UI {
             commandNum = 1;
         }
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
-        text = "QUIT";
+        text = "RETURN TO MAIN MENU";
+
         x = getXForCenteredText(text);
         y += 55;
         g2.drawString(text,x,y);
