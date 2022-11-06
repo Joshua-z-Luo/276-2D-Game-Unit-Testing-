@@ -80,7 +80,7 @@ public class MON_ScrewDude extends monsterEntity {
         actionLockCounter ++;
 
 
-        if(actionLockCounter==60){
+        if(actionLockCounter == 10){
             Random random = new Random();
             int i  = random.nextInt(100)+1;//pick a number from 1 to 100
 
@@ -97,7 +97,6 @@ public class MON_ScrewDude extends monsterEntity {
 
             }
             if(i > 75 && i <=100 && this.x<gp.tvGuy.x){
-
                 direction = "right";
             }
             actionLockCounter = 0;

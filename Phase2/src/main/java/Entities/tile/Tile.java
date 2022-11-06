@@ -9,7 +9,4 @@ import java.awt.image.BufferedImage;
  */
 public class Tile extends Entity {
     public BufferedImage image;
-
-
-    //we might want to add individual width and height for each Entities.tile
 }

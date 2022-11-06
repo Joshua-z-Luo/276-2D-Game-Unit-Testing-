@@ -10,19 +10,10 @@ import java.awt.*;
  */
 public class monsterEntity extends MovingObject {
     GamePanel gp;
-
-//    solidArea = new Rectangle();
-//    public int x, y;
-//    public BufferedImage image;
-//    public int speed;
     public int maxLife;
     public int life;
     public String name;
 
-//    public String direction;
-
-//    public int solidAreaDefaultX,solidAreaDefaultY;
-//    public boolean collisionOn = false;
 
     public int actionLockCounter = 0;
 

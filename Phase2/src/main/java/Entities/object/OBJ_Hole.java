@@ -32,6 +32,11 @@ public class OBJ_Hole extends StaticObject {
         }
     }
 
+    /**
+     * Draws the Hole trap on screen
+     * @param g2 Graphics object used to draw
+     * @param gp The game panel where the drawing will go
+     */
     public void draw(Graphics2D g2, GamePanel gp){
         g2.drawImage(image, x, y, gp.imageEntityWidth, gp.imageEntityHeight, null);
     }
