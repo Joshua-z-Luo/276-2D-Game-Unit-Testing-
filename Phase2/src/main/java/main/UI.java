@@ -63,6 +63,9 @@ public class UI {
             drawPlayerLife();
             //do playState stuff later
         }
+        else if(gp.gameState == gp.instructionsState) {
+            drawInstructionsScreen();
+        }
         else if(gp.gameState == gp.pauseState){
             //game is paused and will not be updated
             drawPauseScreen();
@@ -251,13 +254,55 @@ public class UI {
 
         text = "QUIT";
         x = getXForCenteredText(text);
-        y += gp.tileSize;
+        y += 70;
         g2.drawString(text, x, y);
         if(commandNum == 1){
             g2.drawString(">", x-gp.tileSize, y);
         }
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,35F));
+        text = "Use 'I' for INSTRUCTIONS";
+        x = getXForCenteredText(text);
+        y += 55;
+        g2.drawString(text, x, y);
+        text = "Use 'P' TO PAUSE";
+        x = getXForCenteredText(text);
+        y += 55;
+        g2.drawString(text, x, y);
 
     }
+
+    public void drawInstructionsScreen() {
+        g2.setColor(new Color(255, 255, 255)); //if you want a coloured title screen
+        g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
+        String text = "HOW TO PLAY"; //Title of the game
+        int x = getXForCenteredText(text);
+        int y = gp.tileSize*3;
+
+        //shadow of the text
+        g2.setColor(Color.gray);
+        g2.drawString(text, x+5, y+5);
+
+        //main colour of the text
+        g2.setColor(Color.black);
+        g2.drawString(text, x, y);
+
+        // instructions
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,35F));
+        text = "Use the following keys to move the character!";
+        x = getXForCenteredText(text);
+        y = gp.tileSize*8;
+        g2.drawString(text, x, y);
+        text = "UP: w      DOWN: s";
+        x = getXForCenteredText(text);
+        y += 55;
+        g2.drawString(text, x, y);
+        text = "LEFT: a    RIGHT: d";
+        x = getXForCenteredText(text);
+        y += 55;
+        g2.drawString(text, x, y);
+    }
+
 
     /**
      * gets the x coordinate of the text "Pause"
