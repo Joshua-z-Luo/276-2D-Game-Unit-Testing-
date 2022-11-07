@@ -97,6 +97,15 @@ public class KeyHandler implements KeyListener {
 
             }
         }
+        if(code == KeyEvent.VK_I) {
+            if (gp.gameState == gp.playState) {
+                gp.gameState = gp.instructionsState;
+            }
+            else if (gp.gameState == gp.instructionsState) {
+                gp.gameState = gp.playState;
+            }
+
+        }
         if(gp.gameState == gp.loseState) {
             loseState(code);
         }
