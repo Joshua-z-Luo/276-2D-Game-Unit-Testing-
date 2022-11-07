@@ -68,7 +68,7 @@ public class TileManager {
             tile[6].image = ImageIO.read(new File("src/Sprites/tile1.png"));
 
             tile[7] = new Tile();
-            tile[7].image = ImageIO.read(new File("src/Sprites/tile1.png"));
+            tile[7].image = ImageIO.read(new File("src/Sprites/darkTile.png"));
 
 
 
