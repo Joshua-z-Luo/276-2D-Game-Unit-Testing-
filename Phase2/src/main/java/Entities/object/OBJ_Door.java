@@ -2,7 +2,6 @@ package Entities.object;
 
 import Entities.StaticObject;
 import main.GamePanel;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
@@ -31,6 +30,11 @@ public class OBJ_Door extends StaticObject {
         }
     }
 
+    /**
+     * Draws the Exit door entity
+     * @param g2 Graphics object used to draw
+     * @param gp The game panel where the drawing will go
+     */
     public void draw(Graphics2D g2, GamePanel gp){
         g2.drawImage(image, x, y, gp.imageEntityWidth, gp.imageEntityHeight, null);
     }

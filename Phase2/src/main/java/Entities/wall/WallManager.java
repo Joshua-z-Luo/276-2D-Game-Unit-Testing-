@@ -162,7 +162,6 @@ public class WallManager{
                     //nothing
             }
 
-
             col++;
             x += gp.tileSize;
 

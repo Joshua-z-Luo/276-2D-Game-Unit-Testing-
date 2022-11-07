@@ -27,8 +27,6 @@ public class OBJ_Life extends StaticObject {
             image3 = ImageIO.read(new File("src/Sprites/battery3hp.png"));
             image4 = ImageIO.read(new File("src/Sprites/battery4hp.png"));
             image5 = ImageIO.read(new File("src/Sprites/battery5hp.png"));
-//            image6 = ImageIO.read(new File("src/Sprites/deadBattery.png"));
-
 
         }catch (IOException e){
             e.printStackTrace();

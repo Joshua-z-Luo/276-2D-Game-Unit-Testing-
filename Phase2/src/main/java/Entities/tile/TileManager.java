@@ -70,8 +70,6 @@ public class TileManager {
             tile[7] = new Tile();
             tile[7].image = ImageIO.read(new File("src/Sprites/darkTile.png"));
 
-
-
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -120,7 +118,7 @@ public class TileManager {
 
     /**
      * Draws the map onto the game panel
-     * @param g2 Graphics2D Entities.object from the game panel
+     * @param g2 Graphics2D object from the game panel
      */
     public void draw(Graphics2D g2){
 

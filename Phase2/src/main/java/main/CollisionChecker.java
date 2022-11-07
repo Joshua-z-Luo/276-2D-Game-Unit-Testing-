@@ -159,6 +159,12 @@ public class CollisionChecker {
         return index;
     }
 
+    /**
+     * Checks if the main character is colliding with any other moving objects (enemies)
+     * @param mobile The main character
+     * @param target Array of other moving objects (enemies)
+     * @return The index of the enemy that was collided with
+     */
     public int checkEntity(MovingObject mobile, MovingObject[] target){
         int index = 999;
 
@@ -218,6 +224,11 @@ public class CollisionChecker {
         }
         return index;
     }
+
+    /**
+     * Checks if the player is intersecting with a wall
+     * @param mobile The main character
+     */
     public void checkPlayer(MovingObject mobile){
 
         //Get MainCharacter.Entity's solid area position
@@ -262,7 +273,6 @@ public class CollisionChecker {
         mobile.solidArea.y = mobile.solidAreaDefaultY;
         gp.tvGuy.solidArea.x = gp.tvGuy.solidAreaDefaultX;
         gp.tvGuy.solidArea.y = gp.tvGuy.solidAreaDefaultY;
-
     }
 }
 

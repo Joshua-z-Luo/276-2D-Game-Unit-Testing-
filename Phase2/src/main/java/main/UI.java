@@ -108,7 +108,7 @@ public class UI {
      * If the main character's health becomes 0, the game will end immediately and a lose screen shows up showing options to retry or to quit
      */
     public void drawLoseScreen(){
-        g2.setColor(new Color(255, 0, 0)); //if you want a coloured title scren
+        g2.setColor(new Color(255, 0, 0)); //if you want a coloured title screen
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
         // YOU LOSE
         g2.setColor(Color.black);
@@ -157,7 +157,7 @@ public class UI {
      * draws win screen when player reaches the door (win)
      */
     public void drawWinScreen(){
-        g2.setColor(new Color(40, 190, 90)); //if you want a coloured title scren
+        g2.setColor(new Color(40, 190, 90)); //if you want a coloured title screen
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
         g2.setColor(Color.black);
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 70F));
@@ -271,6 +271,9 @@ public class UI {
 
     }
 
+    /**
+     * Draws the instruction screen when the game is running
+     */
     public void drawInstructionsScreen() {
         g2.setColor(new Color(255, 255, 255)); //if you want a coloured title screen
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);

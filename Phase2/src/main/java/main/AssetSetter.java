@@ -183,8 +183,6 @@ public class AssetSetter {
             gp.obj[18].y = 535;
         }
 
-
-
     }
 
     /**

@@ -13,8 +13,6 @@ public class monsterEntity extends MovingObject {
     public int maxLife;
     public int life;
     public String name;
-
-
     public int actionLockCounter = 0;
 
     /**
