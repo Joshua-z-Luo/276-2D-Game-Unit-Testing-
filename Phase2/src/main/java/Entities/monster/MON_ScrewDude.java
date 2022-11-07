@@ -13,8 +13,6 @@ import java.util.Random;
  */
 public class MON_ScrewDude extends monsterEntity {
 
-//    public int actionLockCounter ;
-
     /**
      * Constructor for initiating the screwDude.
      * @param gp Game Panel that holds the game
@@ -31,10 +29,6 @@ public class MON_ScrewDude extends monsterEntity {
 
         //hitbox microadjustments
         solidArea = new Rectangle(2*gp.scale, gp.tileSize, gp.tileSize-4*gp.scale, gp.tileSize);
-//        solidArea.x = 3;
-//        solidArea.y = 18;
-//        solidArea.width = 42;
-//        solidArea.height = 30;
 
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
@@ -54,23 +48,6 @@ public class MON_ScrewDude extends monsterEntity {
         }
 
     }
-//    public void update(){
-//        setAction();//if subclass has setAction() too, then that is priority
-//
-//        collisionOn = false;
-//        gp.cChecker.checkTile(this);
-//        if(!collisionOn){
-//            switch(direction){
-//                case "up": y -= speed; break;
-//                case "down": y += speed; break;
-//                case "left": x -= speed; break;
-//                case "right": x += speed; break;
-//            }
-//
-//        }
-//
-//    }
-
     //set Entities.monster's behaviour
 
     /**
@@ -78,7 +55,6 @@ public class MON_ScrewDude extends monsterEntity {
      */
     public void setAction(){
         actionLockCounter ++;
-
 
         if(actionLockCounter == 25){
             Random random = new Random();

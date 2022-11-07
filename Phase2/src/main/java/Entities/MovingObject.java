@@ -12,5 +12,4 @@ public class MovingObject extends Entity {
     public String direction; // we should phase this out **Not sure if we can phase it out**
     public int directionX;
     public int directionY;
-    public String collisionDetect;
 }

@@ -109,7 +109,6 @@ public class CollisionChecker {
                         if(mobile.solidArea.intersects(gp.obj[i].solidArea)){
                             if(gp.obj[i].collisionOn==true){
                                 mobile.collisionOn=true;
-                                mobile.collisionDetect = "up";
                             }
                             if(player){
                                 index = i;
@@ -121,7 +120,6 @@ public class CollisionChecker {
                         if(mobile.solidArea.intersects(gp.obj[i].solidArea)){
                             if(gp.obj[i].collisionOn==true){
                                 mobile.collisionOn=true;
-                                mobile.collisionDetect = "down";
                             }
                             if(player){
                                 index = i;
@@ -133,7 +131,6 @@ public class CollisionChecker {
                         if(mobile.solidArea.intersects(gp.obj[i].solidArea)){
                             if(gp.obj[i].collisionOn==true){
                                 mobile.collisionOn=true;
-                                mobile.collisionDetect = "left";
                             }
                             if(player){
                                 index = i;
@@ -145,7 +142,6 @@ public class CollisionChecker {
                         if(mobile.solidArea.intersects(gp.obj[i].solidArea)){
                             if(gp.obj[i].collisionOn==true){
                                 mobile.collisionOn=true;
-                                mobile.collisionDetect = "right";
                             }
                             if(player){
                                 index = i;
