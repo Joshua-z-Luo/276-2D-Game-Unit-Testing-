@@ -8,30 +8,32 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Door object that will be used to leave the level
- * @author Hayato
+ * Hole object that acts as a trap for the main character
+ * If main character touches it, the game will end
+ * @author Connor
  */
-public class OBJ_Door extends StaticObject {
+public class OBJ_Hole extends StaticObject {
 
     /**
-     * Constructor for the Door object
+     * Constructor for the Hole trap
      * Sets up size of the hit box and the sprite it will use
      */
-    public OBJ_Door(){
-        name = "Door";
-        solidArea = new Rectangle(0, 48, 48, 48);
+    public OBJ_Hole() {
+        name = "Hole";
+        solidArea = new Rectangle(8, 16+48, 32, 32);
         collisionOn = true;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
+
         try {
-            image = ImageIO.read(new File("src/Sprites/exit.png"));
+            image = ImageIO.read(new File("src/Sprites/hole.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * Draws the Exit door entity
+     * Draws the Hole trap on screen
      * @param g2 Graphics object used to draw
      * @param gp The game panel where the drawing will go
      */

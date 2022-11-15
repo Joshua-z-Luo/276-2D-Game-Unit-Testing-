@@ -11,6 +11,7 @@ import java.io.*;
  * @author Connor, Joshua
  */
 public class TileManager {
+    private static TileManager tileManager = null;
     GamePanel gp;
     public Tile[] tile;
     public int mapTileNum[][];
@@ -19,13 +20,25 @@ public class TileManager {
      * Constructor that will initialize the necessary variables such as an array containing the tiles
      * @param gp The main game panel containing the game
      */
-    public TileManager(GamePanel gp){
+    protected TileManager(GamePanel gp){
         this.gp = gp;
 
         tile = new Tile[10];
         mapTileNum = new int[gp.maxScreenCol][gp.maxScreenRow];
         getTileImage();
         loadMap();
+    }
+
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of TileManager
+     */
+    public static TileManager instance(GamePanel gp){
+        if (tileManager == null){
+            tileManager = new TileManager(gp);
+        }
+        return tileManager;
     }
 
     /**
@@ -38,6 +51,24 @@ public class TileManager {
 
             tile[1] = new Tile();
             tile[1].image = ImageIO.read(new File("src/Sprites/tile1.png"));
+
+            tile[2] = new Tile();
+            tile[2].image = ImageIO.read(new File("src/Sprites/tile1.png"));
+
+            tile[3] = new Tile();
+            tile[3].image = ImageIO.read(new File("src/Sprites/tile1.png"));
+
+            tile[4] = new Tile();
+            tile[4].image = ImageIO.read(new File("src/Sprites/tile1.png"));
+
+            tile[5] = new Tile();
+            tile[5].image = ImageIO.read(new File("src/Sprites/tile1.png"));
+
+            tile[6] = new Tile();
+            tile[6].image = ImageIO.read(new File("src/Sprites/tile1.png"));
+
+            tile[7] = new Tile();
+            tile[7].image = ImageIO.read(new File("src/Sprites/darkTile.png"));
 
         }catch(IOException e){
             e.printStackTrace();
@@ -87,7 +118,7 @@ public class TileManager {
 
     /**
      * Draws the map onto the game panel
-     * @param g2 Graphics2D Entities.object from the game panel
+     * @param g2 Graphics2D object from the game panel
      */
     public void draw(Graphics2D g2){
 
@@ -104,12 +135,6 @@ public class TileManager {
             // so for example if we have a hitbox of one pixel in the y axis, and our picture is 3 pixel in the y axis
             // on default we just draw the hitbox in the middle, so at the second pixel
             g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
-
-            //if(Entities.tile[tileNum].collision){
-            //    g2.drawImage(Entities.tile[tileNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
-            //}else {
-            //    g2.drawImage(Entities.tile[tileNum].image, x, y, gp.tileSize, gp.tileSize, null);
-            //}
 
             col++;
             x += gp.tileSize;

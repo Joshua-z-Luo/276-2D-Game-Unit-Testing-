@@ -2,7 +2,7 @@ package Entities;
 
 import Entities.object.OBJ_Battery;
 import Entities.object.OBJ_KeyCard;
-import Entities.object.OBJ_Puddle;
+import Entities.object.OBJ_Hole;
 import main.GamePanel;
 import main.KeyHandler;
 import javax.imageio.ImageIO;
@@ -16,6 +16,7 @@ import java.io.IOException;
  * @author Connor, Hayato, Rose, Joshua
  */
 public class MainCharacterTV extends MovingObject {
+    private static MainCharacterTV tvGuy = null;
     GamePanel gp;
     KeyHandler keyH;
     Boolean hasKeyCard;
@@ -30,19 +31,33 @@ public class MainCharacterTV extends MovingObject {
      * @param gp The main game panel
      * @param keyH key handler associated with the game panel
      */
-    public MainCharacterTV(GamePanel gp, KeyHandler keyH){
+    protected MainCharacterTV(GamePanel gp, KeyHandler keyH){
         this.gp = gp;
         this.keyH = keyH;
         keyCardCount = 0;
 
         //because we start at top left of screen and we are saying hitbox start at bottom left of entity
-        solidArea = new Rectangle(0, 0, gp.tileSize, gp.tileSize);
+        solidArea = new Rectangle(8,  gp.tileSize, 32, 32);
 
-        solidAreaDefaultX = 0;
-        solidAreaDefaultY = gp.tileSize;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
 
         setDefaultValues();
         getPlayerImage();
+    }
+
+    /**
+     *
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @param keyH key handler associated with the game panel
+     * @return the single instance of MainCharacterTV
+     */
+    public static MainCharacterTV instance(GamePanel gp, KeyHandler keyH){
+        if(tvGuy == null){
+            tvGuy = new MainCharacterTV(gp, keyH);
+        }
+        return tvGuy;
     }
 
     /**
@@ -71,6 +86,10 @@ public class MainCharacterTV extends MovingObject {
         y = 50;
         //how much we will move in the next update
         direction = "down";
+    }
+
+    public void collectReward(){
+        life += 30;
     }
 
     /**
@@ -157,14 +176,14 @@ public class MainCharacterTV extends MovingObject {
     public void pickUpObject(int index){
         if(index != 999 && gp.obj[index].getClass().equals(OBJ_Battery.class)){
             gp.obj[index] = null;
-            life += 30;
+            collectReward();
             if(life > maxLife){
                 life = maxLife;
             }
             score += 100;
             //**UPDATE** when TVGuy touches battery his life gets increased by 30 so 10ish seconds
         }
-        else if(index != 999 && gp.obj[index].getClass().equals(OBJ_Puddle.class)){
+        else if(index != 999 && gp.obj[index].getClass().equals(OBJ_Hole.class)){
 //            System.out.println("You walked into a trap!");
             life = 0;
         }

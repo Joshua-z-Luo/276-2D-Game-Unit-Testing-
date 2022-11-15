@@ -7,14 +7,27 @@ import Entities.MovingObject;
  * @author Connor, Hayato, Rose, Joshua
  */
 public class CollisionChecker {
+    private static CollisionChecker collisionChecker = null;
     GamePanel gp;
 
     /**
      * Constructor that takes in the main GamePanel
      * @param gp GamePanel that will contain the game
      */
-    public CollisionChecker(GamePanel gp){
+    protected CollisionChecker(GamePanel gp){
         this.gp = gp;
+    }
+
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of CollisionChecker
+     */
+    public static CollisionChecker instance(GamePanel gp){
+        if(collisionChecker == null){
+            collisionChecker = new CollisionChecker(gp);
+        }
+        return collisionChecker;
     }
 
     /**
@@ -47,9 +60,10 @@ public class CollisionChecker {
                 characterBottomRow = (characterBottomY + character.speed)/gp.tileSize;
                 wallNum1 = gp.wallM.mapWallNum[characterLeftCol][characterBottomRow];
                 wallNum2 = gp.wallM.mapWallNum[characterRightCol][characterBottomRow];
-                if(gp.wallM.wall[wallNum1].collision|| gp.wallM.wall[wallNum2].collision){
+                if(gp.wallM.wall[wallNum1].collision || gp.wallM.wall[wallNum2].collision){
                     character.collisionOn = true;
                 }
+                break;
             case "left":
                 characterLeftCol = (characterLeftX - character.speed)/gp.tileSize;
                 wallNum1 = gp.wallM.mapWallNum[characterLeftCol][characterTopRow];
@@ -145,6 +159,12 @@ public class CollisionChecker {
         return index;
     }
 
+    /**
+     * Checks if the main character is colliding with any other moving objects (enemies)
+     * @param mobile The main character
+     * @param target Array of other moving objects (enemies)
+     * @return The index of the enemy that was collided with
+     */
     public int checkEntity(MovingObject mobile, MovingObject[] target){
         int index = 999;
 
@@ -204,6 +224,11 @@ public class CollisionChecker {
         }
         return index;
     }
+
+    /**
+     * Checks if the player is intersecting with a wall
+     * @param mobile The main character
+     */
     public void checkPlayer(MovingObject mobile){
 
         //Get MainCharacter.Entity's solid area position
@@ -248,7 +273,6 @@ public class CollisionChecker {
         mobile.solidArea.y = mobile.solidAreaDefaultY;
         gp.tvGuy.solidArea.x = gp.tvGuy.solidAreaDefaultX;
         gp.tvGuy.solidArea.y = gp.tvGuy.solidAreaDefaultY;
-
     }
 }
 

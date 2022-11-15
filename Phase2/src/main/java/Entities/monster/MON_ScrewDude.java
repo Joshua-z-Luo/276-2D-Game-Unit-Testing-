@@ -13,8 +13,6 @@ import java.util.Random;
  */
 public class MON_ScrewDude extends monsterEntity {
 
-//    public int actionLockCounter ;
-
     /**
      * Constructor for initiating the screwDude.
      * @param gp Game Panel that holds the game
@@ -30,14 +28,10 @@ public class MON_ScrewDude extends monsterEntity {
         life = maxLife;
 
         //hitbox microadjustments
-        solidArea = new Rectangle(2*gp.scale, 0, gp.tileSize-4*gp.scale, gp.tileSize);
-//        solidArea.x = 3;
-//        solidArea.y = 18;
-//        solidArea.width = 42;
-//        solidArea.height = 30;
+        solidArea = new Rectangle(2*gp.scale, gp.tileSize, gp.tileSize-4*gp.scale, gp.tileSize);
 
-        solidAreaDefaultX = 0;
-        solidAreaDefaultY = gp.tileSize;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
         setMonsterImage();
 
     }
@@ -54,23 +48,6 @@ public class MON_ScrewDude extends monsterEntity {
         }
 
     }
-//    public void update(){
-//        setAction();//if subclass has setAction() too, then that is priority
-//
-//        collisionOn = false;
-//        gp.cChecker.checkTile(this);
-//        if(!collisionOn){
-//            switch(direction){
-//                case "up": y -= speed; break;
-//                case "down": y += speed; break;
-//                case "left": x -= speed; break;
-//                case "right": x += speed; break;
-//            }
-//
-//        }
-//
-//    }
-
     //set Entities.monster's behaviour
 
     /**
@@ -79,25 +56,23 @@ public class MON_ScrewDude extends monsterEntity {
     public void setAction(){
         actionLockCounter ++;
 
-
-        if(actionLockCounter==120){
+        if(actionLockCounter == 25){
             Random random = new Random();
             int i  = random.nextInt(100)+1;//pick a number from 1 to 100
 
-            if(i <=25){
+            if(i <=25 && (this.y>gp.tvGuy.y || this.collisionOn)){
                 direction = "up";
 
             }
-            if(i>25 && i<=50){
+            if(i>25 && i<=50 && (this.y<gp.tvGuy.y || this.collisionOn)){
                 direction = "down";
 
             }
-            if(i > 50 && i <=75){
+            if(i > 50 && i <=75 && (this.x>gp.tvGuy.x || this.collisionOn)){
                 direction = "left";
 
             }
-            if(i > 75 && i <=100){
-
+            if(i > 75 && i <=100 && (this.x<gp.tvGuy.x || this.collisionOn)){
                 direction = "right";
             }
             actionLockCounter = 0;

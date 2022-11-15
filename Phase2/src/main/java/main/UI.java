@@ -4,33 +4,24 @@ import Entities.StaticObject;
 import Entities.object.OBJ_Life;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.text.DecimalFormat;
 
 /**
  * UI class that takes care of UI part of this game.
  * @author Hayato, Connor, Rose, Joshua
  */
 public class UI {
-
+    private static UI ui = null;
     GamePanel gp;
-
     Graphics2D g2;
     Font arial_40, arial_80B;
-    BufferedImage battery_low, battery_quart, battery_half, battery_3quart, battery_full, battery_dead;
-    public boolean messageOn = false;
-    public String message = "";
-    int messageCounter = 0;
-    public boolean gameFinished = false;
-
-    double playTime;
-    DecimalFormat dFormat = new DecimalFormat("#0.00");
+    BufferedImage battery_low, battery_quart, battery_half, battery_3quart, battery_full;
     public int commandNum = 0;
 
     /**
      * Constructor that defines the font used in the game as well as showing the player's life with a battery image
      * @param gp The game panel object that holds the game
      */
-    public UI(GamePanel gp){
+    protected UI(GamePanel gp){
         this.gp = gp;
         arial_40 = new Font("Arial",Font.PLAIN,40 );
         arial_80B = new Font("Arial",Font.BOLD,80 );
@@ -41,7 +32,18 @@ public class UI {
         battery_half = battery.image3;
         battery_3quart = battery.image4;
         battery_full = battery.image5;
-        battery_dead = battery.image6;
+    }
+
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of UI
+     */
+    public static UI instance(GamePanel gp){
+        if (ui == null) {
+            ui = new UI(gp);
+        }
+        return ui;
     }
 
     /**
@@ -60,6 +62,9 @@ public class UI {
         if(gp.gameState == gp.playState){
             drawPlayerLife();
             //do playState stuff later
+        }
+        else if(gp.gameState == gp.instructionsState) {
+            drawInstructionsScreen();
         }
         else if(gp.gameState == gp.pauseState){
             //game is paused and will not be updated
@@ -83,22 +88,19 @@ public class UI {
 
 
         if(gp.tvGuy.life >= 80){
-            g2.drawImage(battery_full, x, y, null);
+            g2.drawImage(battery_full, x, y, gp.healthImageSize, gp.healthImageSize, null);
         }
         else if(gp.tvGuy.life < 80 && gp.tvGuy.life >= 60){
-            g2.drawImage(battery_3quart, x, y, null);
+            g2.drawImage(battery_3quart, x, y, gp.healthImageSize, gp.healthImageSize, null);
         }
         else if(gp.tvGuy.life < 60 && gp.tvGuy.life >= 40){
-            g2.drawImage(battery_half, x, y, null);
+            g2.drawImage(battery_half, x, y, gp.healthImageSize, gp.healthImageSize, null);
         }
         else if(gp.tvGuy.life < 40 && gp.tvGuy.life >= 20){
-            g2.drawImage(battery_quart, x, y, null);
+            g2.drawImage(battery_quart, x, y, gp.healthImageSize, gp.healthImageSize, null);
         }
         else if(gp.tvGuy.life < 20 && gp.tvGuy.life > 0){
-            g2.drawImage(battery_low, x, y, null);
-        }
-        else{
-            g2.drawImage(battery_dead, x, y, null);
+            g2.drawImage(battery_low, x, y, gp.healthImageSize, gp.healthImageSize, null);
         }
     }
 
@@ -106,7 +108,7 @@ public class UI {
      * If the main character's health becomes 0, the game will end immediately and a lose screen shows up showing options to retry or to quit
      */
     public void drawLoseScreen(){
-        g2.setColor(new Color(255, 0, 0)); //if you want a coloured title scren
+        g2.setColor(new Color(255, 0, 0)); //if you want a coloured title screen
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
         // YOU LOSE
         g2.setColor(Color.black);
@@ -115,33 +117,50 @@ public class UI {
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/2;
         g2.drawString(text,x,y);
-        // retry
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
-        text = "RETRY";
-        x = getXForCenteredText(text);
-        y += gp.tileSize*4;
-        g2.drawString(text,x,y);
-        if(commandNum == 0) {
-            g2.drawString(">", x-40, y);
+        if(gp.retries > 0) {
+            // retry
+            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+            text = "RETRY: " + gp.retries + " attempts left to beat level!";
+            x = getXForCenteredText(text);
+            y += gp.tileSize * 4;
+            g2.drawString(text, x, y);
+            if (commandNum == 0) {
+                g2.drawString(">", x - 40, y);
+            }
+            // quit
+            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+            text = "RETURN TO MAIN MENU";
+            x = getXForCenteredText(text);
+            y += 55;
+            g2.drawString(text, x, y);
+            if (commandNum == 1) {
+                g2.drawString(">", x - 40, y);
+            }
         }
-        // quit
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
-        text = "QUIT";
-        x = getXForCenteredText(text);
-        y += 55;
-        g2.drawString(text,x,y);
-        if(commandNum == 1) {
-            g2.drawString(">", x-40, y);
+        else {
+            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+            text = "NO RETRIES LEFT! GAME OVER";
+            x = getXForCenteredText(text);
+            y += gp.tileSize * 4;
+            g2.drawString(text, x, y);
+            // quit
+            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+            text = "RETURN TO MAIN MENU";
+            x = getXForCenteredText(text);
+            y += 55;
+            g2.drawString(text, x, y);
+            g2.drawString(">", x - 40, y);
+
         }
     }
     /**
      * draws win screen when player reaches the door (win)
      */
     public void drawWinScreen(){
-        g2.setColor(new Color(40, 190, 90)); //if you want a coloured title scren
+        g2.setColor(new Color(40, 190, 90)); //if you want a coloured title screen
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
         g2.setColor(Color.black);
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 75F));
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 70F));
         String text;
         String text2 = "Score: " + gp.tvGuy.score;
         if(gp.level == 0) {
@@ -152,9 +171,8 @@ public class UI {
             text2 = "Total Score: " + gp.tvGuy.score;
         }
         int x = getXForCenteredText(text);
-        int y = gp.screenHeight/2;
+        int y = gp.screenHeight/3;
         g2.drawString(text,x,y);
-
 
         x = getXForCenteredText(text2);
         y += gp.tileSize * 2;
@@ -177,7 +195,8 @@ public class UI {
             commandNum = 1;
         }
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
-        text = "QUIT";
+        text = "RETURN TO MAIN MENU";
+
         x = getXForCenteredText(text);
         y += 55;
         g2.drawString(text,x,y);
@@ -235,13 +254,58 @@ public class UI {
 
         text = "QUIT";
         x = getXForCenteredText(text);
-        y += gp.tileSize;
+        y += 70;
         g2.drawString(text, x, y);
         if(commandNum == 1){
             g2.drawString(">", x-gp.tileSize, y);
         }
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,35F));
+        text = "Use 'I' for INSTRUCTIONS";
+        x = getXForCenteredText(text);
+        y += 55;
+        g2.drawString(text, x, y);
+        text = "Use 'P' TO PAUSE";
+        x = getXForCenteredText(text);
+        y += 55;
+        g2.drawString(text, x, y);
 
     }
+
+    /**
+     * Draws the instruction screen when the game is running
+     */
+    public void drawInstructionsScreen() {
+        g2.setColor(new Color(255, 255, 255)); //if you want a coloured title screen
+        g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
+        String text = "HOW TO PLAY"; //Title of the game
+        int x = getXForCenteredText(text);
+        int y = gp.tileSize*3;
+
+        //shadow of the text
+        g2.setColor(Color.gray);
+        g2.drawString(text, x+5, y+5);
+
+        //main colour of the text
+        g2.setColor(Color.black);
+        g2.drawString(text, x, y);
+
+        // instructions
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,35F));
+        text = "Use the following keys to move the character!";
+        x = getXForCenteredText(text);
+        y = gp.tileSize*8;
+        g2.drawString(text, x, y);
+        text = "UP: w      DOWN: s";
+        x = getXForCenteredText(text);
+        y += 55;
+        g2.drawString(text, x, y);
+        text = "LEFT: a    RIGHT: d";
+        x = getXForCenteredText(text);
+        y += 55;
+        g2.drawString(text, x, y);
+    }
+
 
     /**
      * gets the x coordinate of the text "Pause"

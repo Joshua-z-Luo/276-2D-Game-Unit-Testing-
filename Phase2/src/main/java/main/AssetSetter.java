@@ -4,21 +4,34 @@ import Entities.monster.MON_ScrewDude;
 import Entities.object.OBJ_Battery;
 import Entities.object.OBJ_Door;
 import Entities.object.OBJ_KeyCard;
-import Entities.object.OBJ_Puddle;
+import Entities.object.OBJ_Hole;
 
 /**
  * AssetSetter class that will take care of initiating static/moving objects needed in the game window.
  * @author Hayato, Connor, Rose, Joshua
  */
 public class AssetSetter {
+    private static AssetSetter assetSetter = null;
     GamePanel gp;
 
     /**
      * Constructor of AssetSetter that takes GamePanel as a parameter
      * @param gp the GamePanel object that is the main game window
      */
-    public AssetSetter(GamePanel gp){
+    protected AssetSetter(GamePanel gp){
         this.gp = gp;
+    }
+
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of AssetSetter
+     */
+    public static AssetSetter instance(GamePanel gp){
+        if(assetSetter == null){
+            assetSetter = new AssetSetter(gp);
+        }
+        return assetSetter;
     }
 
     /**
@@ -80,7 +93,7 @@ public class AssetSetter {
         //Door
         gp.obj[7] = new OBJ_Door();
         gp.obj[7].x = 1050;
-        gp.obj[7].y = 750;
+        gp.obj[7].y = 700;
 
         //key card
         gp.obj[6] = new OBJ_KeyCard();
@@ -88,23 +101,14 @@ public class AssetSetter {
         gp.obj[9] = new OBJ_KeyCard();
 
         //Traps
-        gp.obj[5] = new OBJ_Puddle();
-        gp.obj[10] = new OBJ_Puddle();
-        gp.obj[11] = new OBJ_Puddle();
-        gp.obj[12] = new OBJ_Puddle();
-        gp.obj[5] = new OBJ_Puddle();
-        gp.obj[10] = new OBJ_Puddle();
-        gp.obj[11] = new OBJ_Puddle();
-        gp.obj[12] = new OBJ_Puddle();
-        gp.obj[13] = new OBJ_Puddle();
-        gp.obj[14] = new OBJ_Puddle();
-        gp.obj[15] = new OBJ_Puddle();
-        gp.obj[17] = new OBJ_Puddle();
-
-        gp.obj[13] = new OBJ_Puddle();
-        gp.obj[14] = new OBJ_Puddle();
-        gp.obj[15] = new OBJ_Puddle();
-        gp.obj[17] = new OBJ_Puddle();
+        gp.obj[5] = new OBJ_Hole();
+        gp.obj[10] = new OBJ_Hole();
+        gp.obj[11] = new OBJ_Hole();
+        gp.obj[12] = new OBJ_Hole();
+        gp.obj[13] = new OBJ_Hole();
+        gp.obj[14] = new OBJ_Hole();
+        gp.obj[15] = new OBJ_Hole();
+        gp.obj[17] = new OBJ_Hole();
 
         if(gp.level == 0){
             gp.obj[5].x = 675;
@@ -120,16 +124,16 @@ public class AssetSetter {
             gp.obj[9].y = 50;
 
             gp.obj[10].x = 1050;
-            gp.obj[10].y = 550;
+            gp.obj[10].y = 510;
 
             gp.obj[11].x = 955;
             gp.obj[11].y = 250;
 
-            gp.obj[12].x = 100;
-            gp.obj[12].y = 50;
+            gp.obj[12].x = 150;
+            gp.obj[12].y = 10;
 
             gp.obj[13].x = 400;
-            gp.obj[13].y = 100;
+            gp.obj[13].y = -10;
 
             gp.obj[14].x = 50;
             gp.obj[14].y = 635;
@@ -159,7 +163,7 @@ public class AssetSetter {
             gp.obj[11].x = 955;
             gp.obj[11].y = 250;
 
-            gp.obj[12].x = 100;
+            gp.obj[12].x = 200;
             gp.obj[12].y = 50;
 
             gp.obj[13].x = 150;
@@ -169,17 +173,15 @@ public class AssetSetter {
             gp.obj[14].y = 635;
 
             gp.obj[15].x = 775;
-            gp.obj[15].y = 750;
+            gp.obj[15].y = 700;
 
             gp.obj[17].x = 870;
             gp.obj[17].y = 425;
 
-            gp.obj[18] = new OBJ_Puddle();
+            gp.obj[18] = new OBJ_Hole();
             gp.obj[18].x = 385;
             gp.obj[18].y = 535;
         }
-
-
 
     }
 
@@ -193,6 +195,9 @@ public class AssetSetter {
         gp.monster[3] = new MON_ScrewDude(gp);
         gp.monster[4] = new MON_ScrewDude(gp);
         if(gp.level == 0){
+            if(gp.monster[5] != null){
+                gp.monster[5] = null;
+            }
             gp.monster[0].x = 150;
             gp.monster[0].y = 150;
 

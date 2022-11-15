@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
  */
 public class KeyHandler implements KeyListener {
 
+    private static KeyHandler keyHandler = null;
     GamePanel gp;
     public boolean upPressed, downPressed, leftPressed, rightPressed;
 
@@ -16,8 +17,20 @@ public class KeyHandler implements KeyListener {
      * Constructor that takes the main game panel
      * @param gp Main game panel that will be associated with this key handler
      */
-    public KeyHandler(GamePanel gp){
+    protected KeyHandler(GamePanel gp){
         this.gp = gp;
+    }
+
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of KeyHandler
+     */
+    public static KeyHandler instance(GamePanel gp){
+        if(keyHandler == null){
+            keyHandler = new KeyHandler(gp);
+        }
+        return keyHandler;
     }
 
     /**
@@ -84,6 +97,15 @@ public class KeyHandler implements KeyListener {
 
             }
         }
+        if(code == KeyEvent.VK_I) {
+            if (gp.gameState == gp.playState) {
+                gp.gameState = gp.instructionsState;
+            }
+            else if (gp.gameState == gp.instructionsState) {
+                gp.gameState = gp.playState;
+            }
+
+        }
         if(gp.gameState == gp.loseState) {
             loseState(code);
         }
@@ -119,29 +141,36 @@ public class KeyHandler implements KeyListener {
      * @param code KeyEvent object that contains the key that was pressed
      */
     public void loseState(int code) {
-        if(code == KeyEvent.VK_W) {
-            gp.ui.commandNum--;
-            if(gp.ui.commandNum < 0) {
-                gp.ui.commandNum = 1;
+        if(gp.retries > 0) {
+            if (code == KeyEvent.VK_W) {
+                gp.ui.commandNum--;
+                if (gp.ui.commandNum < 0) {
+                    gp.ui.commandNum = 1;
+                }
+            }
+            if (code == KeyEvent.VK_S) {
+                gp.ui.commandNum++;
+                if (gp.ui.commandNum > 1) {
+                    gp.ui.commandNum = 0;
+                }
+            }
+            if (code == KeyEvent.VK_ENTER) {
+                if (gp.ui.commandNum == 0) {
+                    gp.gameState = gp.playState;
+                    gp.retry();
+                } else if (gp.ui.commandNum == 1) {
+                    gp.gameState = gp.titleState;
+                    gp.restart();
+                }
             }
         }
-        if(code == KeyEvent.VK_S) {
-            gp.ui.commandNum++;
-            if(gp.ui.commandNum > 1) {
-                gp.ui.commandNum = 0;
-            }
-        }
-        if(code == KeyEvent.VK_ENTER) {
-            if(gp.ui.commandNum == 0) {
-                gp.gameState = gp.playState;
-                gp.retry();
-            }
-            else if(gp.ui.commandNum == 1) {
+        else {
+            if (code == KeyEvent.VK_ENTER) {
                 gp.gameState = gp.titleState;
+                gp.level--;
                 gp.restart();
             }
         }
-
     }
 
     /**
@@ -165,6 +194,7 @@ public class KeyHandler implements KeyListener {
             if(gp.ui.commandNum == 0) {
                 gp.gameState = gp.playState;
                 gp.level++;
+                gp.retries = 5;
                 gp.retry();
             }
             else if(gp.ui.commandNum == 1) {
@@ -172,6 +202,5 @@ public class KeyHandler implements KeyListener {
                 gp.restart();
             }
         }
-
     }
 }

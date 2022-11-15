@@ -1,7 +1,6 @@
 package Entities.wall;
 
 import main.GamePanel;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.BufferedReader;
@@ -14,6 +13,7 @@ import java.io.IOException;
  * @author Joshua
  */
 public class WallManager{
+    private static WallManager wallManager = null;
     GamePanel gp;
     public Wall[] wall;
     public int mapWallNum[][];
@@ -22,13 +22,25 @@ public class WallManager{
      * Constructor for the WallManager that takes in the Game Panel
      * @param gp Game Panel the holds the game
      */
-    public WallManager(GamePanel gp){
+    protected WallManager(GamePanel gp){
         this.gp = gp;
 
         wall = new Wall[10];
         mapWallNum = new int[gp.maxScreenCol][gp.maxScreenRow];
         getWallImage();
         loadMap();
+    }
+
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @param gp GamePanel that will contain the game
+     * @return the single instance of WallManager
+     */
+    public static WallManager instance(GamePanel gp){
+        if (wallManager == null){
+            wallManager = new WallManager(gp);
+        }
+        return wallManager;
     }
 
     /**
@@ -43,6 +55,31 @@ public class WallManager{
             wall[1] = new Wall();
             wall[1].image = ImageIO.read(new File("src/Sprites/wall1.png"));
             wall[1].collision = true;
+
+            wall[2] = new Wall();
+            wall[2].image = ImageIO.read(new File("src/Sprites/wire_wall.png"));
+            wall[2].collision = true;
+
+            wall[3] = new Wall();
+            wall[3].image = ImageIO.read(new File("src/Sprites/tree_wall.png"));
+            wall[3].collision = true;
+
+            wall[4] = new Wall();
+            wall[4].image = ImageIO.read(new File("src/Sprites/test_tube_wall.png"));
+            wall[4].collision = true;
+
+            wall[5] = new Wall();
+            wall[5].image = ImageIO.read(new File("src/Sprites/computer_wall.png"));
+            wall[5].collision = true;
+
+            wall[6] = new Wall();
+            wall[6].image = ImageIO.read(new File("src/Sprites/mini_wall.png"));
+            wall[6].collision = true;
+
+            wall[7] = new Wall();
+            wall[7].image = ImageIO.read(new File("src/Sprites/tile1.png"));
+            wall[7].collision = false;
+
 
         }catch(IOException e){
             e.printStackTrace();
@@ -110,10 +147,20 @@ public class WallManager{
             switch(wallNum){
                 case 1:
                     g2.drawImage(wall[wallNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
-                default:
+                case 2:
                     //dont do anything,
+                    g2.drawImage(wall[wallNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
+                case 3:
+                    g2.drawImage(wall[wallNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
+                case 4:
+                    g2.drawImage(wall[wallNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
+                case 5:
+                    g2.drawImage(wall[wallNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
+                case 6:
+                    g2.drawImage(wall[wallNum].image, x, y-(gp.imageEntityHeight /2), gp.imageEntityWidth, gp.imageEntityHeight, null);
+                default:
+                    //nothing
             }
-
 
             col++;
             x += gp.tileSize;

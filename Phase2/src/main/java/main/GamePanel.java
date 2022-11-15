@@ -13,6 +13,8 @@ import java.awt.*;
  * @author Connor, Hayato, Rose, Joshua
  */
 public class GamePanel extends JPanel implements Runnable {
+    private static GamePanel gameWindow = null;
+
     final int originalTileSize = 16; //16x16 Entities.tile
 
     final int originalEntityWidth = 16; //16x32 entity
@@ -25,24 +27,29 @@ public class GamePanel extends JPanel implements Runnable {
     public final int imageEntityWidth = originalEntityWidth * scale;
 
     public final int imageEntityHeight = originalEntityHeight * scale;
+
+    public final int originalHealthImageSize = 64;
+
+    public final int healthImageSize = 64 * 2;
     public final int maxScreenCol = 24; // 16 original
     public final int maxScreenRow = 18; // 12 original
     public final int screenWidth = tileSize * maxScreenCol; //768 pixels make it 1920 if fullscreen
     public final int screenHeight = tileSize * maxScreenRow; //576 pixels make it 1080 if fullscreen
 
-    TileManager tileM = new TileManager(this);
-    WallManager wallM = new WallManager(this);
-    KeyHandler keyH = new KeyHandler(this);
+    TileManager tileM = TileManager.instance(this);
+    WallManager wallM = WallManager.instance(this);
+    KeyHandler keyH = KeyHandler.instance(this);
     Thread gameThread;
-    public CollisionChecker cChecker = new CollisionChecker(this);
-    public AssetSetter aSetter = new AssetSetter(this);
+    public CollisionChecker cChecker = CollisionChecker.instance(this);
+    public AssetSetter aSetter = AssetSetter.instance(this);
 
-    public UI ui = new UI(this);
-    public MainCharacterTV tvGuy = new MainCharacterTV(this, keyH);
+    public UI ui = UI.instance(this);
+    public MainCharacterTV tvGuy = MainCharacterTV.instance(this, keyH);
     public StaticObject obj[] = new StaticObject[20];
     public  monsterEntity monster[] = new monsterEntity[10];
     public int powerUpTimer = 0;
     public int level = 0;
+    public int retries = 5;
 
     //Game State
     public int gameState;
@@ -51,17 +58,29 @@ public class GamePanel extends JPanel implements Runnable {
     public final int pauseState = 2;
     public final int loseState = 3;
     public final int winState = 4;
+    public final int instructionsState = 5;
 
 
     /**
      * The constructor that will set the height and width of the window when it pops up as well as the background colour and also will add a key listener
      */
-    public GamePanel(){
+    protected GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight)); //setting the panel size
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+    }
+
+    /**
+     * Instance method that implements the singleton creational pattern
+     * @return the single instance of GamePanel
+     */
+    public static GamePanel instance(){
+        if (gameWindow == null){
+            gameWindow = new GamePanel();
+        }
+        return gameWindow;
     }
 
     /**
@@ -80,6 +99,7 @@ public class GamePanel extends JPanel implements Runnable {
      * Only after you die
      */
     public void retry() {
+        retries--;
         wallM.loadMap();
         tvGuy.setDefaultPosition();
         tvGuy.setDefaultValues();
@@ -93,6 +113,8 @@ public class GamePanel extends JPanel implements Runnable {
      *
      */
     public void restart() {
+        level = 0;
+        retries = 5;
         wallM.loadMap();
         tvGuy.setDefaultPosition();
         tvGuy.setDefaultValues();
@@ -185,13 +207,14 @@ public class GamePanel extends JPanel implements Runnable {
 
                 }
             }
+
+            tvGuy.draw(g2);
             //Monster
             for (int i = 0; i < monster.length; i++) {
                 if (monster[i] != null) {
                     monster[i].draw(g2, this);
                 }
             }
-            tvGuy.draw(g2);
 
             wallM.draw(g2);
             //UI
