@@ -31,7 +31,8 @@ public class MainCharacterTV extends MovingObject {
      * @param gp The main game panel
      * @param keyH key handler associated with the game panel
      */
-    protected MainCharacterTV(GamePanel gp, KeyHandler keyH){
+//    protected MainCharacterTV(GamePanel gp, KeyHandler keyH){
+    public MainCharacterTV(GamePanel gp, KeyHandler keyH){
         this.gp = gp;
         this.keyH = keyH;
         keyCardCount = 0;
@@ -44,6 +45,11 @@ public class MainCharacterTV extends MovingObject {
 
         setDefaultValues();
         getPlayerImage();
+    }
+
+    public MainCharacterTV MainCharacterTVConstructorForTestingPurpose(GamePanel gp, KeyHandler keyH){
+        MainCharacterTV returnVariable = new MainCharacterTV(gp, keyH);
+        return returnVariable;
     }
 
     /**

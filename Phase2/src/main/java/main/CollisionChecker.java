@@ -13,8 +13,10 @@ public class CollisionChecker {
     /**
      * Constructor that takes in the main GamePanel
      * @param gp GamePanel that will contain the game
+     *           Currently public for testing purpose(I don't know if that is legit ting to do)
      */
-    protected CollisionChecker(GamePanel gp){
+//    protected CollisionChecker(GamePanel gp){
+    public CollisionChecker(GamePanel gp){
         this.gp = gp;
     }
 
