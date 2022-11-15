@@ -64,7 +64,7 @@ public class GamePanel extends JPanel implements Runnable {
     /**
      * The constructor that will set the height and width of the window when it pops up as well as the background colour and also will add a key listener
      */
-    protected GamePanel(){
+    public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight)); //setting the panel size
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);

@@ -18,7 +18,7 @@ public class AssetSetter {
      * Constructor of AssetSetter that takes GamePanel as a parameter
      * @param gp the GamePanel object that is the main game window
      */
-    protected AssetSetter(GamePanel gp){
+    public AssetSetter(GamePanel gp){
         this.gp = gp;
     }
 
