@@ -1,3 +1,5 @@
+package main;
+
 import Entities.object.OBJ_Battery;
 import Entities.object.OBJ_Hole;
 import main.AssetSetter;
@@ -8,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * AssetSetterTest Class to test some aspects of AssetSetter class
+ * main.AssetSetterTest Class to test some aspects of AssetSetter class
  * @author hayatokoyama
  */
 class AssetSetterTest {

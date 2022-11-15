@@ -17,7 +17,7 @@ public class KeyHandler implements KeyListener {
      * Constructor that takes the main game panel
      * @param gp Main game panel that will be associated with this key handler
      */
-    protected KeyHandler(GamePanel gp){
+    public KeyHandler(GamePanel gp){
         this.gp = gp;
     }
 
