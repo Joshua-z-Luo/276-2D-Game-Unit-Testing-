@@ -61,6 +61,8 @@ public class UI {
 
         if(gp.gameState == gp.playState){
             drawPlayerLife();
+            drawScore();
+            drawTimer();
             //do playState stuff later
         }
         else if(gp.gameState == gp.instructionsState) {
@@ -78,14 +80,26 @@ public class UI {
         }
     }
 
+    public void drawScore(){
+        int x = gp.screenWidth - gp.tileSize*7;
+        int y = gp.tileSize + 33;
+        String text = "Score: " + gp.tvGuy.score;
+        g2.drawString(text, x, y);
+    }
+
+    public void drawTimer(){
+        int x = gp.screenWidth - gp.tileSize*7;
+        int y = gp.tileSize + 70;
+        String text = "Time: " + String.valueOf((System.currentTimeMillis() - gp.startTime)/1000);
+        g2.drawString(text, x, y);
+    }
+
     /**
      * Draws the battery health bar in the top right corner and will change based on the main character's health
      */
     public void drawPlayerLife(){
         int x = gp.screenWidth - gp.tileSize*3;
         int y = gp.tileSize + 2;
-        int i = 0;
-
 
         if(gp.tvGuy.life >= 80){
             g2.drawImage(battery_full, x, y, gp.healthImageSize, gp.healthImageSize, null);

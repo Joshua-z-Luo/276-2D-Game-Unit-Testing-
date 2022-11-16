@@ -197,6 +197,7 @@ public class MainCharacterTV extends MovingObject {
 //            System.out.println("You got a key");
             gp.obj[index] = null;
             this.keyCardCount++;
+            score += 200;
         }
     }
 

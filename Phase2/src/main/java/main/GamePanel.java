@@ -50,6 +50,7 @@ public class GamePanel extends JPanel implements Runnable {
     public int powerUpTimer = 0;
     public int level = 0;
     public int retries = 5;
+    public long startTime = System.currentTimeMillis();
 
     //Game State
     public int gameState;
@@ -106,6 +107,7 @@ public class GamePanel extends JPanel implements Runnable {
         tvGuy.restoreLife();
         aSetter.setObject();
         aSetter.setMonster();
+        startTime = System.currentTimeMillis();
     }
 
     /**
@@ -120,6 +122,7 @@ public class GamePanel extends JPanel implements Runnable {
         tvGuy.setDefaultValues();
         aSetter.setObject();
         aSetter.setMonster();
+        startTime = System.currentTimeMillis();
     }
 
     /**
