@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CollisionCheckerTest {
-     static GamePanel gp = new GamePanel();
-     static KeyHandler kH = new KeyHandler(gp);
+    static GamePanel gp = new GamePanel();
+    static KeyHandler kH = new KeyHandler(gp);
     static MainCharacterTV tvGuy =   new MainCharacterTV(gp,kH);
     static AssetSetter aSetter = new AssetSetter(gp);
 
@@ -18,6 +18,10 @@ class CollisionCheckerTest {
     static void init(){
         //initiate monsters
        aSetter.setMonster();
+        gp.setUpGame();
+        gp.startGameThread();
+        gp.gameState = gp.playState;
+
     }
 
     @Test
@@ -67,5 +71,14 @@ class CollisionCheckerTest {
 
         assertNotEquals(999,result);
 
+    }
+
+    @Test
+    void mainCharacterCanReachDoor(){
+        tvGuy.keyCardCount = 3;
+        tvGuy.x = 1050;
+        tvGuy.y = 700;
+        int result =  cChecker.checkObject(tvGuy, true);
+        assertEquals(7, result);
     }
 }
