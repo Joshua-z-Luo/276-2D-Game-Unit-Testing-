@@ -38,6 +38,7 @@ public class KeyHandlerTest {
         KeyEvent downKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_S, 'S');
         gp.getKeyListeners()[0].keyPressed(downKey);
+        //
         kH.keyPressed(downKey);
         tvGuy.update();
         // check if direction is down
@@ -57,10 +58,10 @@ public class KeyHandlerTest {
     @Test
     void MainCharacterMovesLeftWhenLeftKeyPressed(){
         // simulate key being pressed
-        KeyEvent upKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+        KeyEvent leftKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_A, 'A');
-        gp.getKeyListeners()[0].keyPressed(upKey);
-        kH.keyPressed(upKey);
+        gp.getKeyListeners()[0].keyPressed(leftKey);
+        kH.keyPressed(leftKey);
         tvGuy.update();
         // check if direction is down
         assertEquals("left",tvGuy.direction);
@@ -68,10 +69,10 @@ public class KeyHandlerTest {
     @Test
     void MainCharacterMovesRightWhenRightKeyPressed(){
         // simulate key being pressed
-        KeyEvent upKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+        KeyEvent rightKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_D, 'D');
-        gp.getKeyListeners()[0].keyPressed(upKey);
-        kH.keyPressed(upKey);
+        gp.getKeyListeners()[0].keyPressed(rightKey);
+        kH.keyPressed(rightKey);
         tvGuy.update();
         // check if direction is down
         assertEquals("right",tvGuy.direction);
