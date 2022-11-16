@@ -35,16 +35,24 @@ public class KeyHandlerTest {
     @Test
     void MainCharacterMovesDownWhenDownKeyPressed(){
         // simulate key being pressed
-        KeyEvent key = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+        KeyEvent downKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_S, 'S');
-        gp.getKeyListeners()[0].keyPressed(key);
+        gp.getKeyListeners()[0].keyPressed(downKey);
+        kH.keyPressed(downKey);
+        tvGuy.update();
         // check if direction is down
         assertEquals("down",tvGuy.direction);
     }
     @Test
     void MainCharacterMovesUpWhenUpKeyPressed(){
-        // fill in
-
+        // simulate key being pressed
+        KeyEvent upKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_W, 'W');
+        gp.getKeyListeners()[0].keyPressed(upKey);
+        kH.keyPressed(upKey);
+        tvGuy.update();
+        // check if direction is down
+        assertEquals("up",tvGuy.direction);
     }
     @Test
     void MainCharacterMovesLeftWhenLeftKeyPressed(){
