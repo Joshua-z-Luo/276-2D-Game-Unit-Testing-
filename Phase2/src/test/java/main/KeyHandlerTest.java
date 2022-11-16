@@ -76,16 +76,7 @@ public class KeyHandlerTest {
         // check if direction is down
         assertEquals("right",tvGuy.direction);
     }
-    @Test
-    void PauseScreenDisplayedWhenPKeyPressed(){
-        // fill in
 
-    }
-    @Test
-    void InstructionsScreenDisplayedWhenIKeyPressed(){
-        // fill in
-
-    }
     @Test
     void GameRestartAfterLosingWhenKeyPressed(){
         // fill in
@@ -112,5 +103,13 @@ public class KeyHandlerTest {
                 0, KeyEvent.VK_P, 'P');
         gp.getKeyListeners()[0].keyPressed(key);
         assertEquals(gp.pauseState,gp.gameState);
+    }
+
+    @Test
+    void InstructionsDisplayedWhenIIsPressed(){
+        KeyEvent key = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_I, 'I');
+        gp.getKeyListeners()[0].keyPressed(key);
+        assertEquals(gp.instructionsState,gp.gameState);
     }
 }
