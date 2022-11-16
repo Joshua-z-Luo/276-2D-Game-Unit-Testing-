@@ -20,6 +20,7 @@ class MainCharacterTVTest {
    static void init() {
        gp.setUpGame();
        gp.startGameThread();
+       gp.gameState = gp.playState;
    }
 
    @Test
@@ -54,4 +55,21 @@ class MainCharacterTVTest {
        }
    }
 
+   @Test
+    void lifeIncreasesWhenPowerUpCollected() {
+       mC.life = 50;
+       for (int i = 0; i < gp.obj.length; i++) {
+           if (gp.obj[i] != null && gp.obj[i].getClass().equals(OBJ_Battery.class)) {
+               mC.pickUpObject(i);
+           }
+           assertTrue(50 < mC.life);
+       }
+   }
+
+   @Test
+    void gameStateIsLoseStateWhenHealthIsZero(){
+       mC.life = 0;
+       mC.update();
+       assertEquals(gp.loseState, gp.gameState);
+   }
 }
