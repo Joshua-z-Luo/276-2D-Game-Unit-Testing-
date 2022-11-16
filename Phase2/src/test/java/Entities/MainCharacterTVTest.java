@@ -53,4 +53,5 @@ class MainCharacterTVTest {
            assertEquals(score, mC.score);
        }
    }
+
 }
