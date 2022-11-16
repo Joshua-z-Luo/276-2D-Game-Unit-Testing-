@@ -4,8 +4,8 @@ import main.GamePanel;
 import main.KeyHandler;
 import Entities.MainCharacterTV;
 import main.UI;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.testng.annotations.AfterClass;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -24,25 +24,31 @@ public class KeyHandlerTest {
 
     public void keyTyped(KeyEvent e) {}
 
-    @BeforeAll
-    static void init(){
-        //initiate monsters
-        aSetter.setMonster();
+    @BeforeEach
+    public void init(){
         gp.setUpGame();
         gp.startGameThread();
         gp.gameState = gp.playState;
     }
+
+    @AfterClass
+    public void cleanUp(){
+        gp.restart();
+        gp.tvGuy.direction = "down";
+    }
+
     @Test
     void MainCharacterMovesDownWhenDownKeyPressed(){
         // simulate key being pressed
         KeyEvent downKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_S, 'S');
         gp.getKeyListeners()[0].keyPressed(downKey);
-        //
+
         kH.keyPressed(downKey);
+//        keyH.keyPressed(downKey);
         tvGuy.update();
         // check if direction is down
-        assertEquals("down",tvGuy.direction);
+        assertEquals("down", tvGuy.direction);
     }
     @Test
     void MainCharacterMovesUpWhenUpKeyPressed(){

@@ -17,7 +17,6 @@ class CollisionCheckerTest {
     @BeforeAll
     static void init(){
         //initiate monsters
-       aSetter.setMonster();
         gp.setUpGame();
         gp.startGameThread();
         gp.gameState = gp.playState;
@@ -28,8 +27,8 @@ class CollisionCheckerTest {
     void testCheckIfMainCharacterCollidesWithMonsterAt350350(){
         tvGuy.x = 350;
         tvGuy.y = 360;
-       tvGuy.direction = "up";
-   int result =  cChecker.checkEntity(tvGuy, gp.monster);
+        tvGuy.direction = "up";
+        int result =  cChecker.checkEntity(tvGuy, gp.monster);
         //if result is 999, no collision
         //else, collision
         //So this assertion assume collision between tvGuy and a monster at 350, 350
