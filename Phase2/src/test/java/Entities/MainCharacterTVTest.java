@@ -1,6 +1,7 @@
 package Entities;
 
 import Entities.object.OBJ_Battery;
+import Entities.object.OBJ_Hole;
 import main.GamePanel;
 import main.KeyHandler;
 import org.junit.jupiter.api.Test;
@@ -32,8 +33,8 @@ class MainCharacterTVTest {
            if(gp.obj[i] != null && gp.obj[i].getClass().equals(OBJ_Battery.class)){
                score+= 100;
                mC.pickUpObject(i);
-               assertEquals(score, mC.score);
            }
+           assertEquals(score, mC.score);
        }
    }
 }
