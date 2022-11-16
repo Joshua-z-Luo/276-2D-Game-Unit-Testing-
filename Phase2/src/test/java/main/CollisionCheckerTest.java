@@ -16,7 +16,7 @@ class CollisionCheckerTest {
 
     @BeforeAll
     static void init(){
-        //initiate monsters and TVguy
+        //initiate monsters
        aSetter.setMonster();
     }
 
@@ -30,7 +30,6 @@ class CollisionCheckerTest {
         //else, collision
         //So this assertion assume collision between tvGuy and a monster at 350, 350
     assertNotEquals(999,result);
-
     }
 
     @Test
