@@ -94,8 +94,22 @@ public class MainCharacterTV extends MovingObject {
         direction = "down";
     }
 
+    /**
+     * Called when a battery power up is picked up
+     * Increases score and life
+     */
     public void collectReward(){
         life += 30;
+        score += 100;
+    }
+
+    /**
+     * Called when a key card is collected
+     * Increases score and increases the number of keycards held
+     */
+    public void collectKeyCard(){
+        score += 200;
+        keyCardCount++;
     }
 
     /**
@@ -186,7 +200,6 @@ public class MainCharacterTV extends MovingObject {
             if(life > maxLife){
                 life = maxLife;
             }
-            score += 100;
             //**UPDATE** when TVGuy touches battery his life gets increased by 30 so 10ish seconds
         }
         else if(index != 999 && gp.obj[index].getClass().equals(OBJ_Hole.class)){
@@ -196,8 +209,7 @@ public class MainCharacterTV extends MovingObject {
         else if(index != 999 && gp.obj[index].getClass().equals(OBJ_KeyCard.class)){
 //            System.out.println("You got a key");
             gp.obj[index] = null;
-            this.keyCardCount++;
-            score += 200;
+            collectKeyCard();
         }
     }
 
