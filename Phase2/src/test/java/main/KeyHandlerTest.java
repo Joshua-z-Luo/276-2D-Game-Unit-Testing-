@@ -4,6 +4,7 @@ import main.GamePanel;
 import main.KeyHandler;
 import Entities.MainCharacterTV;
 import main.UI;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.awt.event.KeyEvent;
@@ -17,10 +18,20 @@ public class KeyHandlerTest {
     KeyEvent e;
     public static GamePanel gp = new GamePanel();
     public static KeyHandler kH = new KeyHandler(gp);
+
+    static AssetSetter aSetter = new AssetSetter(gp);
     public static MainCharacterTV tvGuy = new MainCharacterTV(gp,kH);
 
     public void keyTyped(KeyEvent e) {}
 
+    @BeforeAll
+    static void init(){
+        //initiate monsters
+        aSetter.setMonster();
+        gp.setUpGame();
+        gp.startGameThread();
+        gp.gameState = gp.playState;
+    }
     @Test
     void MainCharacterMovesDownWhenDownKeyPressed(){
         // simulate key being pressed
@@ -73,6 +84,13 @@ public class KeyHandlerTest {
     @Test
     void GameContinueAfterWinningWhenKeyPressed(){
         // fill in
+    }
 
+    @Test
+    void GamePausesWhenPIsPressed(){
+        KeyEvent key = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_P, 'P');
+        gp.getKeyListeners()[0].keyPressed(key);
+        assertEquals(gp.pauseState,gp.gameState);
     }
 }
