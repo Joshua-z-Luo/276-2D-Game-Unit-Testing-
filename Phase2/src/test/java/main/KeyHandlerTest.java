@@ -56,13 +56,25 @@ public class KeyHandlerTest {
     }
     @Test
     void MainCharacterMovesLeftWhenLeftKeyPressed(){
-        // fill in
-
+        // simulate key being pressed
+        KeyEvent upKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_A, 'A');
+        gp.getKeyListeners()[0].keyPressed(upKey);
+        kH.keyPressed(upKey);
+        tvGuy.update();
+        // check if direction is down
+        assertEquals("left",tvGuy.direction);
     }
     @Test
     void MainCharacterMovesRightWhenRightKeyPressed(){
-        // fill in
-
+        // simulate key being pressed
+        KeyEvent upKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_D, 'D');
+        gp.getKeyListeners()[0].keyPressed(upKey);
+        kH.keyPressed(upKey);
+        tvGuy.update();
+        // check if direction is down
+        assertEquals("right",tvGuy.direction);
     }
     @Test
     void PauseScreenDisplayedWhenPKeyPressed(){
