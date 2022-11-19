@@ -37,6 +37,9 @@ public class KeyHandlerTest {
         gp.tvGuy.direction = "down";
     }
 
+    /**
+     * Tests if the down key was pressed
+     */
     @Test
     void MainCharacterMovesDownWhenDownKeyPressed(){
         // simulate key being pressed
@@ -50,6 +53,10 @@ public class KeyHandlerTest {
         // check if direction is down
         assertEquals("down", tvGuy.direction);
     }
+
+    /**
+     * Tests if the up key was pressed
+     */
     @Test
     void MainCharacterMovesUpWhenUpKeyPressed(){
         // simulate key being pressed
@@ -61,6 +68,10 @@ public class KeyHandlerTest {
         // check if direction is down
         assertEquals("up",tvGuy.direction);
     }
+
+    /**
+     * Tests if the left key was pressed
+     */
     @Test
     void MainCharacterMovesLeftWhenLeftKeyPressed(){
         // simulate key being pressed
@@ -72,6 +83,10 @@ public class KeyHandlerTest {
         // check if direction is down
         assertEquals("left",tvGuy.direction);
     }
+
+    /**
+     * Tests if the right key was pressed
+     */
     @Test
     void MainCharacterMovesRightWhenRightKeyPressed(){
         // simulate key being pressed
@@ -104,6 +119,9 @@ public class KeyHandlerTest {
         // fill in
     }
 
+    /**
+     * Tests if the P key was pressed
+     */
     @Test
     void GamePausesWhenPIsPressed(){
         KeyEvent key = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
@@ -112,6 +130,9 @@ public class KeyHandlerTest {
         assertEquals(gp.pauseState,gp.gameState);
     }
 
+    /**
+     * Tests if the I key was pressed
+     */
     @Test
     void InstructionsDisplayedWhenIIsPressed(){
         KeyEvent key = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),

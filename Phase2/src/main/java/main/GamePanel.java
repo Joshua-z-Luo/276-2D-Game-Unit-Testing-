@@ -111,8 +111,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     /**
-     * Loads the next level
-     *
+     * Restarts the game
      */
     public void restart() {
         level = 0;

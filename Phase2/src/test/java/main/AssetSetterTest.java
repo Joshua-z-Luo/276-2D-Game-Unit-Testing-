@@ -25,6 +25,9 @@ class AssetSetterTest {
         aSetter.setObject();
     }
 
+    /**
+     * Tests if the power ups are initialized properly
+     */
     @Test
     void powerUpsInitiatedCorrectly(){
         for(int i =0;i<5;i++){
