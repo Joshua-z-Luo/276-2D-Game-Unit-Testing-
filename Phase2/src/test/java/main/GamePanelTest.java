@@ -1,21 +1,32 @@
 package main;
 
 import Entities.MainCharacterTV;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.awt.event.KeyEvent;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GamePanelTest {
-    public static GamePanel gp = new GamePanel();
-    public static KeyHandler kH = new KeyHandler(gp);
-    public static MainCharacterTV mC = new MainCharacterTV(gp,kH);
+    public GamePanel gp;// = new GamePanel();
+    public KeyHandler kH;// = new KeyHandler(gp);
+    public MainCharacterTV mC;// = new MainCharacterTV(gp,kH);
 
     @BeforeEach
     public void init(){
+        gp = new GamePanel();
+        kH = new KeyHandler(gp);
+        mC = new MainCharacterTV(gp, kH);
         gp.setUpGame();
         gp.startGameThread();
         gp.gameState = gp.playState;
+    }
+
+    @AfterEach
+    public void cleanup(){
+        gp = null;
+        kH = null;
+        mC = null;
     }
 
     /**

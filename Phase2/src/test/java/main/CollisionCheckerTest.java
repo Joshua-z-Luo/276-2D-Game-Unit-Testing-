@@ -1,7 +1,9 @@
 package main;
 
 import Entities.MainCharacterTV;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.awt.event.KeyEvent;
@@ -9,15 +11,14 @@ import java.awt.event.KeyEvent;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CollisionCheckerTest {
-    static GamePanel gp = new GamePanel();
-    static KeyHandler kH = new KeyHandler(gp);
-    static MainCharacterTV tvGuy =   new MainCharacterTV(gp,kH);
-    static AssetSetter aSetter = new AssetSetter(gp);
+    public static GamePanel gp = new GamePanel();
+    public static KeyHandler kH = new KeyHandler(gp);
+    public static MainCharacterTV tvGuy = new MainCharacterTV(gp,kH);
+    public static AssetSetter aSetter = new AssetSetter(gp);
+    public static CollisionChecker cChecker = new CollisionChecker(gp);
 
-    static CollisionChecker cChecker = new CollisionChecker(gp);
-
-    @BeforeAll
-    static void init(){
+    @BeforeEach
+    public void init(){
         //initiate monsters
         gp.setUpGame();
         gp.startGameThread();
@@ -160,7 +161,7 @@ class CollisionCheckerTest {
         gp.getKeyListeners()[0].keyPressed(downKey);
         for(int i = 0; i < 100; i++) {
             gp.keyH.keyPressed(downKey);
-            gp.tvGuy.update();
+//            gp.tvGuy.update();
         }
 
         assertTrue(gp.tvGuy.collisionOn);

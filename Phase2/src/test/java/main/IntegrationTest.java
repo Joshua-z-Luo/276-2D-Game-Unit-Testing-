@@ -8,21 +8,26 @@ import java.awt.event.KeyEvent;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IntegrationTest {
-    public static GamePanel gp = new GamePanel();
-    public static KeyHandler kH = new KeyHandler(gp);
-    public static MainCharacterTV mC = new MainCharacterTV(gp, kH);
+    public GamePanel gp;// = new GamePanel();
+    public KeyHandler kH;// = new KeyHandler(gp);
+    public  MainCharacterTV mC;// = new MainCharacterTV(gp, kH);
 
     @BeforeEach
     public void init() {
-//        gp = new GamePanel();
-//        kH = new KeyHandler(gp);
-//        mC = new MainCharacterTV(gp, kH);
+        gp = new GamePanel();
+        kH = new KeyHandler(gp);
+        mC = new MainCharacterTV(gp, kH);
         gp.setUpGame();
         gp.startGameThread();
         gp.ui.commandNum = 0;
     }
 
-
+    @AfterEach
+    public void cleanup(){
+        gp = null;
+        kH = null;
+        mC = null;
+    }
 
     /**
      * Tests the KeyHandler and the UI is interacting as expected in the main menu
@@ -31,15 +36,16 @@ public class IntegrationTest {
     @Test
     void KeyHandlerandUIInteractionsWithOptionsInMainMenu() {
         assertEquals(gp.titleState, gp.gameState);
+
+        assertEquals(0, gp.ui.commandNum);
         KeyEvent downKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_S, 'S');
         kH.keyPressed(downKey);
-//        gp.getKeyListeners()[0].keyPressed(downKey);
         assertEquals(1, gp.ui.commandNum);
 
         KeyEvent upKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_W, 'W');
-        gp.getKeyListeners()[0].keyPressed(upKey);
+        kH.keyPressed(upKey);
         assertEquals(0, gp.ui.commandNum);
     }
 
@@ -53,7 +59,8 @@ public class IntegrationTest {
         assertEquals(0, gp.ui.commandNum);
         KeyEvent enterKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_ENTER, 'e');
-        gp.getKeyListeners()[0].keyPressed(enterKey);
+//        gp.getKeyListeners()[0].keyPressed(enterKey);
+        kH.keyPressed(enterKey);
         assertEquals(gp.playState, gp.gameState);
     }
 
@@ -69,12 +76,12 @@ public class IntegrationTest {
         assertEquals(gp.loseState, gp.gameState);
         KeyEvent downKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_S, 'S');
-        gp.getKeyListeners()[0].keyPressed(downKey);
+        kH.keyPressed(downKey);
         assertEquals(1, gp.ui.commandNum);
 
         KeyEvent upKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_W, 'W');
-        gp.getKeyListeners()[0].keyPressed(upKey);
+        kH.keyPressed(upKey);
         assertEquals(0, gp.ui.commandNum);
     }
 
@@ -90,7 +97,7 @@ public class IntegrationTest {
         assertEquals(0, gp.ui.commandNum);
         KeyEvent enterKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_ENTER, 'e');
-        gp.getKeyListeners()[0].keyPressed(enterKey);
+        kH.keyPressed(enterKey);
         assertEquals(gp.playState, gp.gameState);
     }
 
@@ -105,11 +112,11 @@ public class IntegrationTest {
         assertEquals(gp.loseState, gp.gameState);
         KeyEvent downKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_S, 'S');
-        gp.getKeyListeners()[0].keyPressed(downKey);
+        kH.keyPressed(downKey);
         assertEquals(1, gp.ui.commandNum);
         KeyEvent enterKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_ENTER, 'e');
-        gp.getKeyListeners()[0].keyPressed(enterKey);
+        kH.keyPressed(enterKey);
         assertEquals(gp.titleState, gp.gameState);
     }
 
@@ -123,11 +130,11 @@ public class IntegrationTest {
         assertEquals(gp.winState, gp.gameState);
         KeyEvent downKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_S, 'S');
-        gp.getKeyListeners()[0].keyPressed(downKey);
+        kH.keyPressed(downKey);
         assertEquals(1, gp.ui.commandNum);
         KeyEvent enterKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_ENTER, 'e');
-        gp.getKeyListeners()[0].keyPressed(enterKey);
+        kH.keyPressed(enterKey);
         assertEquals(gp.titleState, gp.gameState);
     }
 
@@ -141,7 +148,7 @@ public class IntegrationTest {
         assertEquals(0, gp.ui.commandNum);
         KeyEvent enterKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_ENTER, 'e');
-        gp.getKeyListeners()[0].keyPressed(enterKey);
+        kH.keyPressed(enterKey);
         assertEquals(1,gp.level);
         assertEquals(gp.playState, gp.gameState);
     }
@@ -156,11 +163,11 @@ public class IntegrationTest {
         assertEquals(gp.winState, gp.gameState);
         KeyEvent downKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_S, 'S');
-        gp.getKeyListeners()[0].keyPressed(downKey);
+        kH.keyPressed(downKey);
         assertEquals(1, gp.ui.commandNum);
         KeyEvent enterKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_ENTER, 'e');
-        gp.getKeyListeners()[0].keyPressed(enterKey);
+        kH.keyPressed(enterKey);
         assertEquals(gp.titleState, gp.gameState);
     }
 

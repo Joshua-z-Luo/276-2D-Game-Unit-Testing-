@@ -101,8 +101,6 @@ class MainCharacterTVTest {
                assertTrue(before < mC.life);
            }
        }
-
-
    }
 
 
