@@ -17,7 +17,7 @@ TV Guy Escape is a simple 2D action maze chase game. In the game, you play as TV
 HOW TO BUILD
 ------------
 
-Ensure that you have at least JDK 18 to build the game.\n
+Ensure that you have at least JDK 18 to build the game.<br>
 Note: This game was built in IntelliJ.
 
 
