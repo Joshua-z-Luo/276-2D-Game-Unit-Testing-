@@ -4,6 +4,8 @@ import Entities.MainCharacterTV;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.awt.event.KeyEvent;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CollisionCheckerTest {
@@ -94,5 +96,73 @@ class CollisionCheckerTest {
         tvGuy.y = 700;
         int result =  cChecker.checkObject(tvGuy, true);
         assertEquals(7, result);
+    }
+
+    /**
+     * Tests if the player gets stuck when colliding with a wall going left
+     */
+    @Test
+    void mainCharacterGetsStuckOnWallGoingLeft(){
+        KeyEvent leftKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_A, 'A');
+        gp.getKeyListeners()[0].keyPressed(leftKey);
+        for(int i = 0; i < 100; i++) {
+            gp.keyH.keyPressed(leftKey);
+            gp.tvGuy.update();
+        }
+
+        assertTrue(gp.tvGuy.collisionOn);
+    }
+
+    /**
+     * Tests if the player gets stuck when colliding with a wall going right
+     */
+    @Test
+    void mainCharacterGetsStuckOnWallGoingRight(){
+        gp.tvGuy.y = 600;
+        KeyEvent rightKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_D, 'D');
+        gp.getKeyListeners()[0].keyPressed(rightKey);
+        for(int i = 0; i < 25; i++) {
+            gp.keyH.keyPressed(rightKey);
+            gp.tvGuy.update();
+        }
+
+        assertTrue(gp.tvGuy.collisionOn);
+    }
+
+    /**
+     * Tests if the player gets stuck when colliding with a wall going up
+     */
+    @Test
+    void mainCharacterGetsStuckOnWallGoingUp(){
+        gp.tvGuy.x = 50;
+        KeyEvent upKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_W, 'W');
+        gp.getKeyListeners()[0].keyPressed(upKey);
+        for(int i = 0; i < 100; i++) {
+            gp.keyH.keyPressed(upKey);
+            gp.tvGuy.update();
+        }
+
+        assertTrue(gp.tvGuy.collisionOn);
+    }
+
+    /**
+     * Tests if the player gets stuck when colliding with a wall going down
+     */
+    @Test
+    void mainCharacterGetsStuckOnWallGoingDown(){
+        gp.tvGuy.x = 150;
+        gp.tvGuy.y = 600;
+        KeyEvent downKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_S, 'S');
+        gp.getKeyListeners()[0].keyPressed(downKey);
+        for(int i = 0; i < 100; i++) {
+            gp.keyH.keyPressed(downKey);
+            gp.tvGuy.update();
+        }
+
+        assertTrue(gp.tvGuy.collisionOn);
     }
 }

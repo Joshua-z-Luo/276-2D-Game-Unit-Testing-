@@ -1,6 +1,7 @@
 package main;
 
 import Entities.MainCharacterTV;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.awt.event.KeyEvent;
@@ -13,9 +14,15 @@ public class IntegrationTest {
 
     @BeforeEach
     public void init() {
+//        gp = new GamePanel();
+//        kH = new KeyHandler(gp);
+//        mC = new MainCharacterTV(gp, kH);
         gp.setUpGame();
         gp.startGameThread();
+        gp.ui.commandNum = 0;
     }
+
+
 
     /**
      * Tests the KeyHandler and the UI is interacting as expected in the main menu
@@ -26,7 +33,8 @@ public class IntegrationTest {
         assertEquals(gp.titleState, gp.gameState);
         KeyEvent downKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_S, 'S');
-        gp.getKeyListeners()[0].keyPressed(downKey);
+        kH.keyPressed(downKey);
+//        gp.getKeyListeners()[0].keyPressed(downKey);
         assertEquals(1, gp.ui.commandNum);
 
         KeyEvent upKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
@@ -71,7 +79,7 @@ public class IntegrationTest {
     }
 
     /**
-     * Tests when the game is in lose state that the player can enter on the retry option and the game will go back to play state (running game screen)
+     * Tests when the game is in lose state that the player can press enter on the retry option and the game will go back to play state (running game screen)
      */
     @Test
     void KeyHandlerUIandGamePanelInteractionsWhenLoseStateandRetryEntered(){
@@ -95,6 +103,57 @@ public class IntegrationTest {
         mC.life = 0;
         mC.update();
         assertEquals(gp.loseState, gp.gameState);
+        KeyEvent downKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_S, 'S');
+        gp.getKeyListeners()[0].keyPressed(downKey);
+        assertEquals(1, gp.ui.commandNum);
+        KeyEvent enterKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_ENTER, 'e');
+        gp.getKeyListeners()[0].keyPressed(enterKey);
+        assertEquals(gp.titleState, gp.gameState);
+    }
+
+    /**
+     * Tests the interaction between the KeyHandler and the UI in the win screen
+     * Tests if the player can go through the win options
+     */
+    @Test
+    void KeyHandlerandUIInteractionsWhenWinState(){
+        gp.gameState = gp.winState;
+        assertEquals(gp.winState, gp.gameState);
+        KeyEvent downKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_S, 'S');
+        gp.getKeyListeners()[0].keyPressed(downKey);
+        assertEquals(1, gp.ui.commandNum);
+        KeyEvent enterKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_ENTER, 'e');
+        gp.getKeyListeners()[0].keyPressed(enterKey);
+        assertEquals(gp.titleState, gp.gameState);
+    }
+
+    /**
+     * Tests when the game is in win state that the player can press enter on continue game option and the game will continue to the next level(running game screen/play state)
+     */
+    @Test
+    void KeyHandlerUIandGamePanelInteractionsWhenWinStateContinueOption(){
+        gp.gameState = gp.winState;
+        assertEquals(gp.winState, gp.gameState);
+        assertEquals(0, gp.ui.commandNum);
+        KeyEvent enterKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_ENTER, 'e');
+        gp.getKeyListeners()[0].keyPressed(enterKey);
+        assertEquals(1,gp.level);
+        assertEquals(gp.playState, gp.gameState);
+    }
+
+    /**
+     * Tests when the game is in win state that the player can press enter on the return to main menu option and the game will go back to the main menu (title state)
+     */
+    @Test
+    void KeyHandlerUIandGamePanelInterationsWhenWinStateExitOption(){
+        gp.gameState = gp.winState;
+        mC.update();
+        assertEquals(gp.winState, gp.gameState);
         KeyEvent downKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_S, 'S');
         gp.getKeyListeners()[0].keyPressed(downKey);

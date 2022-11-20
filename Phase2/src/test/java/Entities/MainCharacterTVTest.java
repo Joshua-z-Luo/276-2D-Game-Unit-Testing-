@@ -6,23 +6,25 @@ import Entities.object.OBJ_KeyCard;
 import main.AssetSetter;
 import main.GamePanel;
 import main.KeyHandler;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.awt.event.KeyEvent;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainCharacterTVTest {
 
-    public static GamePanel gp = new GamePanel();
-    public static KeyHandler kH = new KeyHandler(gp);
-    public static MainCharacterTV mC = new MainCharacterTV(gp,kH);
-    private static AssetSetter aSetter = new AssetSetter(gp);
+    public  GamePanel gp;// = new GamePanel();
+    public  KeyHandler kH;// = new KeyHandler(gp);
+    public MainCharacterTV mC;// = new MainCharacterTV(gp,kH);
+    private AssetSetter aSetter = new AssetSetter(gp);
 
-   @BeforeAll
-   static void init() {
+   @BeforeEach
+   void init() {
+       gp = new GamePanel();
+       kH = new KeyHandler(gp);
+       mC = new MainCharacterTV(gp, kH);
        gp.setUpGame();
+       gp.aSetter.setObject();
        gp.startGameThread();
        gp.gameState = gp.playState;
    }
@@ -91,13 +93,16 @@ class MainCharacterTVTest {
      */
    @Test
     void lifeIncreasesWhenPowerUpCollected() {
+       int before = 50;
        mC.life = 50;
        for (int i = 0; i < gp.obj.length; i++) {
            if (gp.obj[i] != null && gp.obj[i].getClass().equals(OBJ_Battery.class)) {
                mC.pickUpObject(i);
+               assertTrue(before < mC.life);
            }
-           assertTrue(50 < mC.life);
        }
+
+
    }
 
 
@@ -106,15 +111,10 @@ class MainCharacterTVTest {
      */
    @Test
     void numberOfKeyCardsCollectedIncreasesAfterPickingUpKeyCard(){
-       int count = 0;
-       for(int i = 0; i < gp.obj.length; i++){
-           if(gp.obj[i] != null && gp.obj[i].getClass().equals(OBJ_KeyCard.class)){
-               mC.pickUpObject(i);
-               count++;
-               assertEquals(count, mC.keyCardCount);
-           }
-       }
-       assertEquals(3, mC.keyCardCount);
+       gp.tvGuy.pickUpObject(6);
+       gp.tvGuy.pickUpObject(8);
+       gp.tvGuy.pickUpObject(9);
+       assertEquals(3, gp.tvGuy.keyCardCount);
    }
 
     /**

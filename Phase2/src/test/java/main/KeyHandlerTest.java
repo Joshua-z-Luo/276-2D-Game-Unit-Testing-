@@ -1,39 +1,23 @@
 package main;
 
-import main.GamePanel;
-import main.KeyHandler;
 import Entities.MainCharacterTV;
-import main.UI;
 import org.junit.jupiter.api.*;
-import org.testng.annotations.AfterClass;
-
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class KeyHandlerTest {
-    public static boolean upPressed, downPressed, leftPressed, rightPressed; // do we need?
-    KeyEvent e;
-    public static GamePanel gp = new GamePanel();
-    public static KeyHandler kH = new KeyHandler(gp);
-    static AssetSetter aSetter = new AssetSetter(gp);
-    public static MainCharacterTV tvGuy = new MainCharacterTV(gp,kH);
-    public void keyTyped(KeyEvent e) {}
+    public GamePanel gp = new GamePanel();
+    public KeyHandler kH = new KeyHandler(gp);
+    public MainCharacterTV tvGuy = new MainCharacterTV(gp,kH);
 
     @BeforeEach
     public void init(){
         gp.setUpGame();
-        gp.startGameThread();
         gp.gameState = gp.playState;
     }
 
-    @AfterClass
-    public void cleanUp(){
-        gp.restart();
-        gp.tvGuy.direction = "down";
-    }
 
     /**
      * Tests if the down key was pressed
@@ -122,9 +106,14 @@ public class KeyHandlerTest {
      */
     @Test
     void GamePausesWhenPIsPressed(){
+        assertEquals(gp.gameState, gp.playState);
         KeyEvent key = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_P, 'P');
         gp.getKeyListeners()[0].keyPressed(key);
+        kH.keyPressed(key);
+//        kH.keyReleased(key);
+//        gp.update();
+
         assertEquals(gp.pauseState,gp.gameState);
     }
 
@@ -136,6 +125,7 @@ public class KeyHandlerTest {
         KeyEvent key = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_I, 'I');
         gp.getKeyListeners()[0].keyPressed(key);
-        assertEquals(gp.instructionsState,gp.gameState);
+        kH.keyPressed(key);
+        assertEquals(gp.instructionsState, gp.gameState);
     }
 }
