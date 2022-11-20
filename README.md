@@ -17,20 +17,21 @@ TV Guy Escape is a simple 2D action maze chase game. In the game, you play as TV
 HOW TO BUILD
 ------------
 
-Ensure that you have at least JDK 18 to build the game.
+Ensure that you have at least JDK 18 to build the game. 
+Note: This game was built in IntelliJ.
 
 
 HOW TO RUN
 ------------
 
 Press the run button in your IDE and the game will start. When the starting screen shows up, you can press W and S to traverse the menu and then press Enter when you are ready for your selection.
-Additional instructions are shown on the menu screen as well.
+Additional instructions are shown on the menu screen as well. After selecting Play Game, the game will start running and you should be able to move the character around.
 
 
 HOW TO TEST
 -------------
 
-Press the run buttons on the tests you would like to run to ensure everything is correct and running as expected. 
+Press the run buttons on the tests you would like to run to ensure everything is correct and running as expected. Alternatively, there is a All Test run configuration that will run all tests at once.
 
 
 MAINTAINERS
