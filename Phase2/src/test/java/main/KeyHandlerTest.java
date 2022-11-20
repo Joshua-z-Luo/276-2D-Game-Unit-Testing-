@@ -18,10 +18,8 @@ public class KeyHandlerTest {
     KeyEvent e;
     public static GamePanel gp = new GamePanel();
     public static KeyHandler kH = new KeyHandler(gp);
-
     static AssetSetter aSetter = new AssetSetter(gp);
     public static MainCharacterTV tvGuy = new MainCharacterTV(gp,kH);
-
     public void keyTyped(KeyEvent e) {}
 
     @BeforeEach
