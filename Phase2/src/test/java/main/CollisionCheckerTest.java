@@ -23,6 +23,9 @@ class CollisionCheckerTest {
 
     }
 
+    /**
+     * Tests if the player can collide with a certain enemy
+     */
     @Test
     void testCheckIfMainCharacterCollidesWithMonsterAt350350(){
         tvGuy.x = 350;
@@ -32,9 +35,12 @@ class CollisionCheckerTest {
         //if result is 999, no collision
         //else, collision
         //So this assertion assume collision between tvGuy and a monster at 350, 350
-    assertNotEquals(999,result);
+        assertNotEquals(999,result);
     }
 
+    /**
+     * Tests if the player can collide with a certain enemy
+     */
     @Test
     void testCheckIfMainCharacterCollidesWithMonsterAt150150(){
         tvGuy.x = 150;
@@ -48,6 +54,9 @@ class CollisionCheckerTest {
 
     }
 
+    /**
+     * Tests if the player can collide with a certain enemy
+     */
     @Test
     void testCheckIfMainCharacterCollidesWithMonsterAt350100(){
         tvGuy.x = 350;
@@ -60,6 +69,9 @@ class CollisionCheckerTest {
 
     }
 
+    /**
+     * Tests if the player can collide with a certain enemy
+     */
     @Test
     void testCheckIfMainCharacterCollidesWithMonsterAt1000350(){
         tvGuy.x = 1000;
@@ -72,6 +84,9 @@ class CollisionCheckerTest {
 
     }
 
+    /**
+     * Tests if the player can reach the door with 3 keycards
+     */
     @Test
     void mainCharacterCanReachDoor(){
         tvGuy.keyCardCount = 3;
