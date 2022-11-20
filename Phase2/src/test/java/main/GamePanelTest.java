@@ -60,7 +60,7 @@ public class GamePanelTest {
         mC.update();
         assertEquals(gp.winState, gp.gameState);
     }
-    
+
     /**
      * Tests if gameState = loseState as soon as main Character's life goes zero
      */
