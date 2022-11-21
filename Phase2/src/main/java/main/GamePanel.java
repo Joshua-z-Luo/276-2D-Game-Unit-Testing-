@@ -51,6 +51,9 @@ public class GamePanel extends JPanel implements Runnable {
     public int level = 0;
     public int retries = 5;
     public long startTime;
+    public long firstLevelTime;
+    public long secondLevelTime;
+    public int firstLevelScore;
 
     //Game State
     public int gameState;
