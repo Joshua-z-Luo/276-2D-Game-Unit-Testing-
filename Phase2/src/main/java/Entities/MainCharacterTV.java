@@ -78,7 +78,7 @@ public class MainCharacterTV extends MovingObject {
         direction = "down";
         directionX = 0;
         directionY = 0;
-
+        score = 0;
         maxLife = 100.0;
         life = maxLife;
 
@@ -100,7 +100,7 @@ public class MainCharacterTV extends MovingObject {
      */
     public void collectReward(){
         life += 30;
-        score += 100;
+        score += 200;
     }
 
     /**
@@ -108,7 +108,7 @@ public class MainCharacterTV extends MovingObject {
      * Increases score and increases the number of keycards held
      */
     public void collectKeyCard(){
-        score += 200;
+        score += 100;
         keyCardCount++;
     }
 

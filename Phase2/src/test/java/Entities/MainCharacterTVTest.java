@@ -49,7 +49,7 @@ class MainCharacterTVTest {
        int score = mC.score;
        for(int i = 0; i < gp.obj.length; i++){
            if(gp.obj[i] != null && gp.obj[i].getClass().equals(OBJ_Battery.class)){
-               score+= 100;
+               score+= 200;
                mC.pickUpObject(i);
                assertEquals(score, mC.score);
            }
@@ -65,7 +65,7 @@ class MainCharacterTVTest {
        int score = mC.score;
        for(int i = 0; i < gp.obj.length; i++){
            if(gp.obj[i] != null && gp.obj[i].getClass().equals(OBJ_KeyCard.class)){
-               score += 200;
+               score += 100;
                mC.pickUpObject(i);
                assertEquals(score, mC.score);
            }

@@ -50,7 +50,7 @@ public class GamePanel extends JPanel implements Runnable {
     public int powerUpTimer = 0;
     public int level = 0;
     public int retries = 5;
-    public long startTime = System.currentTimeMillis();
+    public long startTime;
 
     //Game State
     public int gameState;
