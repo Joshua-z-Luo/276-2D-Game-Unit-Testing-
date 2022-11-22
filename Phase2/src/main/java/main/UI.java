@@ -239,7 +239,7 @@ public class UI {
         g2.setColor(new Color(255, 255, 255)); //if you want a coloured title screen
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
-        String text = "TV Guy Escape!"; //Title of the game
+        String text = "Unit Testing!"; //Title of the game
         int x = getXForCenteredText(text);
         int y = gp.tileSize*3;
 

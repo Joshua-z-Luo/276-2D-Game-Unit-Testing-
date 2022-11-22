@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="main.AssetSetterTest" time="0.047" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="main.AssetSetterTest" time="0.031" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="18"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -13,7 +13,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CA"/>
     <property name="sun.boot.library.path" value="/home/connortuna/.jdks/openjdk-18.0.2.1/lib"/>
-    <property name="sun.java.command" value="/home/connortuna/project/Phase2/target/surefire/surefirebooter-20221121205556509_3.jar /home/connortuna/project/Phase2/target/surefire 2022-11-21T20-55-56_257-jvmRun1 surefire-20221121205556509_1tmp surefire_0-20221121205556509_2tmp"/>
+    <property name="sun.java.command" value="/home/connortuna/project/Phase2/target/surefire/surefirebooter-20221121212928681_3.jar /home/connortuna/project/Phase2/target/surefire 2022-11-21T21-29-28_488-jvmRun1 surefire-20221121212928681_1tmp surefire_0-20221121212928681_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/connortuna/project/Phase2/target/test-classes:/home/connortuna/project/Phase2/target/classes:/home/connortuna/.m2/repository/org/testng/testng/7.6.1/testng-7.6.1.jar:/home/connortuna/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/connortuna/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/home/connortuna/.m2/repository/org/webjars/jquery/3.6.0/jquery-3.6.0.jar:/home/connortuna/.m2/repository/org/junit/jupiter/junit-jupiter/5.9.0/junit-jupiter-5.9.0.jar:/home/connortuna/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.0/junit-jupiter-api-5.9.0.jar:/home/connortuna/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/connortuna/.m2/repository/org/junit/platform/junit-platform-commons/1.9.0/junit-platform-commons-1.9.0.jar:/home/connortuna/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/connortuna/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.0/junit-jupiter-params-5.9.0.jar:/home/connortuna/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.0/junit-jupiter-engine-5.9.0.jar:/home/connortuna/.m2/repository/org/junit/platform/junit-platform-engine/1.9.0/junit-platform-engine-1.9.0.jar:/home/connortuna/.m2/repository/org/slf4j/slf4j-api/2.0.3/slf4j-api-2.0.3.jar:/home/connortuna/.m2/repository/org/slf4j/slf4j-simple/2.0.3/slf4j-simple-2.0.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -28,7 +28,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/home/connortuna/project/Phase2/target/surefire/surefirebooter-20221121205556509_3.jar"/>
+    <property name="surefire.real.class.path" value="/home/connortuna/project/Phase2/target/surefire/surefirebooter-20221121212928681_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="18.0.2.1+1-1"/>
     <property name="user.name" value="connortuna"/>
@@ -56,5 +56,5 @@
   <testcase name="keyCardsInitiatedCorrectly" classname="main.AssetSetterTest" time="0.002"/>
   <testcase name="HolesInitiatedCorrectly" classname="main.AssetSetterTest" time="0.009"/>
   <testcase name="doorInitiatedCorrectlyFirstLevel" classname="main.AssetSetterTest" time="0.002"/>
-  <testcase name="powerUpsInitiatedCorrectly" classname="main.AssetSetterTest" time="0.005"/>
+  <testcase name="powerUpsInitiatedCorrectly" classname="main.AssetSetterTest" time="0.004"/>
 </testsuite>

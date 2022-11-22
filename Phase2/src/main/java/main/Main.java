@@ -8,7 +8,7 @@ public class Main {
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
-        window.setTitle("TV Guy Escapes");
+        window.setTitle("Unit Testing!");
 
         GamePanel gamePanel = GamePanel.instance();
         window.add(gamePanel);
