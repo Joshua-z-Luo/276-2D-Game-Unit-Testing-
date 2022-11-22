@@ -1,8 +1,6 @@
 package main;
 
 import Entities.MainCharacterTV;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,17 +9,24 @@ import java.awt.event.KeyEvent;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CollisionCheckerTest {
-    public static GamePanel gp = new GamePanel();
-    public static KeyHandler kH = new KeyHandler(gp);
-    public static MainCharacterTV tvGuy = new MainCharacterTV(gp,kH);
-    public static AssetSetter aSetter = new AssetSetter(gp);
-    public static CollisionChecker cChecker = new CollisionChecker(gp);
+    public GamePanel gp;// = new GamePanel();
+    public KeyHandler kH;// = new KeyHandler(gp);
+    public MainCharacterTV tvGuy;// = new MainCharacterTV(gp,kH);
+    public static AssetSetter aSetter;// = new AssetSetter(gp);
+    public static CollisionChecker cChecker;// = new CollisionChecker(gp);
 
     @BeforeEach
     public void init(){
         //initiate monsters
+        gp = new GamePanel();
+        kH = new KeyHandler(gp);
+        tvGuy = new MainCharacterTV(gp, kH);
+        cChecker = new CollisionChecker(gp);
+        aSetter = new AssetSetter(gp);
+        aSetter.setMonster();
         gp.setUpGame();
         gp.startGameThread();
+
         gp.gameState = gp.playState;
 
     }
@@ -94,9 +99,12 @@ class CollisionCheckerTest {
     void mainCharacterCanReachDoor(){
         tvGuy.keyCardCount = 3;
         tvGuy.x = 1050;
-        tvGuy.y = 700;
-        int result =  cChecker.checkObject(tvGuy, true);
-        assertEquals(7, result);
+        tvGuy.y = 696;
+        KeyEvent upKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_W, 'W');
+        kH.keyPressed(upKey);
+        int result = cChecker.checkObject(tvGuy, true);
+        assertFalse(tvGuy.collisionOn);
     }
 
     /**
@@ -163,7 +171,6 @@ class CollisionCheckerTest {
             gp.keyH.keyPressed(downKey);
 //            gp.tvGuy.update();
         }
-
         assertTrue(gp.tvGuy.collisionOn);
     }
 }
