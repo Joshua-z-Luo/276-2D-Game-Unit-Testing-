@@ -171,5 +171,54 @@ public class IntegrationTest {
         assertEquals(gp.titleState, gp.gameState);
     }
 
+    @Test
+    void KeyHandlerUIandGamePanelInteractionsStartGameandPause(){
+        int x = mC.x;
+        int y = mC.y;
+        assertEquals(gp.titleState, gp.gameState);
+        assertEquals(0, gp.ui.commandNum);
+        KeyEvent enterKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_ENTER, 'e');
+        kH.keyPressed(enterKey);
+        assertEquals(gp.playState, gp.gameState);
+
+        KeyEvent upKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_W, 'W');
+        KeyEvent rightKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_D, 'D');
+        KeyEvent downKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_S, 'S');
+        KeyEvent leftKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_A, 'A');
+        KeyEvent pKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
+                0, KeyEvent.VK_P, 'P');
+
+        kH.keyPressed(upKey);
+        mC.update();
+        assertEquals(y - 4, mC.y);
+        kH.keyReleased(upKey);
+
+        kH.keyPressed(downKey);
+        mC.update();
+        assertEquals(y, mC.y);
+        kH.keyReleased(downKey);
+
+        kH.keyPressed(rightKey);
+        mC.update();
+        assertEquals(x + 4, mC.x);
+        kH.keyReleased(rightKey);
+
+        kH.keyPressed(leftKey);
+        mC.update();
+        assertEquals(x, mC.x);
+        kH.keyReleased(leftKey);
+
+        kH.keyPressed(pKey);
+        assertEquals(gp.pauseState, gp.gameState);
+
+        kH.keyPressed(pKey);
+        assertEquals(gp.playState, gp.gameState);
+    }
+
 }
 
