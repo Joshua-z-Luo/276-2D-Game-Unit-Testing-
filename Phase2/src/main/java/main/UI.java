@@ -52,7 +52,7 @@ public class UI {
      */
     public void draw(Graphics2D g2) {
         this.g2 = g2;
-        g2.setFont(arial_40);
+        g2.setFont(new Font("Agency FB", Font.BOLD, 32));
         g2.setColor(Color.black);
 
         if(gp.gameState == gp.titleState){
@@ -81,14 +81,14 @@ public class UI {
     }
 
     public void drawScore(){
-        int x = gp.screenWidth - gp.tileSize*7;
+        int x = gp.tileSize;
         int y = gp.tileSize + 33;
         String text = "Score: " + gp.tvGuy.score;
         g2.drawString(text, x, y);
     }
 
     public void drawTimer(){
-        int x = gp.screenWidth - gp.tileSize*7;
+        int x = gp.tileSize;
         int y = gp.tileSize + 70;
         String text = "Time: " + String.valueOf((System.currentTimeMillis() - gp.startTime)/1000);
         g2.drawString(text, x, y);
