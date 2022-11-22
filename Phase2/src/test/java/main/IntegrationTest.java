@@ -171,6 +171,9 @@ public class IntegrationTest {
         assertEquals(gp.titleState, gp.gameState);
     }
 
+    /**
+     * Tests if the player can start the game, then move the character around and also pause the game and resume the game.
+     */
     @Test
     void KeyHandlerUIandGamePanelInteractionsStartGameandPause(){
         int x = mC.x;
