@@ -176,13 +176,13 @@ public class UI {
         g2.setColor(Color.black);
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 70F));
         String text;
-        String text2 = "Score: " + gp.firstLevelScore + "  Time: " + String.valueOf(gp.firstLevelTime);
+        String text2 = "Score: " + gp.totalLevelScore + "  Time: " + String.valueOf(gp.totalLevelTime);
         if(gp.level == 0) {
-           text = "YOU ESCAPED THIS LEVEL!";
+           text = "TEST COMPLETE | MOVE ON TO NEXT STAGE";
         }
         else{
-            text = "YOU ESCAPED THE LAB!";
-            text2 = "Total Score: " + (gp.tvGuy.score + gp.firstLevelScore) + " Total Time: " + String.valueOf(gp.secondLevelTime + gp.firstLevelTime);
+            text = "100% LINE COVERAGE | ALL TESTS PASSED!";
+            text2 = "Total Score: " + (gp.totalLevelScore) + " Total Time: " + gp.totalLevelTime;
         }
         int x = getXForCenteredText(text);
         int y = gp.screenHeight/3;

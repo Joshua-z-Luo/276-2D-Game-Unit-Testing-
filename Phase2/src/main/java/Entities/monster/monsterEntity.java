@@ -25,7 +25,7 @@ public class monsterEntity extends MovingObject {
     }
 
     /**
-     * defines how a monster moves ***WHAT IS THIS FOR???***
+     * defines how a monster moves
      */
     public void setAction(){
 

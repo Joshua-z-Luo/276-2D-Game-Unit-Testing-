@@ -85,8 +85,11 @@ public class TileManager {
             if(gp.level == 0) {
                 is = new File("src/Maps/map1.txt");
             }
-            else{
+            else if (gp.level==1){
                 is  = new File("src/Maps/map2.txt");
+            }
+            else{
+                is  = new File("src/Maps/map3.txt");
             }
             BufferedReader br = new BufferedReader(new FileReader(is));
 

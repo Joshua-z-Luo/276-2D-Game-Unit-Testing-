@@ -161,13 +161,10 @@ public class MainCharacterTV extends MovingObject {
             if(objIndex == 7){
                 if(keyCardCount == 3){
                     gp.gameState = gp.winState;
-                    if(gp.level == 0) {
-                        gp.firstLevelTime = ( System.currentTimeMillis() - gp.startTime)/1000;
-                        gp.firstLevelScore = score;
-                    }
-                    else{
-                        gp.secondLevelTime = (System.currentTimeMillis() - gp.startTime)/1000;
-                    }
+
+                    gp.totalLevelTime += ( System.currentTimeMillis() - gp.startTime)/1000;
+                    gp.totalLevelScore = score;
+
                 }
                 if(keyCardCount == 3 && gp.gameState == gp.winState){
                     keyCardCount = 0;
