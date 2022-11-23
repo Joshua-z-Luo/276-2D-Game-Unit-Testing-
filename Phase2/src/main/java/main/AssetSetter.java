@@ -295,6 +295,14 @@ public class AssetSetter {
             gp.monster[5] = new MON_ScrewDude(gp);
             gp.monster[5].x = 672;
             gp.monster[5].y = 432;
+
+            gp.monster[6] = new MON_ScrewDude(gp);
+            gp.monster[6].x = 1000;
+            gp.monster[6].y = 700;
+
+            gp.monster[6] = new MON_ScrewDude(gp);
+            gp.monster[6].x = 730;
+            gp.monster[6].y = 350;
         }
 
     }
