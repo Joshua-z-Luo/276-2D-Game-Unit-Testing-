@@ -48,11 +48,11 @@ public class GamePanel extends JPanel implements Runnable {
     public StaticObject obj[] = new StaticObject[20];
     public  monsterEntity monster[] = new monsterEntity[10];
     public int powerUpTimer = 0;
-    public int level = 0;
+
+    public int level = 2;
     public int retries = 5;
     public long startTime;
     public long totalLevelTime;
-    public long secondLevelTime;
     public int totalLevelScore;
 
     //Game State

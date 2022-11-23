@@ -180,6 +180,9 @@ public class UI {
         if(gp.level == 0) {
            text = "TEST COMPLETE | MOVE ON TO NEXT STAGE";
         }
+        else if(gp.level==1){
+            text = "TEST COMPLETE | MOVE ON TO NEXT STAGE";
+        }
         else{
             text = "100% LINE COVERAGE | ALL TESTS PASSED!";
             text2 = "Total Score: " + (gp.totalLevelScore) + " Total Time: " + gp.totalLevelTime;

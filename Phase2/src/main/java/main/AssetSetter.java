@@ -144,7 +144,7 @@ public class AssetSetter {
             gp.obj[17].x = 870;
             gp.obj[17].y = 425;
         }
-        else{
+        else if(gp.level==1){
             gp.obj[5].x = 725;
             gp.obj[5].y = 150;
 
@@ -182,6 +182,47 @@ public class AssetSetter {
             gp.obj[18].x = 385;
             gp.obj[18].y = 535;
         }
+        else {
+            //Traps
+            gp.obj[5].x = 650;
+            gp.obj[5].y = 150;
+
+            gp.obj[10].x = 100;
+            gp.obj[10].y = 500;
+
+            gp.obj[11].x = 955;
+            gp.obj[11].y = 48;
+
+            gp.obj[12].x = 50;
+            gp.obj[12].y = 350;
+
+            gp.obj[13].x = 400;
+            gp.obj[13].y = 40;
+
+            gp.obj[14].x = 200;
+            gp.obj[14].y = 250;
+
+            gp.obj[15].x = 300;
+            gp.obj[15].y = 400;
+
+            gp.obj[17].x = 870;
+            gp.obj[17].y = 400;
+
+            //keycard
+
+            gp.obj[6].x = 50;
+            gp.obj[6].y = 650;
+
+            gp.obj[8].x = 578;
+            gp.obj[8].y = 600;
+
+            gp.obj[9].x = 850;
+            gp.obj[9].y = 40;
+
+
+
+
+        }
 
     }
 
@@ -214,7 +255,7 @@ public class AssetSetter {
             gp.monster[4].y = 650;
         }
 
-        else{
+        else if(gp.level==1){
             gp.monster[0].x = 75;
             gp.monster[0].y = 400;
 
@@ -233,6 +274,35 @@ public class AssetSetter {
             gp.monster[5] = new MON_ScrewDude(gp);
             gp.monster[5].x = 75;
             gp.monster[5].y = 200;
+        }
+        else {
+
+            gp.monster[0].x = 576;
+            gp.monster[0].y = 432;
+
+            gp.monster[1].x = 250;
+            gp.monster[1].y = 480;
+
+            gp.monster[2].x = 50;
+            gp.monster[2].y = 528;
+
+            gp.monster[3].x = 900;
+            gp.monster[3].y = 40;
+
+            gp.monster[4].x = 624;
+            gp.monster[4].y = 432;
+
+            gp.monster[5] = new MON_ScrewDude(gp);
+            gp.monster[5].x = 672;
+            gp.monster[5].y = 432;
+
+            gp.monster[6] = new MON_ScrewDude(gp);
+            gp.monster[6].x = 1000;
+            gp.monster[6].y = 700;
+
+            gp.monster[6] = new MON_ScrewDude(gp);
+            gp.monster[6].x = 730;
+            gp.monster[6].y = 350;
         }
 
     }
