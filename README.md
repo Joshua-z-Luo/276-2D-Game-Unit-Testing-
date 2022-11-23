@@ -37,7 +37,7 @@ Press the run buttons on the tests you would like to run to ensure everything is
 MAINTAINERS
 -----------
 
- * Rose Epstien
+ * Rose Epstein
  * Connor Tung
  * Hayato Koyama
  * Joshua Luo
