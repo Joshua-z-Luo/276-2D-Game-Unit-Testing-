@@ -18,13 +18,14 @@ HOW TO BUILD
 ------------
 
 Ensure that you have at least JDK 18 to build the game.<br>
-Note: This game was built in IntelliJ.
+To have the game up and running on your machine go to Build > Build Project and the game will be ready to launch.<br>
+Note: This game was built in IntelliJ using Maven.
 
 
 HOW TO RUN
 ------------
 
-Press the run button in your IDE and the game will start. When the starting screen shows up, you can press W and S to traverse the menu and then press Enter when you are ready for your selection.
+After building the project, press the run button in your IDE and the game will start. When the starting screen shows up, you can press W and S to traverse the menu and then press Enter when you are ready for your selection.<br>
 Additional instructions are shown on the menu screen as well. After selecting Play Game, the game will start running and you should be able to move the character around.
 
 
