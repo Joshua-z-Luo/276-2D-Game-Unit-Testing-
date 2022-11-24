@@ -174,7 +174,7 @@ public class UI {
         g2.setColor(new Color(40, 190, 90)); //if you want a coloured title screen
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
         g2.setColor(Color.black);
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 70F));
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40F));
         String text;
         String text2 = "Score: " + gp.totalLevelScore + "  Time: " + String.valueOf(gp.totalLevelTime);
         if(gp.level == 0) {

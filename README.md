@@ -32,7 +32,8 @@ Additional instructions are shown on the menu screen as well. After selecting Pl
 HOW TO TEST
 -------------
 
-Press the run buttons on the tests you would like to run to ensure everything is correct and running as expected. Alternatively, there is a All Test run configuration that will run all tests at once.
+Press the run buttons on the tests you would like to run to ensure everything is correct and running as expected. Alternatively, there is a All Test run configuration that will run all tests at once.<br>
+Another way to run all tests is to bring up your IDE's terminal and enter 'mvn test'.
 
 
 HOW TO BUILD ARTIFACTS

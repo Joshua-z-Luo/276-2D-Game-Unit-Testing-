@@ -49,7 +49,7 @@ public class GamePanel extends JPanel implements Runnable {
     public  monsterEntity monster[] = new monsterEntity[10];
     public int powerUpTimer = 0;
 
-    public int level = 2;
+    public int level = 0;
     public int retries = 5;
     public long startTime;
     public long totalLevelTime;
@@ -91,7 +91,7 @@ public class GamePanel extends JPanel implements Runnable {
      * First sets the game to the title screen and then loads in the enemies and power-ups
      */
     public void setUpGame(){
-        gameState = titleState;
+        gameState = winState;
         aSetter.setObject();
         aSetter.setMonster();
         wallM.loadMap();
