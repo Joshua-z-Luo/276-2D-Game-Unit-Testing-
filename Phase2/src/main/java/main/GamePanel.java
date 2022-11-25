@@ -91,7 +91,7 @@ public class GamePanel extends JPanel implements Runnable {
      * First sets the game to the title screen and then loads in the enemies and power-ups
      */
     public void setUpGame(){
-        gameState = winState;
+        gameState = titleState;
         aSetter.setObject();
         aSetter.setMonster();
         wallM.loadMap();

@@ -41,9 +41,9 @@ HOW TO BUILD ARTIFACTS
 
 Go to your IDE's terminal to build the JavaDocs or the JAR file.
 
-For the JavaDocs type in the command 'mvn site' and the JavaDocs will be show up in target/site/...<br>
+For the JavaDocs type in the command 'mvn site' and the JavaDocs will be show up in target/site/... as html files<br>
 
-For the JAR file type in the command 'mvn package' and the Jar file will show up in target/site/...s
+For the JAR file type in the command 'mvn package -Dmaven.test.skip' and the Jar file will show up in target/site/...
 
 
 MAINTAINERS
