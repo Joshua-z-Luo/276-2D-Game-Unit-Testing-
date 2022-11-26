@@ -3,10 +3,13 @@ package main;
 import Entities.MainCharacterTV;
 import org.junit.jupiter.api.*;
 import java.awt.event.KeyEvent;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-
+/**
+ * Unit tests for the KayHandler
+ * Tests include testing certain keys if they are pressed and that they are registered by the game
+ * @author Rose, Connor, Hayato, Joshua
+ */
 public class KeyHandlerTest {
     public GamePanel gp = new GamePanel();
     public KeyHandler kH = new KeyHandler(gp);
@@ -81,25 +84,6 @@ public class KeyHandlerTest {
         assertEquals("right",tvGuy.direction);
     }
 
-    @Test
-    void GameRestartAfterLosingWhenKeyPressed(){
-        // fill in
-
-    }
-    @Test
-    void GameRestartAfterWinningWhenKeyPressed(){
-        // fill in
-
-    }
-    @Test
-    void GameContinueAfterLosingWhenKeyPressed(){
-        // fill in
-
-    }
-    @Test
-    void GameContinueAfterWinningWhenKeyPressed(){
-        // fill in
-    }
 
     /**
      * Tests if the P key was pressed
@@ -111,9 +95,6 @@ public class KeyHandlerTest {
                 0, KeyEvent.VK_P, 'P');
         gp.getKeyListeners()[0].keyPressed(key);
         kH.keyPressed(key);
-//        kH.keyReleased(key);
-//        gp.update();
-
         assertEquals(gp.pauseState,gp.gameState);
     }
 

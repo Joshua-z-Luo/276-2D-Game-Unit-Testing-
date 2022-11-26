@@ -7,10 +7,15 @@ import org.junit.jupiter.api.Test;
 import java.awt.event.KeyEvent;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Unit tests for the Game Panel
+ * Tests include level values and game state changes
+ * @author Connor, Hayato, Rose, Joshua
+ */
 public class GamePanelTest {
-    public GamePanel gp;// = new GamePanel();
-    public KeyHandler kH;// = new KeyHandler(gp);
-    public MainCharacterTV mC;// = new MainCharacterTV(gp,kH);
+    public GamePanel gp;
+    public KeyHandler kH;
+    public MainCharacterTV mC;
 
     @BeforeEach
     public void init(){

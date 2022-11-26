@@ -3,20 +3,23 @@ package main;
 import Entities.MainCharacterTV;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.awt.event.KeyEvent;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit tests for the Collision checker
+ * Tests include that collisions between the player and enemies, exit door and walls
+ * @author Hayato, Connor, Rose, Joshua
+ */
 class CollisionCheckerTest {
-    public GamePanel gp;// = new GamePanel();
-    public KeyHandler kH;// = new KeyHandler(gp);
-    public MainCharacterTV tvGuy;// = new MainCharacterTV(gp,kH);
-    public static AssetSetter aSetter;// = new AssetSetter(gp);
-    public static CollisionChecker cChecker;// = new CollisionChecker(gp);
+    public GamePanel gp;
+    public KeyHandler kH;
+    public MainCharacterTV tvGuy;
+    public AssetSetter aSetter;
+    public CollisionChecker cChecker;
 
     @BeforeEach
-    public void init(){
+    public void init() {
         //initiate monsters
         gp = new GamePanel();
         kH = new KeyHandler(gp);
@@ -26,9 +29,7 @@ class CollisionCheckerTest {
         aSetter.setMonster();
         gp.setUpGame();
         gp.startGameThread();
-
         gp.gameState = gp.playState;
-
     }
 
     /**
@@ -70,9 +71,7 @@ class CollisionCheckerTest {
         tvGuy.x = 350;
         tvGuy.y = 110;
         tvGuy.direction = "up";
-
         int result =  cChecker.checkEntity(tvGuy, gp.monster);
-
         assertNotEquals(999,result);
 
     }
@@ -85,9 +84,7 @@ class CollisionCheckerTest {
         tvGuy.x = 1000;
         tvGuy.y = 350;
         tvGuy.direction = "up";
-
         int result =  cChecker.checkEntity(tvGuy, gp.monster);
-
         assertNotEquals(999,result);
 
     }
@@ -119,7 +116,6 @@ class CollisionCheckerTest {
             gp.keyH.keyPressed(leftKey);
             gp.tvGuy.update();
         }
-
         assertTrue(gp.tvGuy.collisionOn);
     }
 
@@ -136,7 +132,6 @@ class CollisionCheckerTest {
             gp.keyH.keyPressed(rightKey);
             gp.tvGuy.update();
         }
-
         assertTrue(gp.tvGuy.collisionOn);
     }
 
@@ -153,7 +148,6 @@ class CollisionCheckerTest {
             gp.keyH.keyPressed(upKey);
             gp.tvGuy.update();
         }
-
         assertTrue(gp.tvGuy.collisionOn);
     }
 
@@ -169,7 +163,6 @@ class CollisionCheckerTest {
         gp.getKeyListeners()[0].keyPressed(downKey);
         for(int i = 0; i < 100; i++) {
             gp.keyH.keyPressed(downKey);
-//            gp.tvGuy.update();
         }
         assertTrue(gp.tvGuy.collisionOn);
     }

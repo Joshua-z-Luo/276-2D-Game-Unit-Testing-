@@ -7,10 +7,15 @@ import org.junit.jupiter.api.Test;
 import java.awt.event.KeyEvent;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Integration tests for various interactions in our game
+ * Test include interactions between the UI, KeyHandler and the GamePanel
+ * @author Connor, Joshua, Rose, Hayato
+ */
 public class IntegrationTest {
-    public GamePanel gp;// = new GamePanel();
-    public KeyHandler kH;// = new KeyHandler(gp);
-    public  MainCharacterTV mC;// = new MainCharacterTV(gp, kH);
+    public GamePanel gp;
+    public KeyHandler kH;
+    public  MainCharacterTV mC;
 
     @BeforeEach
     public void init() {
@@ -59,7 +64,6 @@ public class IntegrationTest {
         assertEquals(0, gp.ui.commandNum);
         KeyEvent enterKey = new KeyEvent(gp, KeyEvent.KEY_PRESSED, System.currentTimeMillis(),
                 0, KeyEvent.VK_ENTER, 'e');
-//        gp.getKeyListeners()[0].keyPressed(enterKey);
         kH.keyPressed(enterKey);
         assertEquals(gp.playState, gp.gameState);
     }

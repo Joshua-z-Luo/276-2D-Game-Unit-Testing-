@@ -3,7 +3,6 @@ package Entities;
 import Entities.object.OBJ_Battery;
 import Entities.object.OBJ_Hole;
 import Entities.object.OBJ_KeyCard;
-import main.AssetSetter;
 import main.GamePanel;
 import main.KeyHandler;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,12 +10,15 @@ import org.junit.jupiter.api.Test;
 import java.awt.event.KeyEvent;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit tests for the Main Character that the player will be in control of
+ * Includes movement, picking up items and colliding with enemies
+ * @author Connor, Joshua, Hayato, Rose
+ */
 class MainCharacterTVTest {
-
-    public  GamePanel gp;// = new GamePanel();
-    public  KeyHandler kH;// = new KeyHandler(gp);
-    public MainCharacterTV mC;// = new MainCharacterTV(gp,kH);
-    private AssetSetter aSetter = new AssetSetter(gp);
+    public  GamePanel gp;
+    public  KeyHandler kH;
+    public MainCharacterTV mC;
 
    @BeforeEach
    void init() {

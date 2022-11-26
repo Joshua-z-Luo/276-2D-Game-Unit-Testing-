@@ -13,12 +13,13 @@ import org.testng.annotations.BeforeTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * main.AssetSetterTest Class to test some aspects of AssetSetter class
- * @author hayatokoyama
+ * Unit tests for the AssetSetter
+ * Tests include checking that objects such as enemies, power ups, key cards, traps and enemies are place correctly on the map
+ * @author Hayato, Connor, Rose, Joshua
  */
 class AssetSetterTest {
     static GamePanel gp = new GamePanel();
-    private static AssetSetter aSetter = new AssetSetter(gp);
+    static AssetSetter aSetter = new AssetSetter(gp);
     @BeforeAll
     static void init(){
         aSetter.setPowerUps();
@@ -41,14 +42,15 @@ class AssetSetterTest {
      */
     @Test
     void HolesInitiatedCorrectly(){
-        assertEquals(new OBJ_Hole().getClass(), gp.obj[5].getClass());
-        assertEquals(new OBJ_Hole().getClass(), gp.obj[10].getClass());
-        assertEquals(new OBJ_Hole().getClass(), gp.obj[11].getClass());
-        assertEquals(new OBJ_Hole().getClass(), gp.obj[12].getClass());
-        assertEquals(new OBJ_Hole().getClass(), gp.obj[13].getClass());
-        assertEquals(new OBJ_Hole().getClass(), gp.obj[14].getClass());
-        assertEquals(new OBJ_Hole().getClass(), gp.obj[15].getClass());
-        assertEquals(new OBJ_Hole().getClass(), gp.obj[17].getClass());
+        OBJ_Hole testHole = new OBJ_Hole();
+        assertEquals(testHole.getClass(), gp.obj[5].getClass());
+        assertEquals(testHole.getClass(), gp.obj[10].getClass());
+        assertEquals(testHole.getClass(), gp.obj[11].getClass());
+        assertEquals(testHole.getClass(), gp.obj[12].getClass());
+        assertEquals(testHole.getClass(), gp.obj[13].getClass());
+        assertEquals(testHole.getClass(), gp.obj[14].getClass());
+        assertEquals(testHole.getClass(), gp.obj[15].getClass());
+        assertEquals(testHole.getClass(), gp.obj[17].getClass());
     }
 
     /**
@@ -57,21 +59,18 @@ class AssetSetterTest {
      */
     @Test
     void keyCardsInitiatedCorrectly(){
-        assertEquals(new OBJ_KeyCard().getClass(), gp.obj[6].getClass());
-        assertEquals(new OBJ_KeyCard().getClass(), gp.obj[8].getClass());
-        assertEquals(new OBJ_KeyCard().getClass(), gp.obj[9].getClass());
+        OBJ_KeyCard testKey = new OBJ_KeyCard();
+        assertEquals(testKey.getClass(), gp.obj[6].getClass());
+        assertEquals(testKey.getClass(), gp.obj[8].getClass());
+        assertEquals(testKey.getClass(), gp.obj[9].getClass());
     }
     /**
      * test if the door is successfully initiated in the first level
      */
     @Test
     void doorInitiatedCorrectlyFirstLevel(){
-        assertEquals(new OBJ_Door().getClass(), gp.obj[7].getClass());
+        OBJ_Door testDoor = new OBJ_Door();
+        assertEquals(testDoor.getClass(), gp.obj[7].getClass());
     }
 
-//    @Test
-//    void doorInitiatedCorrectlySecondLevel(){
-//        gp.level = 1;
-//        assertEquals(new OBJ_Door().getClass(), gp.obj[7].getClass());
-//    }
 }
