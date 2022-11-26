@@ -5,6 +5,7 @@ Unit Testing!
  * How To Build
  * How To Run
  * How To Test
+ * How To Build Artifacts
  * Maintainers
 
 
@@ -19,6 +20,7 @@ HOW TO BUILD
 
 Ensure that you have at least JDK 18 to build the game.<br>
 To have the game up and running on your machine go to Build > Build Project and the game will be ready to launch.<br>
+Alternatively, you can build the project in your IDE's terminal by entering 'mvn validate' and then entering 'mvn compile'.<br>
 Note: This game was built in IntelliJ using Maven.
 
 
@@ -33,7 +35,7 @@ HOW TO TEST
 -------------
 
 Press the run buttons on the tests you would like to run to ensure everything is correct and running as expected. Alternatively, there is a All Test run configuration that will run all tests at once.<br>
-Another way to run all tests is to bring up your IDE's terminal and enter 'mvn test'.
+Another way to run all tests is to bring up your IDE's terminal and enter 'mvn test', all of the tests should then start running.
 
 
 HOW TO BUILD ARTIFACTS
