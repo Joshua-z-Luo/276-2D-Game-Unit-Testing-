@@ -19,7 +19,6 @@ public class MainCharacterTV extends MovingObject {
     private static MainCharacterTV tvGuy = null;
     GamePanel gp;
     KeyHandler keyH;
-    Boolean hasKeyCard;
 
     public int keyCardCount;
     public double maxLife;
