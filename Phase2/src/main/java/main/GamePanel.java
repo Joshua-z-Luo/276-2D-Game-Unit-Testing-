@@ -88,6 +88,17 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     /**
+     * Sets up the game whenever it is restarted or retried
+     */
+    public void defaultSetup(){
+        wallM.loadMap();
+        tvGuy.setDefaultPosition();
+        tvGuy.setDefaultValues();
+        aSetter.setObject();
+        aSetter.setMonster();
+    }
+
+    /**
      * First sets the game to the title screen and then loads in the enemies and power-ups
      */
     public void setUpGame(){
@@ -104,12 +115,8 @@ public class GamePanel extends JPanel implements Runnable {
      */
     public void retry() {
         retries--;
-        wallM.loadMap();
-        tvGuy.setDefaultPosition();
-        tvGuy.setDefaultValues();
+        defaultSetup();
         tvGuy.restoreLife();
-        aSetter.setObject();
-        aSetter.setMonster();
         startTime = System.currentTimeMillis();
     }
 
@@ -119,11 +126,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void restart() {
         level = 0;
         retries = 5;
-        wallM.loadMap();
-        tvGuy.setDefaultPosition();
-        tvGuy.setDefaultValues();
-        aSetter.setObject();
-        aSetter.setMonster();
+        defaultSetup();
         startTime = System.currentTimeMillis();
     }
 
