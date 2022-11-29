@@ -75,8 +75,6 @@ public class MainCharacterTV extends MovingObject {
         keyCardCount = 0;
         //how much we will move in the next update
         direction = "down";
-        directionX = 0;
-        directionY = 0;
         score = 0;
         maxLife = 100.0;
         life = maxLife;

@@ -10,6 +10,4 @@ public class MovingObject extends Entity {
     public int speed;
     public BufferedImage walk;
     public String direction;
-    public int directionX;
-    public int directionY;
 }
