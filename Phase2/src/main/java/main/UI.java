@@ -197,7 +197,7 @@ public class UI {
         g2.drawString(text2,x,y);
 
         // continue
-        if(gp.level == 0) {
+        if(gp.level == 0 || gp.level == 1) {
             g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
             text = "CONTINUE TO NEXT LEVEL";
             x = getXForCenteredText(text);
@@ -209,7 +209,7 @@ public class UI {
         }
 
         // quit
-        if(gp.level != 0){
+        if(gp.level == 2){
             commandNum = 1;
         }
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
