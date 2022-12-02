@@ -183,12 +183,6 @@ public class GamePanel extends JPanel implements Runnable {
                 }
             }
         }
-        else if(gameState==pauseState){
-            //pause - don't update player information
-        }
-        else if(gameState==loseState){
-            //lose screen is displayed - return to main screen afterwards
-        }
     }
 
     /**
