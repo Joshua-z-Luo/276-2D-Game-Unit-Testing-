@@ -99,8 +99,9 @@ public class CollisionChecker {
         for(int i = 0;i<gp.obj.length;i++){
             if(gp.obj[i]!=null){
                 //Get MainCharacter.Entity's solid area position
-                mobile.solidArea.x = mobile.x + mobile.solidArea.x;
-                mobile.solidArea.y = mobile.y + mobile.solidArea.y;
+                setSolidAreaOfMobile(mobile);
+//                mobile.solidArea.x = mobile.x + mobile.solidArea.x;
+//                mobile.solidArea.y = mobile.y + mobile.solidArea.y;
                 //Get the Entities.object's solid area position
                 gp.obj[i].solidArea.x = gp.obj[i].x + gp.obj[i].solidArea.x;
                 gp.obj[i].solidArea.y = gp.obj[i].y + gp.obj[i].solidArea.y;
@@ -173,8 +174,9 @@ public class CollisionChecker {
         for(int i = 0;i<target.length;i++){
             if(target[i]!=null){
                 //Get MainCharacter.Entity's solid area position
-                mobile.solidArea.x = mobile.x + mobile.solidArea.x;
-                mobile.solidArea.y = mobile.y + mobile.solidArea.y;
+                setSolidAreaOfMobile(mobile);
+//                mobile.solidArea.x = mobile.x + mobile.solidArea.x;
+//                mobile.solidArea.y = mobile.y + mobile.solidArea.y;
                 //Get the Entities.object's solid area position
                 target[i].solidArea.x = target[i].x + target[i].solidArea.x;
                 target[i].solidArea.y = target[i].y + target[i].solidArea.y;
@@ -234,8 +236,9 @@ public class CollisionChecker {
     public void checkPlayer(MovingObject mobile){
 
         //Get MainCharacter.Entity's solid area position
-        mobile.solidArea.x = mobile.x + mobile.solidArea.x;
-        mobile.solidArea.y = mobile.y + mobile.solidArea.y;
+        setSolidAreaOfMobile(mobile);
+//        mobile.solidArea.x = mobile.x + mobile.solidArea.x;
+//        mobile.solidArea.y = mobile.y + mobile.solidArea.y;
         //Get the Entities.object's solid area position
         gp.tvGuy.solidArea.x = gp.tvGuy.x + gp.tvGuy.solidArea.x;
         gp.tvGuy.solidArea.y = gp.tvGuy.y + gp.tvGuy.solidArea.y;
@@ -275,6 +278,11 @@ public class CollisionChecker {
         mobile.solidArea.y = mobile.solidAreaDefaultY;
         gp.tvGuy.solidArea.x = gp.tvGuy.solidAreaDefaultX;
         gp.tvGuy.solidArea.y = gp.tvGuy.solidAreaDefaultY;
+    }
+
+    private void setSolidAreaOfMobile(MovingObject mobile){
+        mobile.solidArea.x = mobile.x + mobile.solidArea.x;
+        mobile.solidArea.y = mobile.y + mobile.solidArea.y;
     }
 }
 

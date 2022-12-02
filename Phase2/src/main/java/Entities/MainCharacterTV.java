@@ -52,7 +52,6 @@ public class MainCharacterTV extends MovingObject {
     }
 
     /**
-     *
      * Instance method that implements the singleton creational pattern
      * @param gp GamePanel that will contain the game
      * @param keyH key handler associated with the game panel
@@ -64,7 +63,6 @@ public class MainCharacterTV extends MovingObject {
         }
         return tvGuy;
     }
-
     /**
      * Sets the default values for the main character such as position and speed and as well as direction
      */
