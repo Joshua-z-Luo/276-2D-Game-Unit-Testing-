@@ -100,8 +100,6 @@ public class CollisionChecker {
             if(gp.obj[i]!=null){
                 //Get MainCharacter.Entity's solid area position
                 setSolidAreaOfMobile(mobile);
-//                mobile.solidArea.x = mobile.x + mobile.solidArea.x;
-//                mobile.solidArea.y = mobile.y + mobile.solidArea.y;
                 //Get the Entities.object's solid area position
                 gp.obj[i].solidArea.x = gp.obj[i].x + gp.obj[i].solidArea.x;
                 gp.obj[i].solidArea.y = gp.obj[i].y + gp.obj[i].solidArea.y;
@@ -175,8 +173,6 @@ public class CollisionChecker {
             if(target[i]!=null){
                 //Get MainCharacter.Entity's solid area position
                 setSolidAreaOfMobile(mobile);
-//                mobile.solidArea.x = mobile.x + mobile.solidArea.x;
-//                mobile.solidArea.y = mobile.y + mobile.solidArea.y;
                 //Get the Entities.object's solid area position
                 target[i].solidArea.x = target[i].x + target[i].solidArea.x;
                 target[i].solidArea.y = target[i].y + target[i].solidArea.y;
@@ -237,8 +233,6 @@ public class CollisionChecker {
 
         //Get MainCharacter.Entity's solid area position
         setSolidAreaOfMobile(mobile);
-//        mobile.solidArea.x = mobile.x + mobile.solidArea.x;
-//        mobile.solidArea.y = mobile.y + mobile.solidArea.y;
         //Get the Entities.object's solid area position
         gp.tvGuy.solidArea.x = gp.tvGuy.x + gp.tvGuy.solidArea.x;
         gp.tvGuy.solidArea.y = gp.tvGuy.y + gp.tvGuy.solidArea.y;
@@ -280,6 +274,10 @@ public class CollisionChecker {
         gp.tvGuy.solidArea.y = gp.tvGuy.solidAreaDefaultY;
     }
 
+    /**
+     * helper function to reduce duplicated codes
+     * @param mobile
+     */
     private void setSolidAreaOfMobile(MovingObject mobile){
         mobile.solidArea.x = mobile.x + mobile.solidArea.x;
         mobile.solidArea.y = mobile.y + mobile.solidArea.y;
