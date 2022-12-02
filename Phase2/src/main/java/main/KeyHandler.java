@@ -69,24 +69,7 @@ public class KeyHandler implements KeyListener {
         if(code == KeyEvent.VK_D){
             rightPressed = true;
         }
-        if(code == KeyEvent.VK_P){
-            if(gp.gameState == gp.playState){
-                gp.gameState = gp.pauseState;
-            }
-            else if(gp.gameState == gp.pauseState){
-                gp.gameState = gp.playState;
-
-            }
-        }
-        if(code == KeyEvent.VK_I) {
-            if (gp.gameState == gp.playState) {
-                gp.gameState = gp.instructionsState;
-            }
-            else if (gp.gameState == gp.instructionsState) {
-                gp.gameState = gp.playState;
-            }
-
-        }
+        PauseInstructionOptions(e);
         if(gp.gameState == gp.loseState) {
             loseState(code);
         }
@@ -117,6 +100,28 @@ public class KeyHandler implements KeyListener {
             if(gp.ui.commandNum == 1){
                 System.exit(0);
             }
+        }
+    }
+
+    private void PauseInstructionOptions(KeyEvent e){
+        int code = e.getKeyCode();
+        if(code == KeyEvent.VK_P){
+            if(gp.gameState == gp.playState){
+                gp.gameState = gp.pauseState;
+            }
+            else if(gp.gameState == gp.pauseState){
+                gp.gameState = gp.playState;
+
+            }
+        }
+        if(code == KeyEvent.VK_I) {
+            if (gp.gameState == gp.playState) {
+                gp.gameState = gp.instructionsState;
+            }
+            else if (gp.gameState == gp.instructionsState) {
+                gp.gameState = gp.playState;
+            }
+
         }
     }
     /**
