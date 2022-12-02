@@ -133,7 +133,7 @@ public class UI {
         g2.drawString(text,x,y);
         if(gp.retries > 0) {
             // retry
-            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+            g2SetFont40F();
             text = "RETRY: " + gp.retries + " attempts left to beat level!";
             x = getXForCenteredText(text);
             y += gp.tileSize * 4;
@@ -142,7 +142,7 @@ public class UI {
                 g2.drawString(">", x - 40, y);
             }
             // quit
-            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+            g2SetFont40F();
             text = "RETURN TO MAIN MENU";
             x = getXForCenteredText(text);
             y += 55;
@@ -152,13 +152,13 @@ public class UI {
             }
         }
         else {
-            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+            g2SetFont40F();
             text = "NO RETRIES LEFT! GAME OVER";
             x = getXForCenteredText(text);
             y += gp.tileSize * 4;
             g2.drawString(text, x, y);
             // quit
-            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+            g2SetFont40F();
             text = "RETURN TO MAIN MENU";
             x = getXForCenteredText(text);
             y += 55;
@@ -169,6 +169,12 @@ public class UI {
     }
 
 
+    /**
+     * helper function to reduce duplication code
+     */
+    private void g2SetFont40F(){
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+    }
     /**
      * draws win screen when player reaches the door (win)
      */
