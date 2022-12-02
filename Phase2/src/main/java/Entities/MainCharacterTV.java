@@ -46,11 +46,6 @@ public class MainCharacterTV extends MovingObject {
         getPlayerImage();
     }
 
-    public MainCharacterTV MainCharacterTVConstructorForTestingPurpose(GamePanel gp, KeyHandler keyH){
-        MainCharacterTV returnVariable = new MainCharacterTV(gp, keyH);
-        return returnVariable;
-    }
-
     /**
      * Instance method that implements the singleton creational pattern
      * @param gp GamePanel that will contain the game
